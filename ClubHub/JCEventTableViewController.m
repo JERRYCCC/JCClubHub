@@ -7,11 +7,10 @@
 //
 
 #import "JCEventTableViewController.h"
+#import "JCEventTableViewCell.h"
+#import "JCEventDetailViewController.h"
 
-@interface JCEventTableViewController (){
-    
-    NSArray *tableData;
-}
+@interface JCEventTableViewController ()
 
 @end
 
@@ -30,7 +29,10 @@
 {
     [super viewDidLoad];
     
-    tableData = [NSArray arrayWithObjects:@"Event One", @"Event Two", @"Event Three", nil];
+    _nameList =@[@"Event One", @"Event Two", @"Event Three",];
+    _dateList = @[@"Date One", @"Date Two", @"Date Three",];
+    _timeList = @[@"Time One", @"Time Two", @"Time Three",];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,24 +49,57 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tableData count];
+    return [_nameList count];
 }
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *CellIdentifier = @"EventCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    JCEventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(cell==nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[JCEventTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = @"This is the details";
+    cell.titleLable.text = [_nameList objectAtIndex:indexPath.row];
+    cell.dateLable.text = [_dateList objectAtIndex:indexPath.row];
+    cell.timeLable.text = [_timeList objectAtIndex:indexPath.row];
     
     return cell;
 }
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    
+    if([[segue identifier] isEqualToString:@"eventDetail"]){
+        JCEventDetailViewController *detailViewController = [segue destinationViewController];
+        
+        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+        
+        int row = [myIndexPath row];
+        
+    
+        
+        detailViewController.name = [_nameList objectAtIndex:row];
+        detailViewController.date = [_dateList objectAtIndex:row];
+        detailViewController.time = [_timeList objectAtIndex:row];
+        detailViewController.location = @"somewhere";
+        detailViewController.description = @"some description";
+        
+        
+        
+    
+        /*
+         still need to ge the location, description, and pastEventList of certain event
+         but don't have to get the list of location for all event
+         Ask the server here.......
+        */
+    }
+}
+
+
 
 /*
 // Override to support conditional editing of the table view.

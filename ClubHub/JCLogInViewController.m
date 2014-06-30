@@ -41,7 +41,7 @@
             NSLog(@"Login user!");
             _passwordField.text = nil;
             _usernameField.text = nil;
-            [self performSegueWithIdentifier:@"login1" sender:self];
+            [self performSegueWithIdentifier:@"login" sender:self];
         }
         if (error) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem logging you in" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

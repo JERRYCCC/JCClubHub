@@ -9,14 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface JCRegisterViewController : UIViewController
+@interface JCRegisterViewController : UIViewController <UIPickerViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITextField *usernameField;
-@property (weak, nonatomic) IBOutlet UITextField *emailField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordField;
-@property (weak, nonatomic) IBOutlet UITextField *reEnterPasswordField;
+@property (strong, nonatomic) IBOutlet UITextField *usernameField;
+@property (strong, nonatomic) IBOutlet UITextField *emailField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
+@property (strong, nonatomic) IBOutlet UITextField *reEnterPasswordField;
+@property (strong, nonatomic) IBOutlet UIPickerView *schoolPicker;
+
+@property (strong, nonatomic) NSMutableArray *schoolName;
+
 @property (weak, nonatomic) UIButton *registerBtn;
 
 - (IBAction)registerAction:(id)sender;
+
 
 @end

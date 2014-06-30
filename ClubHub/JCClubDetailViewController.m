@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     _nameLabel.text = _name;
-    _descriptionLabel.text = _description;
+    _descriptionTextView.text = _description;
     
 }
 

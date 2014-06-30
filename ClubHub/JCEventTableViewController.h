@@ -10,5 +10,9 @@
 
 @interface JCEventTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) NSArray *nameList;
+@property (strong, nonatomic) NSArray *dateList;
+@property (strong, nonatomic) NSArray *timeList;
+
 
 @end
