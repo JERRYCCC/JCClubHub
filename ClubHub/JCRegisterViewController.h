@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
 
-@interface JCRegisterViewController : UIViewController <UIPickerViewDelegate, UITableViewDataSource>
+@interface JCRegisterViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITextField *usernameField;
 @property (strong, nonatomic) IBOutlet UITextField *emailField;
@@ -17,7 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *reEnterPasswordField;
 @property (strong, nonatomic) IBOutlet UIPickerView *schoolPicker;
 
-@property (strong, nonatomic) NSMutableArray *schoolName;
+@property (strong, nonatomic) NSMutableArray *schoolNameList;
 
 @property (weak, nonatomic) UIButton *registerBtn;
 

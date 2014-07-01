@@ -1,18 +1,22 @@
 //
-//  ClubHubTests.m
-//  ClubHubTests
+//  JCClubBuildViewControllerTests.m
+//  ClubHub
 //
-//  Created by Jerry on 6/29/14.
+//  Created by Jerry on 7/1/14.
 //  Copyright (c) 2014 JC. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
+#import "JCClubBuildViewController.h"
 
-@interface ClubHubTests : XCTestCase
+@interface JCClubBuildViewControllerTests : XCTestCase
 
 @end
 
-@implementation ClubHubTests
+@implementation JCClubBuildViewControllerTests
+{
+    JCClubBuildViewController *clubBuildVC;
+}
 
 - (void)setUp
 {
@@ -29,6 +33,11 @@
 - (void)testExample
 {
     //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+}
+
+-(void)testRegisterNewClub
+{
+    //[clubBuildVC registerNewClub];
 }
 
 @end

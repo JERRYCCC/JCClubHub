@@ -8,59 +8,78 @@
 
 #import "JCRegisterViewController.h"
 #import <Parse/Parse.h>
+#import "JCSchoolForRegister.h"
 
 @interface JCRegisterViewController ()
 
 @end
 
 @implementation JCRegisterViewController{
-    
     int pickRow;
-    
+    JCSchoolForRegister *sfr;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
+        
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
-
     
     //Hiding the keyboard
-    self.usernameField.delegate = self;
-    self.emailField.delegate = self;
-    self.passwordField.delegate = self;
-    self.reEnterPasswordField.delegate = self;
+    _usernameField.delegate = self;
+    _emailField.delegate = self;
+    _passwordField.delegate = self;
+    _reEnterPasswordField.delegate = self;
+    
+    sfr = [[JCSchoolForRegister alloc] init];
+    _schoolNameList = [sfr getSchoolNameList];
+    
+    /*
+    PFQuery *query = [PFQuery queryWithClassName:@"Austin_College_Club"];
+    
+    PFObject *object = [query getFirstObject];
+    NSLog(object[@"name"]);
+    NSArray *list  = @[@"awesome", @"cool"];
+    
+    [object addUniqueObjectsFromArray:list forKey:@"tags"];
+    [object saveInBackground];
     
     
-    //getting the school list
-    PFQuery *query = [PFQuery queryWithClassName:@"School"];
-    [query orderByAscending:@"Name"];
-    NSArray *schoolList = [query findObjects];
-    int count = [query countObjects];
+    PFQuery *query = [PFQuery queryWithClassName:@"Austin_College_Club"];
+    [query whereKey:@"tags" equalTo:@"cool"];
+    PFObject *object = [query getFirstObject];
+    NSLog(object[@"name"]);
+    */
     
-    _schoolName = [[NSMutableArray alloc] init];
-    
-    for(int i=0; i<count; i++){
-        
-        NSString *stringName = schoolList[i][@"Name"];
-        
-        [_schoolName addObject:stringName];
-    }
 }
 
+
 -(BOOL)textFieldShouldReturn:(UITextField*) textField{
-    [textField resignFirstResponder];
+    if(textField){
+        [textField resignFirstResponder];
+    }
     return NO;
 }
- 
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [_usernameField resignFirstResponder];
+    [_emailField resignFirstResponder];
+    [_passwordField resignFirstResponder];
+    [_reEnterPasswordField resignFirstResponder];
+}
+
+
+//log in automatically
 -(void)viewDidAppear:(BOOL)animated{
     PFUser *user = [PFUser currentUser];
     if(user.username !=nil){
@@ -85,17 +104,16 @@
 }
 
 -(void) checkFieldsComplete{
-    if ([_usernameField.text isEqualToString:@""] || [_emailField.text isEqualToString:@""] || [_passwordField.text isEqualToString:@""] || [_reEnterPasswordField.text isEqualToString:@""]) {
+    if ([_usernameField.text isEqualToString:@""] ||
+        [_emailField.text isEqualToString:@""] ||
+        [_passwordField.text isEqualToString:@""] ||
+        [_reEnterPasswordField.text isEqualToString:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!" message:@"You need to complete all fields" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
     else {
         [self checkPasswordsMatch];
     }
-}
-
--(void)checkSchoolMatchEmail{
-    
 }
 
 -(void) checkPasswordsMatch{
@@ -115,7 +133,8 @@
     newUser.email = _emailField.text;
     newUser.password = _passwordField.text;
     
-    //newUser.schoolId = query[pickRow][@"objectId"];    don't use the default user input method, connect to the table directely
+    NSString *schoolId = [sfr getSchoolId:pickRow];
+    newUser[@"school"] = [PFObject objectWithoutDataWithClassName:@"School" objectId:schoolId];
     
     
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -140,12 +159,12 @@
 
 -(NSInteger) pickerView:(UIPickerView*)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return _schoolName.count;
+    return _schoolNameList.count;
 }
 
 -(NSString*) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return _schoolName[row];
+    return _schoolNameList[row];
 }
 
 -(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4D23B881962796A00F3C7C3 /* JCSchoolForRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D23B871962796A00F3C7C3 /* JCSchoolForRegister.m */; };
+		C4D23B8C1962857500F3C7C3 /* JCBasicFunctionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D23B8B1962857500F3C7C3 /* JCBasicFunctionsTests.m */; };
+		C4D23B8F19629F7600F3C7C3 /* JCClubBuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D23B8E19629F7600F3C7C3 /* JCClubBuildViewController.m */; };
+		C4D23B911962C3F500F3C7C3 /* JCClubBuildViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D23B901962C3F500F3C7C3 /* JCClubBuildViewControllerTests.m */; };
 		C4F303B91960302B00EC723F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F303B81960302B00EC723F /* Foundation.framework */; };
 		C4F303BB1960302B00EC723F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F303BA1960302B00EC723F /* CoreGraphics.framework */; };
 		C4F303BD1960302B00EC723F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F303BC1960302B00EC723F /* UIKit.framework */; };
@@ -52,6 +56,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C4D23B861962796A00F3C7C3 /* JCSchoolForRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCSchoolForRegister.h; sourceTree = "<group>"; };
+		C4D23B871962796A00F3C7C3 /* JCSchoolForRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCSchoolForRegister.m; sourceTree = "<group>"; };
+		C4D23B8B1962857500F3C7C3 /* JCBasicFunctionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCBasicFunctionsTests.m; sourceTree = "<group>"; };
+		C4D23B8D19629F7600F3C7C3 /* JCClubBuildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCClubBuildViewController.h; sourceTree = "<group>"; };
+		C4D23B8E19629F7600F3C7C3 /* JCClubBuildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCClubBuildViewController.m; sourceTree = "<group>"; };
+		C4D23B901962C3F500F3C7C3 /* JCClubBuildViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCClubBuildViewControllerTests.m; sourceTree = "<group>"; };
 		C4F303B51960302B00EC723F /* ClubHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClubHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F303B81960302B00EC723F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4F303BA1960302B00EC723F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -202,6 +212,8 @@
 		C4F303DD1960302B00EC723F /* ClubHubTests */ = {
 			isa = PBXGroup;
 			children = (
+				C4D23B901962C3F500F3C7C3 /* JCClubBuildViewControllerTests.m */,
+				C4D23B8B1962857500F3C7C3 /* JCBasicFunctionsTests.m */,
 				C4F303E31960302B00EC723F /* ClubHubTests.m */,
 				C4F303DE1960302B00EC723F /* Supporting Files */,
 			);
@@ -222,6 +234,8 @@
 			children = (
 				C4F303F01960444D00EC723F /* JCRegisterViewController.h */,
 				C4F303F11960444D00EC723F /* JCRegisterViewController.m */,
+				C4D23B861962796A00F3C7C3 /* JCSchoolForRegister.h */,
+				C4D23B871962796A00F3C7C3 /* JCSchoolForRegister.m */,
 				C4F303ED1960312800EC723F /* JCLogInViewController.h */,
 				C4F303EE1960312800EC723F /* JCLogInViewController.m */,
 			);
@@ -237,6 +251,8 @@
 				C4F3041719607B1E00EC723F /* JCClubTableViewCell.m */,
 				C4F3041019607A6500EC723F /* JCClubDetailViewController.h */,
 				C4F3041119607A6500EC723F /* JCClubDetailViewController.m */,
+				C4D23B8D19629F7600F3C7C3 /* JCClubBuildViewController.h */,
+				C4D23B8E19629F7600F3C7C3 /* JCClubBuildViewController.m */,
 			);
 			name = ClubViewController;
 			sourceTree = "<group>";
@@ -363,8 +379,10 @@
 				C4F30428196153A600EC723F /* JCEventDetailTableViewCell.m in Sources */,
 				C4F303C91960302B00EC723F /* JCAppDelegate.m in Sources */,
 				C4F303F21960444D00EC723F /* JCRegisterViewController.m in Sources */,
+				C4D23B8F19629F7600F3C7C3 /* JCClubBuildViewController.m in Sources */,
 				C4F303EF1960312800EC723F /* JCLogInViewController.m in Sources */,
 				C4F3041F1961354400EC723F /* JCEventDetailViewController.m in Sources */,
+				C4D23B881962796A00F3C7C3 /* JCSchoolForRegister.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +391,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4F303E41960302B00EC723F /* ClubHubTests.m in Sources */,
+				C4D23B8C1962857500F3C7C3 /* JCBasicFunctionsTests.m in Sources */,
+				C4D23B911962C3F500F3C7C3 /* JCClubBuildViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

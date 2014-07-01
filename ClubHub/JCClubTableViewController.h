@@ -13,5 +13,7 @@
 @property (strong, nonatomic)  NSArray  *nameList;
 @property (strong, nonatomic)  NSArray  *descriptionList;
 
+@property (strong, nonatomic) IBOutlet UIButton *buildBtn;
+
 
 @end
