@@ -52,12 +52,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="-354"/>
+            <point key="canvasLocation" x="16" y="-350"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Rk7-VB-f1S">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="BHe-iV-KFJ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qfa-Zt-izi"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="v4e-pr-cX7">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -95,8 +96,8 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRE-kt-QxY">
-                                            <rect key="frame" x="8" y="21" width="287" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRE-kt-QxY">
+                                            <rect key="frame" x="8" y="20" width="287" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="highlightedColor"/>
@@ -104,7 +105,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="descriptionLable" destination="jRE-kt-QxY" id="DHt-if-Xpv"/>
+                                    <outlet property="tagsTextView" destination="jRE-kt-QxY" id="Vnk-X6-vCf"/>
                                     <outlet property="titleLable" destination="5da-OL-Roj" id="umT-ZM-KSC"/>
                                     <segue destination="Cnz-z3-FVU" kind="push" identifier="clubDetails" id="XM7-6l-ZoX"/>
                                 </connections>
@@ -125,7 +126,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="JOy-C4-rE3" kind="modal" modalTransitionStyle="flipHorizontal" id="psX-9s-LqO"/>
+                                    <segue destination="edT-b3-Uwl" kind="modal" id="Dx7-P8-Rnl"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -189,25 +190,8 @@
                                     <action selector="academicBtn:" destination="JOy-C4-rE3" eventType="touchUpInside" id="y73-bW-RJC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8I-Lk-peA">
-                                <rect key="frame" x="8" y="36" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3d-jm-Wsm">
-                                <rect key="frame" x="217" y="36" width="89" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Build">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buildBtn:" destination="JOy-C4-rE3" eventType="touchUpInside" id="e3m-58-aq9"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" text="Tags" translatesAutoresizingMaskIntoConstraints="NO" id="Uka-10-s8f">
-                                <rect key="frame" x="16" y="255" width="179" height="205"/>
+                                <rect key="frame" x="20" y="248" width="179" height="205"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -234,10 +218,37 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="obj-sI-0tg"/>
+                    <navigationItem key="navigationItem" id="obj-sI-0tg">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="D2V-3r-LxB">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Fq-Cx-oPx">
+                                <rect key="frame" x="16" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelBtn:" destination="JOy-C4-rE3" eventType="touchUpInside" id="ifH-Cd-Bje"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="N2r-qf-mRg">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u3d-jm-Wsm">
+                                <rect key="frame" x="215" y="6" width="89" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Build">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buildBtn:" destination="JOy-C4-rE3" eventType="touchUpInside" id="e3m-58-aq9"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="academicBtn" destination="8nC-7E-TTD" id="Vre-f2-AgF"/>
                         <outlet property="buildBtn" destination="u3d-jm-Wsm" id="V2Z-bH-3dK"/>
+                        <outlet property="cancelBtn" destination="3Fq-Cx-oPx" id="uMs-hd-o1X"/>
                         <outlet property="emailField" destination="AQ2-oL-LRb" id="EMo-tq-UxA"/>
                         <outlet property="fraternityBtn" destination="Fiv-bh-rjH" id="Cbw-1y-E8P"/>
                         <outlet property="nameField" destination="ZrW-Ga-eTn" id="O76-UA-MTr"/>
@@ -245,53 +256,12 @@
                         <outlet property="reEnterPasswordField" destination="82Z-Rg-RbZ" id="Njw-ql-bjJ"/>
                         <outlet property="sorrorityBtn" destination="slT-6n-EJ8" id="SIc-Vb-X31"/>
                         <outlet property="tagsTextView" destination="Uka-10-s8f" id="41N-zf-Bty"/>
+                        <segue destination="BHe-iV-KFJ" kind="modal" identifier="segueToTabBar" id="oLv-VG-nQr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZGi-ge-qyU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2101" y="-1178"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="2tn-7o-DXv">
-            <objects>
-                <viewController id="cVM-Bv-g2v" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xMT-WY-6TA"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fJ-Cv-VjJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vEO-XX-5D2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Tell us more about your club." translatesAutoresizingMaskIntoConstraints="NO" id="MjH-IP-KHh">
-                                <rect key="frame" x="0.0" y="85" width="320" height="230"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSd-rn-a5t">
-                                <rect key="frame" x="263" y="27" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdV-4s-L8i">
-                                <rect key="frame" x="85" y="412" width="151" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel without saving">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Gs1-yg-3QA"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6es-YA-bFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2635" y="-1178"/>
+            <point key="canvasLocation" x="2397" y="-1298"/>
         </scene>
         <!--Club Detail View Controller-->
         <scene sceneID="JOL-dG-WBt">
@@ -338,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2SL-mR-kv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2261" y="-231"/>
+            <point key="canvasLocation" x="2357" y="-243"/>
         </scene>
         <!--Event Table View Controller - Events-->
         <scene sceneID="Hlh-Ni-ppE">
@@ -588,6 +558,25 @@
             </objects>
             <point key="canvasLocation" x="-583" y="167"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TE4-Zd-RDe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="edT-b3-Uwl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="QPS-Gp-Dhf"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uRu-GE-7Zm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JOy-C4-rE3" kind="relationship" relationship="rootViewController" id="5fX-Mh-H6e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TfW-eY-heC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1783" y="-1298"/>
+        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -595,6 +584,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BuD-CF-4gl"/>
+        <segue reference="oLv-VG-nQr"/>
     </inferredMetricsTieBreakers>
 </document>

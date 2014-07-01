@@ -9,6 +9,7 @@
 #import "JCClubTableViewController.h"
 #import "JCClubTableViewCell.h"
 #import "JCClubDetailViewController.h"
+#import <Parse/Parse.h>
 
 @interface JCClubTableViewController ()
 
@@ -21,7 +22,11 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        
+        // This table displays items in the Club class
+        self.pullToRefreshEnabled = YES;
+        self.paginationEnabled = NO;
+        self.objectsPerPage = 25;
     }
     return self;
 }
@@ -32,7 +37,7 @@
     
     
     _nameList = @[@"Club One", @"Club Two", @"Club Three",];
-    _descriptionList = @[@"This is a description",@"This is a description",@"This is a description",];
+    _tagsList = @[@"This is a description",@"This is a description",@"This is a description",];
     
 }
 
@@ -49,13 +54,33 @@
     return 1;
 }
 
-
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [_nameList count];
+-(PFQuery *) queryForTable{
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Club"];
+    
+    //if the objects are loaded in memory, we look to the cache
+    //first to fill the table and then subsequently do a query
+    //against the network.
+    
+    if([self.objects count]==0){
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+    
+    [query orderByDescending:@"createdAt"]; //changed to how many people follow later...... check the relation "follow"
+    
+    return query;
 }
 
--(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+/*
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [query count];
+}
+ */
+
+-(UITableViewCell *) tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+                        object:(PFObject *)object
+{
     
     static NSString *cellIdentifier = @"ClubCell";
     
@@ -65,8 +90,8 @@
         cell = [[JCClubTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    cell.titleLable.text = [_nameList objectAtIndex:indexPath.row];
-    cell.descriptionLable.text = [_descriptionList objectAtIndex:indexPath.row];
+    cell.titleLable.text = [object objectForKey:@"name"];
+    cell.tagsTextView.text = [object objectForKey:@"tags"];
     
     return cell;
 }
@@ -81,7 +106,7 @@
         
         int row = [myIndexPath row];
         detailViewController.name = [_nameList objectAtIndex:row];
-        detailViewController.description = [_descriptionList objectAtIndex:row];
+        detailViewController.description = [_tagsList objectAtIndex:row];
     }
 }
 

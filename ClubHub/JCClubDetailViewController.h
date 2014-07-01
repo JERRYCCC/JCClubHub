@@ -13,6 +13,7 @@
 @property (weak, nonatomic) NSString *name;
 @property (weak, nonatomic) NSString *description;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UITableView *tagsTextView;
 @property (strong, nonatomic) IBOutlet UITextView *descriptionTextView;
 
 

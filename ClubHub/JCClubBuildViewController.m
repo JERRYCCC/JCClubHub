@@ -38,7 +38,7 @@
     _reEnterPasswordField.delegate = self;
     
     tagList = [[NSMutableArray alloc] init];
-    _tagsTextView.text = (@"tag your club\n");
+    _tagsTextView.text = (@"tag your club");
     [_tagsTextView setUserInteractionEnabled:NO];
     
     sBtn=NO;
@@ -70,17 +70,17 @@
 
 -(IBAction)sorrorityBtn:(id)sender
 {
-    [self tagAction:@"Sorrority\n" withMark:sBtn];
+    [self tagAction:@"Sorrority" withMark:sBtn];
     sBtn=!sBtn;
 }
 -(IBAction)fraternityBtn:(id)sender
 {
-    [self tagAction:@"Freternity\n" withMark:fBtn];
+    [self tagAction:@"Freternity" withMark:fBtn];
     fBtn=!fBtn;
 }
 -(IBAction)academicBtn:(id)sender
 {
-    [self tagAction:@"Academic\n" withMark:aBtn];
+    [self tagAction:@"Academic" withMark:aBtn];
     aBtn=!aBtn;
 }
 
@@ -89,12 +89,12 @@
     if(!mark){
         [tagList addObject:name];
         
-        [_tagsTextView insertText:@"+ "];
+        [_tagsTextView insertText:@"\n + "];
         
     }else{
         NSUInteger index = [tagList indexOfObjectIdenticalTo:name];
         [tagList removeObjectAtIndex:index];
-        [_tagsTextView insertText:@"- "];
+        [_tagsTextView insertText:@"\n - "];
     }
     [_tagsTextView insertText:name];
     NSLog(@" %D", [tagList count]);
@@ -143,7 +143,8 @@
 }
 
 -(void) checkTags{
-    if(tagList==NULL)
+
+    if(tagList== nil || [tagList count]==0)
     {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Oooopss!"
@@ -165,30 +166,58 @@
     PFObject *targetSchool = [PFUser currentUser] [@"school"];
     [targetSchool fetchIfNeeded];
     NSString *schoolId = targetSchool.objectId;
-    NSString *schoolName = [targetSchool[@"name"] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
-    NSString *targetClassName = [schoolName stringByAppendingString:@"_Club"];
-    //NSLog(targetClassName);
+   
     
-    PFObject *newClub = [PFObject objectWithClassName: targetClassName];
+    PFObject *newClub = [PFObject objectWithClassName: @"Club"];
     newClub[@"name"] = _nameField.text;
     newClub[@"email"] = _emailField.text;
     newClub[@"password"] = _passwordField.text;
     newClub[@"school"] = [PFObject objectWithoutDataWithClassName:@"School" objectId:schoolId];
+    newClub[@"tags"] = tagList;
+    
+    //the current user become the club administer automatically when he builds the club
+    PFUser *user = [PFUser currentUser];
+    PFRelation *adminRelation = [newClub relationForKey:@"admins"];
+    [adminRelation addObject:user];
+    
+    
     
     [newClub saveInBackgroundWithBlock: ^(BOOL succeeded, NSError *error){
         if (!error) {
+            
+            //current user follows the club he built immediately
+            PFRelation *followRleaion = [user relationForKey:@"followClubs"];
+            [followRleaion addObject:newClub];
+            [user saveInBackground];
+             
             NSLog(@"Build success!");
             _nameField.text = nil;
             _passwordField.text = nil;
             _reEnterPasswordField.text = nil;
             _emailField.text = nil;
-            //[self performSequeWithIdentifier:@"clubLogIn" sender:self];
+            _tagsTextView.text = nil;
+            
+            [self performSegueWithIdentifier:@"segueToTabBar" sender:self];
+            
         }else{
-            NSLog(@"There was an error in building club");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem building you a club" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
         }
     }];
 }
 
+-(void) cancelBtn:(id)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Are you sure to cancel?" delegate:self cancelButtonTitle:@"Keep Building" otherButtonTitles:@"Give Up", nil];
+    [alert show];
+}
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex ==1){
+        [self performSegueWithIdentifier:@"segueToTabBar" sender:self];
+    }
+}
 
 
 

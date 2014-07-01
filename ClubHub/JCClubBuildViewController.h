@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JCClubBuildViewController : UIViewController <UITextFieldDelegate>
+@interface JCClubBuildViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *buildBtn;
+@property (strong, nonatomic) IBOutlet UIButton *cancelBtn;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
 @property (strong, nonatomic) IBOutlet UITextField *emailField;
@@ -24,6 +25,7 @@
 
 
 -(IBAction)buildBtn:(id)sender;
+-(IBAction)cancelBtn:(id)sender;
 -(IBAction)sorrorityBtn:(id)sender;
 -(IBAction)fraternityBtn:(id)sender;
 -(IBAction)academicBtn:(id)sender;

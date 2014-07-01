@@ -43,23 +43,6 @@
     sfr = [[JCSchoolForRegister alloc] init];
     _schoolNameList = [sfr getSchoolNameList];
     
-    /*
-    PFQuery *query = [PFQuery queryWithClassName:@"Austin_College_Club"];
-    
-    PFObject *object = [query getFirstObject];
-    NSLog(object[@"name"]);
-    NSArray *list  = @[@"awesome", @"cool"];
-    
-    [object addUniqueObjectsFromArray:list forKey:@"tags"];
-    [object saveInBackground];
-    
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Austin_College_Club"];
-    [query whereKey:@"tags" equalTo:@"cool"];
-    PFObject *object = [query getFirstObject];
-    NSLog(object[@"name"]);
-    */
-    
 }
 
 
@@ -147,7 +130,8 @@
             [self performSegueWithIdentifier:@"login" sender:self];
         }
         else{
-            NSLog(@"There was an error in registration");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem signing you up" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
         }
     }];
 }
