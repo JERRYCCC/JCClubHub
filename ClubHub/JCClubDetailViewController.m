@@ -38,7 +38,7 @@
     _tagsTextView.text = tagString;
     _tagsTextView.editable=NO;
     
-    _descriptionTextView = (_clubObject[@"description"]);
+    _descriptionTextView.text = (_clubObject[@"description"]);
     _descriptionTextView.editable=NO;
 }
 

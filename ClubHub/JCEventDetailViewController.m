@@ -35,7 +35,12 @@
     [formatter setDateFormat:@"h:mm a           EEE, MMM-d"];
     _dateLabel.text = [formatter stringFromDate:date];
     
+    _locationTextView.text = (_eventObject[@"location"]);
+    _locationTextView.editable = NO;
+    
     _descriptionTextView.text = (_eventObject[@"description"]);
+    _descriptionTextView.editable=NO;
+
 
 }
 
