@@ -11,11 +11,13 @@
 #import "JCClubDetailViewController.h"
 
 
-@interface JCClubTableViewController ()
 
+@interface JCClubTableViewController ()
 @end
 
-@implementation JCClubTableViewController
+@implementation JCClubTableViewController{
+    NSArray* clubList;
+}
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -24,62 +26,41 @@
     if (self) {
         
         // This table displays items in the Club class
-        //self.pullToRefreshEnabled = YES;
-        //self.paginationEnabled = NO;
-        //self.objectsPerPage = 25;
+        self.pullToRefreshEnabled = YES;
+        self.paginationEnabled = YES;
+        self.objectsPerPage = 25;
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    
-    _nameList = @[@"Club One", @"Club Two", @"Club Three",];
-    _tagsList = @[@"This is a description",@"This is a description",@"This is a description",];
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-
-    return 1;
-}
-/*
 -(PFQuery *) queryForTable{
     
     PFQuery *query = [PFQuery queryWithClassName:@"Club"];
     
-    //if the objects are loaded in memory, we look to the cache
-    //first to fill the table and then subsequently do a query
-    //against the network.
+    //only get the clubs from current user's school
+    PFUser *user = [PFUser currentUser];
+    PFObject *schoolObject = user[@"school"];
+    [query whereKey:@"school" equalTo: schoolObject];
+    [query orderByAscending:@"name"];
     
+    clubList = [query findObjects];  //for prepareForSegue use
+    
+    //if Pull to Refresh is enabled, query against the network by default
+    if(self.pullToRefreshEnabled){
+        query.cachePolicy = kPFCachePolicyNetworkOnly;
+    }
+    
+    //if no objects are loaded in memory, we look to the cache first to fill the table
     if([self.objects count]==0){
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
-    
-    [query orderByDescending:@"createdAt"]; //changed to how many people follow later...... check the relation "follow"
-    
     return query;
-}
-*/
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [_nameList count];
 }
 
 
 -(UITableViewCell *) tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
-                        //object:(PFObject *)object
+                        object:(PFObject *)object
 {
     
     static NSString *cellIdentifier = @"ClubCell";
@@ -90,11 +71,16 @@
         cell = [[JCClubTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    //cell.titleLable.text = [object objectForKey:@"name"];
-    //cell.tagsTextView.text = [object objectForKey:@"tags"];
     
-    cell.titleLable.text = [_nameList objectAtIndex:indexPath.row];
-    cell.tagsLable.text = [_tagsList objectAtIndex:indexPath.row];
+    cell.titleLable.text = [object objectForKey:@"name"];
+    
+    NSArray *tagList = [object objectForKey:@"tags"];
+    NSString *tagString = @" ";
+    for(NSString *string in tagList){
+        tagString = [tagString stringByAppendingString:string];
+        tagString = [tagString stringByAppendingString:@", "];
+    }
+    cell.tagsLable.text = tagString;
     
     return cell;
 }
@@ -102,28 +88,21 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
+    //pass the wholeobject directly, instead the data of the object
+    
     if([[segue identifier] isEqualToString:@"clubDetails"]){
-        JCClubDetailViewController *detailViewController = [segue destinationViewController];
         
+        JCClubDetailViewController *clubDetailViewController = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         
         int row = [myIndexPath row];
-        detailViewController.name = [_nameList objectAtIndex:row];
-        detailViewController.description = [_tagsList objectAtIndex:row];
+        PFObject *object = [clubList objectAtIndex:row];
+        clubDetailViewController.clubObject = object;
     }
 }
 
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: is forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

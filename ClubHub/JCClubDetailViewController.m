@@ -26,9 +26,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _nameLabel.text = _name;
-    _descriptionTextView.text = _description;
+    _nameLabel.text = (_clubObject[@"name"]);
     
+    NSString *tagString=@"";
+    for(NSString *string in _clubObject[@"tags"]){
+        
+        tagString = [tagString stringByAppendingString:string];
+        tagString = [tagString stringByAppendingString:@ ", "];
+    }
+   
+    _tagsTextView.text = tagString;
+    _tagsTextView.editable=NO;
+    
+    _descriptionTextView = (_clubObject[@"description"]);
+    _descriptionTextView.editable=NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,15 +48,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
