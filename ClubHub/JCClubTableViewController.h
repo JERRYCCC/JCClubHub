@@ -12,9 +12,6 @@
 
 @interface JCClubTableViewController : PFQueryTableViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic)  NSArray  *nameList;
-@property (strong, nonatomic)  NSArray  *tagsList;
-
 @property (strong, nonatomic) IBOutlet UIButton *buildBtn;
 
 

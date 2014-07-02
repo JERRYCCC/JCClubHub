@@ -7,18 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface JCEventDetailViewController : UIViewController < UITableViewDelegate, UITableViewDataSource>
+@interface JCEventDetailViewController : UIViewController
 
-@property (weak, nonatomic) NSString *name;
-@property (weak, nonatomic) NSString *date;
-@property (weak, nonatomic) NSString *time;
-@property (weak, nonatomic) NSString *location;
-@property (weak, nonatomic) NSString *description;
-
-
-@property (strong, nonatomic) NSArray *eventTitleModal;
-@property (strong, nonatomic) NSArray *eventDetailModal;
+@property (weak, nonatomic) PFObject *eventObject;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UITextView *locationTextView;
+@property (strong, nonatomic) IBOutlet UITextView *descriptionTextView;
 
 
 @end

@@ -11,7 +11,6 @@
 @interface JCEventTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLable;
-@property (strong, nonatomic) IBOutlet UILabel *dateLable;
-@property (strong, nonatomic) IBOutlet UILabel *timeLable;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end

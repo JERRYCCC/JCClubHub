@@ -88,7 +88,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    //pass the wholeobject directly, instead the data of the object
+    //pass the whole object directly, instead the data of the object
     
     if([[segue identifier] isEqualToString:@"clubDetails"]){
         

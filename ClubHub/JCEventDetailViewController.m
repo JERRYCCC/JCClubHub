@@ -7,7 +7,7 @@
 //
 
 #import "JCEventDetailViewController.h"
-#import "JCEventDetailTableViewCell.h"
+
 
 @interface JCEventDetailViewController ()
 
@@ -28,46 +28,21 @@
 {
     [super viewDidLoad];
     
+    _nameLabel.text = (_eventObject[@"name"]);
     
+    NSDate *date=[_eventObject objectForKey:@"date"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"h:mm a           EEE, MMM-d"];
+    _dateLabel.text = [formatter stringFromDate:date];
     
-    _eventTitleModal = @[@"Name", @"Date", @"Time", @"Location", @"Description",];
-    _eventDetailModal = @[_name, _date, _time, _location, _description];
-    
-    
+    _descriptionTextView.text = (_eventObject[@"description"]);
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-    return [_eventTitleModal count];
-}
-
-
--(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    static NSString *CellIdentifier = @"EventDetailCell";
-    
-    JCEventDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if(cell==nil){
-        cell = [[JCEventDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-    
-    //cell.textLabel.text = [_eventDetailModal objectAtIndex:indexPath.row];
-    //cell.detailTextLabel.text = [_eventDetailModal objectAtIndex:indexPath.row];
-    
-    cell.titleLabel.text = [_eventTitleModal objectAtIndex:indexPath.row];
-    
-    cell.detailLabel.text = [_eventDetailModal objectAtIndex:indexPath.row];
-    
-    
-    return cell;
 }
 
 

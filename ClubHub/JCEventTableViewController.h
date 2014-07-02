@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface JCEventTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface JCEventTableViewController : PFQueryTableViewController<UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) NSArray *nameList;
-@property (strong, nonatomic) NSArray *dateList;
-@property (strong, nonatomic) NSArray *timeList;
+@property (strong, nonatomic) IBOutlet UIButton *createBtn;
 
 
 @end

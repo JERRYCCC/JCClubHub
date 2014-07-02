@@ -14,45 +14,51 @@
 
 @end
 
-@implementation JCEventTableViewController
+@implementation JCEventTableViewController{
+    NSArray* eventList;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        
+        // This table displays items in the Club class
+        self.pullToRefreshEnabled = YES;
+        self.paginationEnabled = YES;
+        self.objectsPerPage = 25;
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+-(PFQuery*) queryForTable{
     
-    _nameList =@[@"Event One", @"Event Two", @"Event Three",];
-    _dateList = @[@"Date One", @"Date Two", @"Date Three",];
-    _timeList = @[@"Time One", @"Time Two", @"Time Three",];
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
     
+    //only get the clubs from current user's school
+    PFUser *user = [PFUser currentUser];
+    PFObject *schoolObject = user[@"school"];
+    [query whereKey:@"school" equalTo: schoolObject];
+    [query orderByAscending:@"createdAt"];
+    
+    eventList = [query findObjects];  //for prepareForSegue use
+    
+    //if Pull to Refresh is enabled, query against the network by default
+    if(self.pullToRefreshEnabled){
+        query.cachePolicy = kPFCachePolicyNetworkOnly;
+    }
+    
+    //if no objects are loaded in memory, we look to the cache first to fill the table
+    if([self.objects count]==0){
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+    return query;
 }
 
-- (void)didReceiveMemoryWarning
+-(UITableViewCell *) tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+                        object:(PFObject *)object
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [_nameList count];
-}
-
--(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *CellIdentifier = @"EventCell";
     
@@ -62,9 +68,12 @@
         cell = [[JCEventTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    cell.titleLable.text = [_nameList objectAtIndex:indexPath.row];
-    cell.dateLable.text = [_dateList objectAtIndex:indexPath.row];
-    cell.timeLable.text = [_timeList objectAtIndex:indexPath.row];
+    cell.titleLable.text = [object objectForKey:@"name"];
+    
+    NSDate *date=[object objectForKey:@"date"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"h:mm a           EEE, MMM-d"];
+    cell.dateLabel.text = [formatter stringFromDate:date];
     
     return cell;
 }
@@ -72,30 +81,15 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    
+    //pass the whole object directly, instead the data of the object
     if([[segue identifier] isEqualToString:@"eventDetail"]){
-        JCEventDetailViewController *detailViewController = [segue destinationViewController];
+        JCEventDetailViewController *eventDetailViewController = [segue destinationViewController];
         
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         
         int row = [myIndexPath row];
-        
-    
-        
-        detailViewController.name = [_nameList objectAtIndex:row];
-        detailViewController.date = [_dateList objectAtIndex:row];
-        detailViewController.time = [_timeList objectAtIndex:row];
-        detailViewController.location = @"somewhere";
-        detailViewController.description = @"some description";
-        
-        
-        
-    
-        /*
-         still need to ge the location, description, and pastEventList of certain event
-         but don't have to get the list of location for all event
-         Ask the server here.......
-        */
+        PFObject *object = [eventList objectAtIndex:row];
+        eventDetailViewController.eventObject = object;
     }
 }
 

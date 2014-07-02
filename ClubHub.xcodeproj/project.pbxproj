@@ -42,7 +42,6 @@
 		C4F3041819607B1E00EC723F /* JCClubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F3041719607B1E00EC723F /* JCClubTableViewCell.m */; };
 		C4F3041F1961354400EC723F /* JCEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F3041E1961354400EC723F /* JCEventDetailViewController.m */; };
 		C4F3042219613AB800EC723F /* JCEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F3042119613AB800EC723F /* JCEventTableViewCell.m */; };
-		C4F30428196153A600EC723F /* JCEventDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F30427196153A600EC723F /* JCEventDetailTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,8 +104,6 @@
 		C4F3041E1961354400EC723F /* JCEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCEventDetailViewController.m; sourceTree = "<group>"; };
 		C4F3042019613AB800EC723F /* JCEventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCEventTableViewCell.h; sourceTree = "<group>"; };
 		C4F3042119613AB800EC723F /* JCEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCEventTableViewCell.m; sourceTree = "<group>"; };
-		C4F30426196153A600EC723F /* JCEventDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCEventDetailTableViewCell.h; sourceTree = "<group>"; };
-		C4F30427196153A600EC723F /* JCEventDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCEventDetailTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,8 +263,6 @@
 				C4F3042119613AB800EC723F /* JCEventTableViewCell.m */,
 				C4F3041D1961354400EC723F /* JCEventDetailViewController.h */,
 				C4F3041E1961354400EC723F /* JCEventDetailViewController.m */,
-				C4F30426196153A600EC723F /* JCEventDetailTableViewCell.h */,
-				C4F30427196153A600EC723F /* JCEventDetailTableViewCell.m */,
 			);
 			name = EventViewController;
 			sourceTree = "<group>";
@@ -376,7 +371,6 @@
 				C4F3041819607B1E00EC723F /* JCClubTableViewCell.m in Sources */,
 				C4F303C51960302B00EC723F /* main.m in Sources */,
 				C4F3041219607A6500EC723F /* JCClubDetailViewController.m in Sources */,
-				C4F30428196153A600EC723F /* JCEventDetailTableViewCell.m in Sources */,
 				C4F303C91960302B00EC723F /* JCAppDelegate.m in Sources */,
 				C4F303F21960444D00EC723F /* JCRegisterViewController.m in Sources */,
 				C4D23B8F19629F7600F3C7C3 /* JCClubBuildViewController.m in Sources */,
