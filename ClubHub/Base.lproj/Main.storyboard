@@ -105,7 +105,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="tagsTextView" destination="jRE-kt-QxY" id="Vnk-X6-vCf"/>
+                                    <outlet property="tagsLable" destination="jRE-kt-QxY" id="Wz4-h5-Lbb"/>
                                     <outlet property="titleLable" destination="5da-OL-Roj" id="umT-ZM-KSC"/>
                                     <segue destination="Cnz-z3-FVU" kind="push" identifier="clubDetails" id="XM7-6l-ZoX"/>
                                 </connections>

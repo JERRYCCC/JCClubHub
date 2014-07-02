@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
 
-@interface JCClubTableViewController : PFQueryTableViewController <UITableViewDelegate, UITableViewDataSource>
+
+@interface JCClubTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic)  NSArray  *nameList;
 @property (strong, nonatomic)  NSArray  *tagsList;

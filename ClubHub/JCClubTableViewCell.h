@@ -11,6 +11,6 @@
 @interface JCClubTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLable;
-@property (strong, nonatomic) IBOutlet UILabel *tagsTextView;
+@property (strong, nonatomic) IBOutlet UILabel *tagsLable;
 
 @end

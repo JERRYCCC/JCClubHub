@@ -9,7 +9,7 @@
 #import "JCClubTableViewController.h"
 #import "JCClubTableViewCell.h"
 #import "JCClubDetailViewController.h"
-#import <Parse/Parse.h>
+
 
 @interface JCClubTableViewController ()
 
@@ -24,9 +24,9 @@
     if (self) {
         
         // This table displays items in the Club class
-        self.pullToRefreshEnabled = YES;
-        self.paginationEnabled = NO;
-        self.objectsPerPage = 25;
+        //self.pullToRefreshEnabled = YES;
+        //self.paginationEnabled = NO;
+        //self.objectsPerPage = 25;
     }
     return self;
 }
@@ -53,7 +53,7 @@
 
     return 1;
 }
-
+/*
 -(PFQuery *) queryForTable{
     
     PFQuery *query = [PFQuery queryWithClassName:@"Club"];
@@ -70,16 +70,16 @@
     
     return query;
 }
+*/
 
-/*
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [query count];
+    return [_nameList count];
 }
- */
+
 
 -(UITableViewCell *) tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
-                        object:(PFObject *)object
+                        //object:(PFObject *)object
 {
     
     static NSString *cellIdentifier = @"ClubCell";
@@ -90,8 +90,11 @@
         cell = [[JCClubTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    cell.titleLable.text = [object objectForKey:@"name"];
-    cell.tagsTextView.text = [object objectForKey:@"tags"];
+    //cell.titleLable.text = [object objectForKey:@"name"];
+    //cell.tagsTextView.text = [object objectForKey:@"tags"];
+    
+    cell.titleLable.text = [_nameList objectAtIndex:indexPath.row];
+    cell.tagsLable.text = [_tagsList objectAtIndex:indexPath.row];
     
     return cell;
 }
