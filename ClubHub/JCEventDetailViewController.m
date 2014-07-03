@@ -41,6 +41,11 @@
     _descriptionTextView.text = (_currentEvent[@"description"]);
     _descriptionTextView.editable=NO;
 
+    if([self markStatus]){
+        _markBtn.titleLabel.text = @"Unmark";
+    }else{
+        _markBtn.titleLabel.text = @"Mark";
+    }
 
 }
 
@@ -94,6 +99,41 @@
                                               otherButtonTitles:nil];
         [alert show];
     
+    }
+}
+
+-(BOOL)markStatus
+{
+    PFUser *user = [PFUser currentUser];
+    [user fetchIfNeeded];
+    PFRelation *relation = [user relationForKey:@"markEvents"];
+    PFQuery *eventList = [relation query];
+    [eventList whereKey:@"objectId" equalTo:_currentEvent.objectId];
+    
+    if([eventList countObjects]==0){
+        return NO;
+    }else{
+        return YES;
+    }
+}
+
+-(IBAction)markBtn:(id)sender
+{
+    
+    PFUser *user = [PFUser currentUser];
+    [user fetchIfNeeded];
+    PFRelation *relation = [user relationForKey:@"markEvents"];
+    
+    //mark the event, else unmark the events
+    
+    if (![self markStatus]) {
+        [relation addObject:_currentEvent];
+        [user saveInBackground];
+        [sender setTitle:@"Unmark" forState:UIControlStateNormal];
+    }else{
+        [relation removeObject:_currentEvent];
+        [user saveInBackground];
+        [sender setTitle:@"Mark" forState:UIControlStateNormal];
     }
 }
 

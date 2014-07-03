@@ -61,7 +61,6 @@
     [user fetchIfNeeded];
     PFRelation *relation=[user relationForKey:@"followClubs"];
     PFQuery *clubList = [relation query];
-    
     [clubList whereKey:@"objectId" equalTo:_currentClub.objectId];
     
     if([clubList countObjects]==0){

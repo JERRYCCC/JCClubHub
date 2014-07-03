@@ -435,7 +435,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="bSK-AX-Oki">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bSK-AX-Oki" id="TZm-hI-A9C">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -564,7 +564,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <viewControllerLayoutGuide type="bottom" id="jCe-WA-YYN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gZi-Yj-yqy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nameLable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtn-Hk-Hau">
@@ -617,6 +617,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="NLH-mq-afd">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tot-CU-IsP">
+                            <rect key="frame" x="96" y="6" width="128" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Unmark">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="markBtn:" destination="tMf-WG-VlU" eventType="touchUpInside" id="5xh-l3-fLq"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="IZG-od-MoE">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1Pw-qI-TFR">
                                 <rect key="frame" x="233" y="5" width="71" height="33"/>
@@ -631,10 +643,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="dateLabel" destination="MD2-Qx-gGW" id="V3Y-hh-Q5k"/>
                         <outlet property="descriptionTextView" destination="R4G-qm-t23" id="jcp-5H-MGb"/>
                         <outlet property="locationTextView" destination="bSj-jG-dJs" id="el5-yq-g1O"/>
+                        <outlet property="markBtn" destination="Tot-CU-IsP" id="BQO-Ih-uvU"/>
                         <outlet property="nameLabel" destination="Wtn-Hk-Hau" id="IRJ-1v-SWn"/>
                         <segue destination="BHe-iV-KFJ" kind="modal" identifier="toEventList" id="Lls-hj-G8Y"/>
                     </connections>
