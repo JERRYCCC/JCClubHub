@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface JCClubDetailViewController : UIViewController
+@interface JCClubDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) PFObject *currentClub;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UITextView *tagsTextView;
 @property (strong, nonatomic) IBOutlet UITextView *descriptionTextView;
-@property (weak, nonatomic) IBOutlet UITableView *eventList;
+
+@property (weak, nonatomic) IBOutlet UITableView *eventListTableView;
 
 @property (strong, nonatomic) IBOutlet UIButton *followBtn;
 

@@ -7,12 +7,17 @@
 //
 
 #import "JCClubDetailViewController.h"
+#import "JCEventTableViewCell.h"
+#import "JCEventDetailViewController.h"
 
 @interface JCClubDetailViewController ()
 
+
 @end
 
-@implementation JCClubDetailViewController
+@implementation JCClubDetailViewController{
+    NSArray *eventList;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,6 +52,7 @@
         _followBtn.titleLabel.text = @"Follow";
     }
     
+    eventList = [self getEventList];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,6 +100,66 @@
         [sender setTitle:@"Follow" forState:UIControlStateNormal];
     }
 }
+
+-(NSArray*) getEventList
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    
+    //only get the events of current club
+    [query whereKey:@"club" equalTo:_currentClub];
+    [query orderByDescending:@"date"];
+    NSArray *list = [query findObjects];
+    return list;
+}
+
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [eventList count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdenrifier = @"eventCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdenrifier];
+    
+    if (cell==nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdenrifier];
+    }
+    
+    PFObject *event = eventList[indexPath.row];
+    cell.textLabel.text = event[@"name"];
+    
+    NSDate *date=[event objectForKey:@"date"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"h:mm a           EEE, MMM-d"];
+    cell.detailTextLabel.text = [formatter stringFromDate:date];
+    
+    return cell;
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    //pass the whole object directly, instead the data of the object
+    if([[segue identifier] isEqualToString:@"toEventDetail"]){
+        
+        JCEventDetailViewController *eventDetailViewController = [segue destinationViewController];
+        
+        NSIndexPath *myIndexPath = [_eventListTableView indexPathForSelectedRow];
+        
+        int row = [myIndexPath row];
+        PFObject *object = [eventList objectAtIndex:row];
+        eventDetailViewController.currentEvent = object;
+    }
+}
+
+
+
 
 
 @end
