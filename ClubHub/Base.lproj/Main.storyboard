@@ -435,7 +435,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="bSK-AX-Oki">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bSK-AX-Oki" id="TZm-hI-A9C">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -772,7 +772,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <barButtonItem key="rightBarButtonItem" title="Log In" id="E0T-I5-dUY">
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="vXZ-lx-hvc" kind="push" id="dOe-Yu-ySK"/>
+                                <action selector="logInBtn:" destination="DZe-tq-M3s" id="HGE-CJ-d5i"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -784,6 +784,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="schoolPicker" destination="MSi-yZ-Lq0" id="mEK-9q-fMI"/>
                         <outlet property="usernameField" destination="c6F-hv-Sjk" id="kt9-8q-QXY"/>
                         <segue destination="BHe-iV-KFJ" kind="modal" identifier="login" modalTransitionStyle="flipHorizontal" id="BuD-CF-4gl"/>
+                        <segue destination="vXZ-lx-hvc" kind="push" identifier="toLogIn" id="Jyv-tL-Jun"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="872-jR-qss" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -816,7 +817,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Lls-hj-G8Y"/>
+        <segue reference="p8L-SL-dgu"/>
         <segue reference="Sw3-Re-5yC"/>
     </inferredMetricsTieBreakers>
 </document>

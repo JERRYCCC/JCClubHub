@@ -156,6 +156,10 @@
     pickRow = row;
 }
 
+- (IBAction)logInBtn:(id)sender
+{
+    [self performSegueWithIdentifier:@"toLogIn" sender:self];
+}
 
 
 
