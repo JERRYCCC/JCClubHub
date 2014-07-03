@@ -11,11 +11,15 @@
 
 @interface JCClubDetailViewController : UIViewController
 
-@property (weak, nonatomic) PFObject *clubObject;
+@property (weak, nonatomic) PFObject *currentClub;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UITextView *tagsTextView;
 @property (strong, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UITableView *eventList;
+
+@property (strong, nonatomic) IBOutlet UIButton *followBtn;
+
+-(IBAction)followBtn:(id)sender;
 
 
 @end

@@ -31,7 +31,7 @@
     _locationField.delegate = self;
     _descriptionView.delegate = self;
     
-    _descriptionView.text = _targetClub[@"name"];
+    _descriptionView.text = [@"Add some details about the event.\n\nBy: " stringByAppendingString: _targetClub[@"name"]];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField*) textField{
@@ -83,7 +83,35 @@
 -(void)createNewEvent
 {
     NSLog(@"Creating.........");
-    //PFObject *targetClub =
+    
+    PFObject *newEvent = [PFObject objectWithClassName:@"Event"];
+    newEvent[@"name"] = _nameField.text;
+    newEvent[@"location"] = _locationField.text;
+    newEvent[@"description"] = _descriptionView.text;
+    newEvent[@"date"] = _datePicker.date;
+    newEvent[@"club"] = _targetClub;
+    newEvent[@"school"] =_targetClub[@"school"];
+    
+    [newEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+        
+        if(!error){
+            PFUser *user = [PFUser currentUser];
+            PFRelation *followRelation = [user relationForKey:@"followEvents"];
+            [followRelation addObject:newEvent];
+            [user saveInBackground];
+            
+            NSLog(@"Create success!");
+            _nameField.text = nil;
+            _locationField.text = nil;
+            _descriptionView.text = nil;
+            
+            [self performSegueWithIdentifier:@"segueToTabBar" sender:self];
+            
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem creating an event" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
 }
 
 

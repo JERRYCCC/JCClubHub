@@ -96,7 +96,7 @@
         
         int row = [myIndexPath row];
         PFObject *object = [clubList objectAtIndex:row];
-        clubDetailViewController.clubObject = object;
+        clubDetailViewController.currentClub = object;
     }
 }
 

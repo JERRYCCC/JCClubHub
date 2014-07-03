@@ -43,7 +43,7 @@
     PFUser *user = [PFUser currentUser];
     PFObject *schoolObject = user[@"school"];
     [query whereKey:@"school" equalTo: schoolObject];
-    [query orderByAscending:@"createdAt"];
+    [query orderByAscending:@"date"];
     
     eventList = [query findObjects];  //for prepareForSegue use
     
@@ -94,7 +94,7 @@
         
         int row = [myIndexPath row];
         PFObject *object = [eventList objectAtIndex:row];
-        eventDetailViewController.eventObject = object;
+        eventDetailViewController.currentEvent = object;
     }
     
     if([[segue identifier] isEqualToString:@"toCreateEvent"]){
@@ -106,6 +106,8 @@
 
 -(void)createBtn:(id)sender
 {
+    
+    //check which chub's admins contain the user's name
     PFObject *user = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Club"];
     [query whereKey:@"admins" equalTo:user];
@@ -127,5 +129,6 @@
         [self performSegueWithIdentifier:@"toPickClub" sender:self];
     }
 }
+
 
 @end

@@ -91,13 +91,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5da-OL-Roj">
-                                            <rect key="frame" x="8" y="1" width="287" height="21"/>
+                                            <rect key="frame" x="12" y="1" width="283" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sa-HV-w2b">
-                                            <rect key="frame" x="20" y="20" width="267" height="21"/>
+                                            <rect key="frame" x="12" y="20" width="275" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -298,7 +298,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NameLable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAc-IV-23Z">
-                                <rect key="frame" x="127" y="74" width="173" height="32"/>
+                                <rect key="frame" x="127" y="74" width="131" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
@@ -332,20 +332,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="4tb-4C-MvN">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="8ry-re-de3">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hYc-1v-PVN">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="xpu-Hx-f4K">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ffn-c6-js9">
+                                <rect key="frame" x="243" y="7" width="61" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Follow">
+                                <state key="normal" title="Unfollow">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="followBtn:" destination="Cnz-z3-FVU" eventType="touchUpInside" id="J4Y-3v-GaX"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionTextView" destination="dJS-f5-kEp" id="6Lx-aN-SM6"/>
                         <outlet property="eventList" destination="M7d-F7-cDY" id="faS-zh-mNw"/>
+                        <outlet property="followBtn" destination="ffn-c6-js9" id="dT1-DB-elo"/>
                         <outlet property="nameLabel" destination="kAc-IV-23Z" id="Dm9-He-Pcc"/>
                         <outlet property="tagsTextView" destination="Sf3-yF-Zhh" id="REw-YH-wPe"/>
                     </connections>
@@ -397,25 +400,25 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Events" id="WA3-sU-s62">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="i5J-J0-gXd">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J5H-71-5Z7">
-                                <rect key="frame" x="201" y="5" width="103" height="33"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="d2i-gn-UXD">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0xF-Ak-on3">
+                                <rect key="frame" x="194" y="5" width="110" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Creat An Event">
+                                <state key="normal" title="Create an Event">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="createBtn:" destination="p0g-md-w2X" eventType="touchUpInside" id="XYb-ba-tkT"/>
-                                    <segue destination="Rcy-ov-2og" kind="modal" identifier="toPickClub" id="dz0-75-i3Q"/>
+                                    <action selector="createBtn:" destination="p0g-md-w2X" eventType="touchUpInside" id="ndV-2A-YLa"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="createBtn" destination="J5H-71-5Z7" id="p24-c0-eqo"/>
+                        <outlet property="createBtn" destination="0xF-Ak-on3" id="wCP-Pa-9Wf"/>
                         <segue destination="8FP-PI-kZZ" kind="modal" identifier="toCreateEvent" id="Sw3-Re-5yC"/>
+                        <segue destination="Rcy-ov-2og" kind="modal" identifier="toPickClub" id="5Ab-v5-c9h"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtP-0I-Lt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -583,7 +586,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uD2-6C-ZSe">
-                                <rect key="frame" x="20" y="217" width="88" height="21"/>
+                                <rect key="frame" x="20" y="250" width="88" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
@@ -595,7 +598,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bSj-jG-dJs">
-                                <rect key="frame" x="105" y="156" width="205" height="45"/>
+                                <rect key="frame" x="105" y="156" width="205" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -603,7 +606,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R4G-qm-t23">
-                                <rect key="frame" x="105" y="209" width="205" height="45"/>
+                                <rect key="frame" x="105" y="242" width="205" height="127"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -613,12 +616,27 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NLH-mq-afd"/>
+                    <navigationItem key="navigationItem" id="NLH-mq-afd">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="IZG-od-MoE">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1Pw-qI-TFR">
+                                <rect key="frame" x="233" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteBtn:" destination="tMf-WG-VlU" eventType="touchUpInside" id="28T-En-hua"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="MD2-Qx-gGW" id="V3Y-hh-Q5k"/>
                         <outlet property="descriptionTextView" destination="R4G-qm-t23" id="jcp-5H-MGb"/>
                         <outlet property="locationTextView" destination="bSj-jG-dJs" id="el5-yq-g1O"/>
                         <outlet property="nameLabel" destination="Wtn-Hk-Hau" id="IRJ-1v-SWn"/>
+                        <segue destination="BHe-iV-KFJ" kind="modal" identifier="toEventList" id="Lls-hj-G8Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyi-KY-Rx6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -784,7 +802,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="oLv-VG-nQr"/>
-        <segue reference="ija-yg-rId"/>
+        <segue reference="Lls-hj-G8Y"/>
+        <segue reference="Sw3-Re-5yC"/>
     </inferredMetricsTieBreakers>
 </document>

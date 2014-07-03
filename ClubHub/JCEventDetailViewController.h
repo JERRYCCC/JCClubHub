@@ -11,11 +11,13 @@
 
 @interface JCEventDetailViewController : UIViewController
 
-@property (weak, nonatomic) PFObject *eventObject;
+@property (weak, nonatomic) PFObject *currentEvent;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UITextView *locationTextView;
 @property (strong, nonatomic) IBOutlet UITextView *descriptionTextView;
+
+-(IBAction)deleteBtn:(id)sender;
 
 
 @end
