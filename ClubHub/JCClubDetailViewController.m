@@ -136,7 +136,7 @@
     
     NSDate *date=[event objectForKey:@"date"];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"h:mm a           EEE, MMM-d"];
+    [formatter setDateFormat:@"h:mm a  EEE, MMM-d"];
     cell.detailTextLabel.text = [formatter stringFromDate:date];
     
     return cell;
