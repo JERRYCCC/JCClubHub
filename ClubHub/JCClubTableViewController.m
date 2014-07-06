@@ -9,6 +9,7 @@
 #import "JCClubTableViewController.h"
 #import "JCClubTableViewCell.h"
 #import "JCClubDetailViewController.h"
+#import "SWRevealViewController.h"
 
 
 
@@ -31,6 +32,14 @@
         self.objectsPerPage = 25;
     }
     return self;
+}
+
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    
+    [self.menuBtn setTarget:self.revealViewController];
+    [self.menuBtn setAction:@selector(revealToggle:)];
+    [self.navigationController.navigationBar addGestureRecognizer:self.revealViewController.panGestureRecognizer];
 }
 
 -(PFQuery *) queryForTable{

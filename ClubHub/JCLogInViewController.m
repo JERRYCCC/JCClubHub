@@ -26,7 +26,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+   
+    _usernameField.delegate = self;
+    _passwordField.delegate = self;
+}
+
+//log in automatically
+-(void)viewDidAppear:(BOOL)animated{
+    PFUser *user = [PFUser currentUser];
+    if(user.username !=nil){
+        [self performSegueWithIdentifier:@"login" sender:self];
+    }
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField*) textField{
+    if(textField){
+        [textField resignFirstResponder];
+    }
+    return NO;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [_usernameField resignFirstResponder];
+    [_passwordField resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,10 +64,11 @@
             NSLog(@"Login user!");
             _passwordField.text = nil;
             _usernameField.text = nil;
+            
             [self performSegueWithIdentifier:@"login" sender:self];
         }
         if (error) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem logging you in" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Please make sure you enter the right account and password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
         }
     }];

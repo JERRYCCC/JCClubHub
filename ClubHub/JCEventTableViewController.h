@@ -12,6 +12,7 @@
 @interface JCEventTableViewController : PFQueryTableViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UIButton *createBtn;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *menuBtn;
 
 
 -(IBAction)createBtn:(id)sender;

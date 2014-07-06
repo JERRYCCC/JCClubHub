@@ -61,15 +61,6 @@
     [_reEnterPasswordField resignFirstResponder];
 }
 
-
-//log in automatically
--(void)viewDidAppear:(BOOL)animated{
-    PFUser *user = [PFUser currentUser];
-    if(user.username !=nil){
-        [self performSegueWithIdentifier:@"login" sender:self];
-    }
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

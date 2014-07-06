@@ -13,6 +13,9 @@
 		C4D23B8C1962857500F3C7C3 /* JCBasicFunctionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D23B8B1962857500F3C7C3 /* JCBasicFunctionsTests.m */; };
 		C4D23B8F19629F7600F3C7C3 /* JCClubBuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D23B8E19629F7600F3C7C3 /* JCClubBuildViewController.m */; };
 		C4D23B911962C3F500F3C7C3 /* JCClubBuildViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D23B901962C3F500F3C7C3 /* JCClubBuildViewControllerTests.m */; };
+		C4D697B2196958B9007C5370 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D697B1196958B9007C5370 /* SWRevealViewController.m */; };
+		C4D698DF1969A8B9007C5370 /* JCMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D698DE1969A8B9007C5370 /* JCMenuTableViewController.m */; };
+		C4D698E21969BE9C007C5370 /* JCCopyrightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D698E11969BE9C007C5370 /* JCCopyrightViewController.m */; };
 		C4F303B91960302B00EC723F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F303B81960302B00EC723F /* Foundation.framework */; };
 		C4F303BB1960302B00EC723F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F303BA1960302B00EC723F /* CoreGraphics.framework */; };
 		C4F303BD1960302B00EC723F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F303BC1960302B00EC723F /* UIKit.framework */; };
@@ -67,6 +70,12 @@
 		C4D23B8D19629F7600F3C7C3 /* JCClubBuildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCClubBuildViewController.h; sourceTree = "<group>"; };
 		C4D23B8E19629F7600F3C7C3 /* JCClubBuildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCClubBuildViewController.m; sourceTree = "<group>"; };
 		C4D23B901962C3F500F3C7C3 /* JCClubBuildViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCClubBuildViewControllerTests.m; sourceTree = "<group>"; };
+		C4D697B0196958B9007C5370 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../Downloads/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
+		C4D697B1196958B9007C5370 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../Downloads/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.m"; sourceTree = "<group>"; };
+		C4D698DD1969A8B9007C5370 /* JCMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCMenuTableViewController.h; sourceTree = "<group>"; };
+		C4D698DE1969A8B9007C5370 /* JCMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCMenuTableViewController.m; sourceTree = "<group>"; };
+		C4D698E01969BE9C007C5370 /* JCCopyrightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCopyrightViewController.h; sourceTree = "<group>"; };
+		C4D698E11969BE9C007C5370 /* JCCopyrightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCopyrightViewController.m; sourceTree = "<group>"; };
 		C4F303B51960302B00EC723F /* ClubHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClubHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F303B81960302B00EC723F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4F303BA1960302B00EC723F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -146,6 +155,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4D697AF1969585C007C5370 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C4D697B0196958B9007C5370 /* SWRevealViewController.h */,
+				C4D697B1196958B9007C5370 /* SWRevealViewController.m */,
+			);
+			name = Library;
+			path = ClubHub;
+			sourceTree = "<group>";
+		};
 		C4F303AC1960302B00EC723F = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +172,7 @@
 				C4F303DD1960302B00EC723F /* ClubHubTests */,
 				C4F303B71960302B00EC723F /* Frameworks */,
 				C4F303B61960302B00EC723F /* Products */,
+				C4D697AF1969585C007C5370 /* Library */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,6 +212,10 @@
 				C4F303C71960302B00EC723F /* JCAppDelegate.h */,
 				C4F303C81960302B00EC723F /* JCAppDelegate.m */,
 				C4F303CA1960302B00EC723F /* Main.storyboard */,
+				C4D698E01969BE9C007C5370 /* JCCopyrightViewController.h */,
+				C4D698E11969BE9C007C5370 /* JCCopyrightViewController.m */,
+				C4D698DD1969A8B9007C5370 /* JCMenuTableViewController.h */,
+				C4D698DE1969A8B9007C5370 /* JCMenuTableViewController.m */,
 				C4F304191961348100EC723F /* LogIn&Register */,
 				C4F3041B196134C700EC723F /* ClubViewController */,
 				C4F3041C196134F300EC723F /* EventViewController */,
@@ -377,6 +401,7 @@
 			files = (
 				C4F3040C196070E900EC723F /* JCClubTableViewController.m in Sources */,
 				C4F3042219613AB800EC723F /* JCEventTableViewCell.m in Sources */,
+				C4D697B2196958B9007C5370 /* SWRevealViewController.m in Sources */,
 				C4F3040F196075B300EC723F /* JCEventTableViewController.m in Sources */,
 				C4F3041819607B1E00EC723F /* JCClubTableViewCell.m in Sources */,
 				C4F303C51960302B00EC723F /* main.m in Sources */,
@@ -389,6 +414,8 @@
 				C4F3041F1961354400EC723F /* JCEventDetailViewController.m in Sources */,
 				C4D23B881962796A00F3C7C3 /* JCSchoolForRegister.m in Sources */,
 				C4A39D3819642D1A00F8203F /* JCPickClubTableViewController.m in Sources */,
+				C4D698E21969BE9C007C5370 /* JCCopyrightViewController.m in Sources */,
+				C4D698DF1969A8B9007C5370 /* JCMenuTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
