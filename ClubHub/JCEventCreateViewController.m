@@ -7,6 +7,7 @@
 //
 
 #import "JCEventCreateViewController.h"
+#import "JCEventDetailViewController.h"
 #import <Parse/Parse.h>
 
 @interface JCEventCreateViewController ()
@@ -14,6 +15,9 @@
 @end
 
 @implementation JCEventCreateViewController
+{
+    PFObject *newEvent;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -84,7 +88,7 @@
 {
     NSLog(@"Creating.........");
     
-    PFObject *newEvent = [PFObject objectWithClassName:@"Event"];
+    newEvent = [PFObject objectWithClassName:@"Event"];
     newEvent[@"name"] = _nameField.text;
     newEvent[@"location"] = _locationField.text;
     newEvent[@"description"] = _descriptionView.text;
@@ -127,6 +131,15 @@
         [self performSegueWithIdentifier:@"segueToTabBar" sender:self];
     }
 }
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"toEventDetail"]){
+        JCEventDetailViewController *eventDetailViewController = [segue destinationViewController];
+        eventDetailViewController.currentEvent = newEvent;
+    }
+}
+
 
 
 

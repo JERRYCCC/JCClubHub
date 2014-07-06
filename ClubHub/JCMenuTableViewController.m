@@ -27,7 +27,7 @@
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
     
-    menuItems = @[@"myClubHub", @"copyright"];
+    menuItems = @[@"myClubHub", @"myAdmins", @"allClubs", @"allEvents",@"buildEvent", @"createClub", @"copyright"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
