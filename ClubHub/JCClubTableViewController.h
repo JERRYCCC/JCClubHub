@@ -12,7 +12,6 @@
 
 @interface JCClubTableViewController : PFQueryTableViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) IBOutlet UIButton *buildBtn;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *menuBtn;
 
 

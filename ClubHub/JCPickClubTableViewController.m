@@ -8,6 +8,7 @@
 
 #import "JCPickClubTableViewController.h"
 #import "JCEventCreateViewController.h"
+#import "SWRevealViewController.h"
 
 @interface JCPickClubTableViewController ()
 
@@ -27,6 +28,30 @@
         self.objectsPerPage = 25;
     }
     return self;
+}
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self.menuBtn setTarget:self.revealViewController];
+    [self.menuBtn setAction:@selector(revealToggle:)];
+    [self.navigationController.navigationBar addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    
+    PFObject *user = [PFUser currentUser];
+    PFQuery *query = [PFQuery queryWithClassName:@"Club"];
+    [query whereKey:@"admins" equalTo:user];
+    [query orderByAscending:@"name"];
+    
+    if([query countObjects]==0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!"
+                                                        message:@"You need to have at least one club to build a event for"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 -(PFQuery*) queryForTable

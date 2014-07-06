@@ -107,7 +107,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZf-jt-niu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="-167"/>
+            <point key="canvasLocation" x="-272" y="-263"/>
         </scene>
         <!--Menu Table View Controller-->
         <scene sceneID="xLd-08-OHy">
@@ -157,6 +157,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Rcy-ov-2og" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="oQD-Se-LcX"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myAdmins" id="MF7-Jh-6sa">
                                 <rect key="frame" x="0.0" y="143" width="320" height="44"/>
@@ -256,7 +259,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgE-FP-Vpu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1427" y="-325"/>
+            <point key="canvasLocation" x="-1783" y="-809"/>
         </scene>
         <!--All Events Table View Controller-->
         <scene sceneID="Xqd-hi-HKz">
@@ -393,7 +396,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9d-7k-Snl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1125" y="-343"/>
+            <point key="canvasLocation" x="881" y="-451"/>
         </scene>
         <!--Club Build View Controller-->
         <scene sceneID="ctm-OT-VuL">
@@ -648,7 +651,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2SL-mR-kv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1285" y="-1030"/>
+            <point key="canvasLocation" x="1449" y="-882"/>
         </scene>
         <!--Event Table View Controller - Events-->
         <scene sceneID="Hlh-Ni-ppE">
@@ -718,7 +721,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtP-0I-Lt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="913" y="1031"/>
+            <point key="canvasLocation" x="937" y="743"/>
         </scene>
         <!--Pick Club Table View Controller - Pick the club to build the event-->
         <scene sceneID="1jm-PP-j4R">
@@ -746,11 +749,16 @@
                             <outlet property="delegate" destination="tsl-gr-dop" id="6bI-QJ-eLo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pick the club to build the event" id="sar-S6-kVO"/>
+                    <navigationItem key="navigationItem" title="Pick the club to build the event" id="sar-S6-kVO">
+                        <barButtonItem key="leftBarButtonItem" image="reveal-icon" id="TpI-aj-bFF"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuBtn" destination="TpI-aj-bFF" id="DPe-VO-pDz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moB-J9-P2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-267" y="2047"/>
+            <point key="canvasLocation" x="-291" y="2367"/>
         </scene>
         <!--Event Create View Controller-->
         <scene sceneID="2SD-jG-rdM">
@@ -848,7 +856,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiB-Rd-vq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="379" y="2059"/>
+            <point key="canvasLocation" x="355" y="2379"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="zFd-UL-AD5">
@@ -946,7 +954,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyi-KY-Rx6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1639" y="415"/>
+            <point key="canvasLocation" x="1767" y="231"/>
         </scene>
         <!--Navigation Controller - MarkedEvents-->
         <scene sceneID="TzA-qr-Dot">
@@ -962,7 +970,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YfX-8x-4t8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="379" y="1031"/>
+            <point key="canvasLocation" x="455" y="723"/>
         </scene>
         <!--Navigation Controller - FollowedClubs-->
         <scene sceneID="msD-QI-oQQ">
@@ -978,7 +986,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZF-2y-3MP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="591" y="-343"/>
+            <point key="canvasLocation" x="367" y="-463"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NVb-vW-iOg">
@@ -1091,7 +1099,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BIw-tb-q47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-885" y="2047"/>
+            <point key="canvasLocation" x="-909" y="2367"/>
         </scene>
         <!--All Clubs Table View Controller-->
         <scene sceneID="hNr-0C-158">
@@ -1129,7 +1137,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V5g-Nt-Qhp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="458" y="-1050"/>
+            <point key="canvasLocation" x="-322" y="-966"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TMz-Xz-Cfk">
@@ -1165,7 +1173,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qKr-lx-4E4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-68" y="-1050"/>
+            <point key="canvasLocation" x="-848" y="-966"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8jI-vg-xa0">
@@ -1195,10 +1203,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="2qb-s1-BvC"/>
+        <segue reference="VKD-YF-w2v"/>
+        <segue reference="Sw3-Re-5yC"/>
         <segue reference="HBS-eC-vzP"/>
+        <segue reference="XM7-6l-ZoX"/>
         <segue reference="3H0-BM-ORa"/>
-        <segue reference="ija-yg-rId"/>
-        <segue reference="KPN-bW-mWx"/>
+        <segue reference="5Ab-v5-c9h"/>
     </inferredMetricsTieBreakers>
 </document>
