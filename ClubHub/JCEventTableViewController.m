@@ -46,12 +46,11 @@
 
 -(PFQuery*) queryForTable{
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
-    
-    //only get the clubs from current user's school
     PFUser *user = [PFUser currentUser];
-    PFObject *schoolObject = user[@"school"];
-    [query whereKey:@"school" equalTo: schoolObject];
+    PFRelation *relation = [user relationForKey:@"markEvents"];
+    PFQuery *query = [relation query];
+    
+    
     [query orderByAscending:@"date"];
     
     eventList = [query findObjects];  //for prepareForSegue use
@@ -105,39 +104,9 @@
         PFObject *object = [eventList objectAtIndex:row];
         eventDetailViewController.currentEvent = object;
     }
-    
-    if([[segue identifier] isEqualToString:@"toCreateEvent"]){
-        
-        JCEventCreateViewController *eventCreateViewController = [segue destinationViewController];
-        eventCreateViewController.targetClub = targetClub;
-    }
 }
 
--(void)createBtn:(id)sender
-{
-    
-    //check which chub's admins contain the user's name
-    PFObject *user = [PFUser currentUser];
-    PFQuery *query = [PFQuery queryWithClassName:@"Club"];
-    [query whereKey:@"admins" equalTo:user];
-    [query orderByAscending:@"name"];
-    
-    if([query countObjects]==0){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!"
-                                                        message:@"You need to have at least one club to build a event for"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-    if([query countObjects]==1){
-        targetClub = [query getFirstObject];
-        [self performSegueWithIdentifier:@"toCreateEvent" sender:self];
-    }
-    if([query countObjects]>1){
-        [self performSegueWithIdentifier:@"toPickClub" sender:self];
-    }
-}
+
 
 
 @end

@@ -197,7 +197,7 @@
             _emailField.text = nil;
             _tagsTextView.text = nil;
             
-            [self performSegueWithIdentifier:@"segueToTabBar" sender:self];
+            [self performSegueWithIdentifier:@"toPickClub" sender:self];
             
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem building you a club" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
