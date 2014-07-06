@@ -171,7 +171,6 @@
         <!--Copyright View Controller - CopyRight-->
         <scene sceneID="RmK-kn-6js">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C9m-Iu-sLo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="CopyRight" id="eoG-cX-ngC" customClass="JCCopyrightViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rVw-qw-OOm"/>
@@ -197,6 +196,7 @@
                         <outlet property="menuBtn" destination="Xwz-AM-rHb" id="xzb-bL-cIt"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C9m-Iu-sLo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="780" y="293"/>
         </scene>
@@ -408,7 +408,7 @@
                         <outlet property="reEnterPasswordField" destination="82Z-Rg-RbZ" id="Njw-ql-bjJ"/>
                         <outlet property="sorrorityBtn" destination="slT-6n-EJ8" id="SIc-Vb-X31"/>
                         <outlet property="tagsTextView" destination="Uka-10-s8f" id="41N-zf-Bty"/>
-                        <segue destination="BHe-iV-KFJ" kind="modal" identifier="segueToTabBar" id="oLv-VG-nQr"/>
+                        <segue destination="tCm-ei-fgU" kind="modal" identifier="segueToTabBar" id="2qb-s1-BvC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZGi-ge-qyU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -669,6 +669,9 @@ AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                                 </timeZone>
+                                <connections>
+                                    <segue destination="tCm-ei-fgU" kind="modal" identifier="segueToTabBar" id="Hrq-8D-WIo"/>
+                                </connections>
                             </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmn-TA-b2L">
                                 <rect key="frame" x="20" y="69" width="280" height="30"/>
@@ -715,7 +718,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="descriptionView" destination="8A4-fq-aVR" id="Dg5-fa-VQT"/>
                         <outlet property="locationField" destination="jmn-TA-b2L" id="EG9-bz-W4g"/>
                         <outlet property="nameField" destination="R2g-y8-vSu" id="KC3-dx-Jao"/>
-                        <segue destination="BHe-iV-KFJ" kind="modal" identifier="segueToTabBar" id="sOx-hC-JcF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiB-Rd-vq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -818,7 +820,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="locationTextView" destination="bSj-jG-dJs" id="el5-yq-g1O"/>
                         <outlet property="markBtn" destination="Tot-CU-IsP" id="BQO-Ih-uvU"/>
                         <outlet property="nameLabel" destination="Wtn-Hk-Hau" id="IRJ-1v-SWn"/>
-                        <segue destination="BHe-iV-KFJ" kind="modal" identifier="toEventList" id="Lls-hj-G8Y"/>
+                        <segue destination="tCm-ei-fgU" kind="modal" identifier="toEventList" id="nAj-fs-FEE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyi-KY-Rx6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -973,7 +975,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--Navigation Controller-->
         <scene sceneID="TMz-Xz-Cfk">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mKf-62-epB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7px-oQ-sb4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jkH-Xv-7mZ">
@@ -985,6 +986,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <segue destination="eoG-cX-ngC" kind="relationship" relationship="rootViewController" id="vgi-WK-GD7"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mKf-62-epB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="254" y="293"/>
         </scene>
@@ -999,7 +1001,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="HBS-eC-vzP"/>
-        <segue reference="ebH-83-de7"/>
+        <segue reference="nAj-fs-FEE"/>
         <segue reference="xVZ-ky-5BT"/>
         <segue reference="Sw3-Re-5yC"/>
     </inferredMetricsTieBreakers>
