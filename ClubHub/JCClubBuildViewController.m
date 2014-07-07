@@ -180,8 +180,6 @@
     PFRelation *adminRelation = [newClub relationForKey:@"admins"];
     [adminRelation addObject:user];
     
-    
-    
     [newClub saveInBackgroundWithBlock: ^(BOOL succeeded, NSError *error){
         if (!error) {
             
@@ -197,7 +195,7 @@
             _emailField.text = nil;
             _tagsTextView.text = nil;
             
-            [self performSegueWithIdentifier:@"toPickClub" sender:self];
+            [self performSegueWithIdentifier:@"toMain" sender:self];
             
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem building you a club" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -215,7 +213,7 @@
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex ==1){
-        [self performSegueWithIdentifier:@"segueToTabBar" sender:self];
+        [self performSegueWithIdentifier:@"toMain" sender:self];
     }
 }
 

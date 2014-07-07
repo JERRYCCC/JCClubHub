@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClubHub/JCClubBuildViewController.m"
-            timestampString = "425935816.907361"
+            timestampString = "426465655.021389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "@implementation JCClubBuildViewController"
             landmarkType = "3">
          </BreakpointContent>

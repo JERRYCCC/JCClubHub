@@ -99,8 +99,10 @@
     [newEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         
         if(!error){
+            
+            //current user marks the event he create immediately
             PFUser *user = [PFUser currentUser];
-            PFRelation *followRelation = [user relationForKey:@"followEvents"];
+            PFRelation *followRelation = [user relationForKey:@"markEvents"];
             [followRelation addObject:newEvent];
             [user saveInBackground];
             
