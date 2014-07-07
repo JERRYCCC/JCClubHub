@@ -43,13 +43,11 @@
 }
 
 -(PFQuery *) queryForTable{
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Club"];
-    
-    //only get the clubs from current user's school
+
     PFUser *user = [PFUser currentUser];
-    PFObject *schoolObject = user[@"school"];
-    [query whereKey:@"school" equalTo: schoolObject];
+    PFRelation *relation = [user relationForKey:@"followClubs"];
+    PFQuery *query = [relation query];
+    
     [query orderByAscending:@"name"];
     
     clubList = [query findObjects];  //for prepareForSegue use

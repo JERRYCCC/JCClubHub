@@ -11,4 +11,6 @@
 
 @interface JCPickClubTableViewController : PFQueryTableViewController < UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *menuBtn;
+
 @end
