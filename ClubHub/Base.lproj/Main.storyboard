@@ -909,11 +909,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TU6-K1-Xeb">
-                                <rect key="frame" x="16" y="82" width="44" height="30"/>
+                                <rect key="frame" x="256" y="100" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteBtn:" destination="tMf-WG-VlU" eventType="touchUpInside" id="WoK-rY-udL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -937,6 +940,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dateLabel" destination="MD2-Qx-gGW" id="V3Y-hh-Q5k"/>
+                        <outlet property="deleteBtn" destination="TU6-K1-Xeb" id="2Zy-Qe-027"/>
                         <outlet property="descriptionTextView" destination="R4G-qm-t23" id="jcp-5H-MGb"/>
                         <outlet property="locationTextView" destination="bSj-jG-dJs" id="el5-yq-g1O"/>
                         <outlet property="markBtn" destination="Tot-CU-IsP" id="BQO-Ih-uvU"/>
@@ -1251,9 +1255,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="HBS-eC-vzP"/>
-        <segue reference="hbm-lP-0yc"/>
+        <segue reference="nAj-fs-FEE"/>
         <segue reference="HmT-Np-xe8"/>
+        <segue reference="HBS-eC-vzP"/>
         <segue reference="XM7-6l-ZoX"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -42,7 +42,7 @@
     
     sfr = [[JCSchoolForRegister alloc] init];
     _schoolNameList = [sfr getSchoolNameList];
-    
+
 }
 
 

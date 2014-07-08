@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *descriptionTextView;
 
 @property (strong, nonatomic) IBOutlet UIButton *markBtn;
+@property (strong, nonatomic) IBOutlet UIButton *deleteBtn;
 
 -(IBAction)deleteBtn:(id)sender;
 -(IBAction)markBtn:(id)sender;

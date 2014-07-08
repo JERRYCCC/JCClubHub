@@ -46,6 +46,12 @@
     }else{
         _markBtn.titleLabel.text = @"Mark";
     }
+    
+    if([self checkPriority]){
+        _deleteBtn.hidden = NO;
+    }else{
+        _deleteBtn.hidden =YES;
+    }
 
 }
 
@@ -79,7 +85,7 @@
 -(IBAction)deleteBtn:(id)sender
 {
     if([self checkPriority]){
-        [_currentEvent deleteInBackground];
+        [_currentEvent delete];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!"
                                                         message:@"Event is deleted"
