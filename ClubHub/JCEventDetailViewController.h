@@ -24,6 +24,7 @@
 -(IBAction)deleteBtn:(id)sender;
 -(IBAction)markBtn:(id)sender;
 -(IBAction)editBtn:(id)sender;
+-(IBAction)backBtn:(id)sender;
 
 
 @end

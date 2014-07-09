@@ -307,7 +307,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rrr-VJ-uNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-306" y="407"/>
+            <point key="canvasLocation" x="22" y="895"/>
         </scene>
         <!--Copyright View Controller - CopyRight-->
         <scene sceneID="RmK-kn-6js">
@@ -537,7 +537,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZGi-ge-qyU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-373" y="2598"/>
+            <point key="canvasLocation" x="-1165" y="2846"/>
         </scene>
         <!--Club Build Detail View Controller-->
         <scene sceneID="VjY-lE-3hJ">
@@ -595,12 +595,12 @@
                     </view>
                     <connections>
                         <outlet property="detailTextView" destination="Pvm-Tq-xwb" id="9oZ-Kt-XdB"/>
-                        <segue destination="tCm-ei-fgU" kind="modal" identifier="toMain" id="nLH-4V-2Kd"/>
+                        <segue destination="Cnz-z3-FVU" kind="modal" identifier="toClubDetail" id="5pp-Wi-pu8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bL-64-MIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="126" y="2592"/>
+            <point key="canvasLocation" x="38" y="2680"/>
         </scene>
         <!--Club Detail View Controller-->
         <scene sceneID="JOL-dG-WBt">
@@ -677,6 +677,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ph0-bp-7Tw">
+                                <rect key="frame" x="127" y="36" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backBtn:" destination="Cnz-z3-FVU" eventType="touchUpInside" id="ar3-6y-OE6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -704,11 +714,12 @@
                         <outlet property="followBtn" destination="ffn-c6-js9" id="dT1-DB-elo"/>
                         <outlet property="nameLabel" destination="kAc-IV-23Z" id="MgE-9L-yVI"/>
                         <outlet property="tagsTextView" destination="Sf3-yF-Zhh" id="REw-YH-wPe"/>
+                        <segue destination="tCm-ei-fgU" kind="modal" identifier="toMain" id="WLt-eI-qKN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2SL-mR-kv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1601" y="-886"/>
+            <point key="canvasLocation" x="2753" y="-1750"/>
         </scene>
         <!--Event Table View Controller - Events-->
         <scene sceneID="Hlh-Ni-ppE">
@@ -762,7 +773,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtP-0I-Lt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="937" y="743"/>
+            <point key="canvasLocation" x="1097" y="175"/>
         </scene>
         <!--Pick Club Table View Controller - Pick a Club for you event?-->
         <scene sceneID="1jm-PP-j4R">
@@ -809,7 +820,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moB-J9-P2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-403" y="1559"/>
+            <point key="canvasLocation" x="-322" y="1527"/>
         </scene>
         <!--Event Create View Controller-->
         <scene sceneID="2SD-jG-rdM">
@@ -902,7 +913,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="descriptionView" destination="8A4-fq-aVR" id="Dg5-fa-VQT"/>
                         <outlet property="locationField" destination="jmn-TA-b2L" id="EG9-bz-W4g"/>
                         <outlet property="nameField" destination="R2g-y8-vSu" id="KC3-dx-Jao"/>
-                        <segue destination="tCm-ei-fgU" kind="modal" identifier="segueToTabBar" id="VKD-YF-w2v"/>
+                        <segue destination="tMf-WG-VlU" kind="modal" identifier="toEventDetail" id="fAR-0M-qhq"/>
+                        <segue destination="tCm-ei-fgU" kind="modal" identifier="toMain" id="9wn-ZI-Cy7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiB-Rd-vq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -986,6 +998,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="editBtn:" destination="tMf-WG-VlU" eventType="touchUpInside" id="CY4-4u-UPz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8L-Hg-vqD">
+                                <rect key="frame" x="130" y="25" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backBtn:" destination="tMf-WG-VlU" eventType="touchUpInside" id="xhX-VA-8OB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1014,13 +1036,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="locationTextView" destination="bSj-jG-dJs" id="el5-yq-g1O"/>
                         <outlet property="markBtn" destination="Tot-CU-IsP" id="BQO-Ih-uvU"/>
                         <outlet property="nameLabel" destination="Wtn-Hk-Hau" id="IRJ-1v-SWn"/>
-                        <segue destination="tCm-ei-fgU" kind="modal" identifier="toEventList" id="nAj-fs-FEE"/>
                         <segue destination="hj1-Kx-4e7" kind="modal" identifier="toEventEdit" id="fZU-7y-yzI"/>
+                        <segue destination="tCm-ei-fgU" kind="modal" identifier="toMain" id="TBi-xe-K2f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyi-KY-Rx6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1767" y="231"/>
+            <point key="canvasLocation" x="2656" y="901"/>
         </scene>
         <!--Event Edit View Controller-->
         <scene sceneID="Z5d-on-PnI">
@@ -1110,13 +1132,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="descriptionView" destination="ZFM-eS-dRW" id="m8m-tx-bFt"/>
                         <outlet property="locationField" destination="Y8H-s6-a1U" id="RBx-GJ-AqM"/>
                         <outlet property="nameField" destination="iIz-f3-oKF" id="qXA-ZM-9SZ"/>
-                        <segue destination="tCm-ei-fgU" kind="modal" identifier="toMain" id="8hf-DG-08c"/>
                         <segue destination="tMf-WG-VlU" kind="modal" identifier="toEventDetail" id="KQb-7Q-qew"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jYr-uf-a1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2465" y="236"/>
+            <point key="canvasLocation" x="3401" y="807"/>
         </scene>
         <!--Navigation Controller - MarkedEvents-->
         <scene sceneID="TzA-qr-Dot">
@@ -1132,7 +1153,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YfX-8x-4t8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="455" y="723"/>
+            <point key="canvasLocation" x="439" y="187"/>
         </scene>
         <!--Navigation Controller - FollowedClubs-->
         <scene sceneID="msD-QI-oQQ">
@@ -1299,7 +1320,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BIw-tb-q47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1021" y="1455"/>
+            <point key="canvasLocation" x="-1005" y="1583"/>
         </scene>
         <!--All Clubs Table View Controller-->
         <scene sceneID="hNr-0C-158">
@@ -1391,7 +1412,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQi-yb-Do2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-832" y="407"/>
+            <point key="canvasLocation" x="-832" y="855"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="A9y-K5-Aco">
@@ -1421,9 +1442,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="nAj-fs-FEE"/>
-        <segue reference="KQb-7Q-qew"/>
+        <segue reference="TBi-xe-K2f"/>
+        <segue reference="yPU-ud-HrZ"/>
+        <segue reference="5pp-Wi-pu8"/>
         <segue reference="HBS-eC-vzP"/>
-        <segue reference="XM7-6l-ZoX"/>
     </inferredMetricsTieBreakers>
 </document>

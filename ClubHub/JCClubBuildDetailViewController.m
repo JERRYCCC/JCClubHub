@@ -7,6 +7,7 @@
 //
 
 #import "JCClubBuildDetailViewController.h"
+#import "JCClubDetailViewController.h"
 #import <Parse/Parse.h>
 
 @interface JCClubBuildDetailViewController ()
@@ -69,11 +70,22 @@
 {
     if(buttonIndex ==1){
         
-        [self performSegueWithIdentifier:@"toMain" sender:self];
+        [self performSegueWithIdentifier:@"toClubDetail" sender:self];
         
     }
     
     
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"toClubDetail"]) {
+        
+        JCClubDetailViewController *clubDetailVC = [segue destinationViewController];
+        
+        clubDetailVC.currentClub = _currentClub;
+        
+    }
 }
 
 

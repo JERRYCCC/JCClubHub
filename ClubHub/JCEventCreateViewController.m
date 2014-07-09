@@ -111,7 +111,7 @@
             _locationField.text = nil;
             _descriptionView.text = nil;
             
-            [self performSegueWithIdentifier:@"segueToTabBar" sender:self];
+            [self performSegueWithIdentifier:@"toEventDetail" sender:self];
             
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem creating an event" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -130,7 +130,7 @@
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex ==1){
-        [self performSegueWithIdentifier:@"segueToTabBar" sender:self];
+        [self performSegueWithIdentifier:@"toMain" sender:self];
     }
 }
 

@@ -159,4 +159,9 @@
     }
 }
 
+-(IBAction)backBtn:(id)sender;
+{
+    [self performSegueWithIdentifier:@"toMain" sender:self];
+}
+
 @end

@@ -63,6 +63,7 @@
     [_locationField resignFirstResponder];
     [_descriptionView resignFirstResponder];
     [_datePicker resignFirstResponder];
+    
     [self checkFieldsComplete];
 }
 
@@ -84,6 +85,12 @@
 
 -(void) saveEvent
 {
+    
+    _currentEvent[@"name"] = _nameField.text;
+    _currentEvent[@"location"] = _locationField.text;
+    _currentEvent[@"description"] = _descriptionView.text;
+    _currentEvent[@"date"] = _datePicker.date;
+    
     [_currentEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         
         if(!error){

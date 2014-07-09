@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *followBtn;
 
 -(IBAction)followBtn:(id)sender;
+-(IBAction)backBtn:(id)sender;
 
 
 @end
