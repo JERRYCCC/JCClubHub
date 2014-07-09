@@ -89,15 +89,20 @@
     //follow the club,  else unfollow the club
     
     if(![self followStatus]){
-        [relation addObject:_currentClub];
+        [relation addObject:_currentClub];    //follow
         [user saveInBackground];
         [sender setTitle:@"Unfollow" forState:UIControlStateNormal];
         
     }else{
-        [relation removeObject:_currentClub];
+        [relation removeObject:_currentClub];  //unfollow
         [user saveInBackground];
         //done unfollowing the club and check the button text to "follow"
         [sender setTitle:@"Follow" forState:UIControlStateNormal];
+        
+        //back to main page
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unfollow" message:@"Are you sure to take the club off your list?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Unfollow", nil];
+        [alert show];
     }
 }
 
@@ -163,7 +168,24 @@
     [self performSegueWithIdentifier:@"toMain" sender:self];
 }
 
-
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    
+    if([[alertView title] isEqualToString:@"Unfollow"] && buttonIndex ==1){
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!"
+                                                        message:@"You have unfollowed the Club"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+        [self performSegueWithIdentifier:@"toMain" sender:self];
+    }
+    
+    
+}
 
 
 
