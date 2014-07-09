@@ -7,6 +7,7 @@
 //
 
 #import "JCClubBuildViewController.h"
+#import "JCClubBuildDetailViewController.h"
 #import <Parse/Parse.h>
 
 @interface JCClubBuildViewController ()
@@ -14,11 +15,10 @@
 @end
 
 @implementation JCClubBuildViewController{
-    
-    NSMutableArray *tagList;
-    
-    BOOL sBtn, fBtn, aBtn;
+    PFObject *newClub;
 }
+    
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,13 +37,9 @@
     _passwordField.delegate = self;
     _reEnterPasswordField.delegate = self;
     
-    tagList = [[NSMutableArray alloc] init];
-    _tagsTextView.text = (@"tag your club");
-    [_tagsTextView setUserInteractionEnabled:NO];
-    
-    sBtn=NO;
-    fBtn=NO;
-    aBtn=NO;
+    _sororitySwitch.on = NO;
+    _fraternitySwitch.on = NO;
+    _academicSwitch.on = NO;
 
 }
 
@@ -62,51 +58,12 @@
     [_reEnterPasswordField resignFirstResponder];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(IBAction)sorrorityBtn:(id)sender
-{
-    [self tagAction:@"Sorrority" withMark:sBtn];
-    sBtn=!sBtn;
-}
--(IBAction)fraternityBtn:(id)sender
-{
-    [self tagAction:@"Freternity" withMark:fBtn];
-    fBtn=!fBtn;
-}
--(IBAction)academicBtn:(id)sender
-{
-    [self tagAction:@"Academic" withMark:aBtn];
-    aBtn=!aBtn;
-}
-
--(void)tagAction:(NSString*)name withMark:(BOOL)mark
-{
-    if(!mark){
-        [tagList addObject:name];
-        
-        [_tagsTextView insertText:@"\n + "];
-        
-    }else{
-        NSUInteger index = [tagList indexOfObjectIdenticalTo:name];
-        [tagList removeObjectAtIndex:index];
-        [_tagsTextView insertText:@"\n - "];
-    }
-    [_tagsTextView insertText:name];
-    NSLog(@" %D", [tagList count]);
-}
 
 - (IBAction)buildBtn:(id)sender
 {
-    [_nameField resignFirstResponder];
-    [_emailField resignFirstResponder];
-    [_passwordField resignFirstResponder];
-    [_reEnterPasswordField resignFirstResponder];
+    
     [self checkFieldsComplete];
+  
 }
 
 -(void) checkFieldsComplete{
@@ -144,7 +101,7 @@
 
 -(void) checkTags{
 
-    if(tagList== nil || [tagList count]==0)
+    if(_sororitySwitch.on==NO && _fraternitySwitch.on==NO && _academicSwitch.on==NO)
     {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Oooopss!"
@@ -155,7 +112,9 @@
         [alert show];
     }
     else {
-        [self registerNewClub];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulation" message:@"Want to build this club now?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Build", nil];
+        [alert show];
+        
     }
 }
 
@@ -166,9 +125,20 @@
     PFObject *targetSchool = [PFUser currentUser] [@"school"];
     [targetSchool fetchIfNeeded];
     NSString *schoolId = targetSchool.objectId;
-   
     
-    PFObject *newClub = [PFObject objectWithClassName: @"Club"];
+    
+    NSMutableArray *tagList = [[NSMutableArray alloc] init];
+    if(_sororitySwitch.on==YES){
+        [tagList addObject:@"Sorority"];
+    }
+    if(_fraternitySwitch.on==YES){
+        [tagList addObject:@"Fraternity"];
+    }
+    if(_academicSwitch.on==YES){
+        [tagList addObject:@"Academic"];
+    }
+    
+    newClub = [PFObject objectWithClassName: @"Club"];
     newClub[@"name"] = _nameField.text;
     newClub[@"email"] = _emailField.text;
     newClub[@"password"] = _passwordField.text;
@@ -193,30 +163,49 @@
             _passwordField.text = nil;
             _reEnterPasswordField.text = nil;
             _emailField.text = nil;
-            _tagsTextView.text = nil;
             
-            [self performSegueWithIdentifier:@"toMain" sender:self];
+            [self performSegueWithIdentifier:@"toDetail" sender:self];
             
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem building you a club" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
             [alert show];
         }
     }];
 }
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if ([[segue identifier] isEqualToString:@"toDetail"]) {
+        
+        JCClubBuildDetailViewController *detailVC = [segue destinationViewController];
+        detailVC.currentClub = newClub;
+    }
+    
+}
+
 -(void) cancelBtn:(id)sender
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Are you sure to cancel?" delegate:self cancelButtonTitle:@"Keep Building" otherButtonTitles:@"Give Up", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cancel Event" message:@"Are you sure to cancel?" delegate:self cancelButtonTitle:@"Keep Building" otherButtonTitles:@"Give Up", nil];
     [alert show];
 }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(buttonIndex ==1){
+    
+    
+    if([[alertView title] isEqualToString:@"Congratulation"] && buttonIndex ==1){
+        
+        [self registerNewClub];
+    }
+    
+    if([[alertView title] isEqualToString:@"Cancel Event"] && buttonIndex ==1){
+        
         [self performSegueWithIdentifier:@"toMain" sender:self];
+        
     }
 }
-
 
 
 @end

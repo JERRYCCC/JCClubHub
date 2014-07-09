@@ -18,16 +18,15 @@
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UITextField *reEnterPasswordField;
 
-@property (strong, nonatomic) IBOutlet UITextView *tagsTextView;
-@property (strong, nonatomic) IBOutlet UIButton *sorrorityBtn;
-@property (strong, nonatomic) IBOutlet UIButton *fraternityBtn;
-@property (strong, nonatomic) IBOutlet UIButton *academicBtn;
+
+@property (strong, nonatomic) IBOutlet UISwitch *sororitySwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *fraternitySwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *academicSwitch;
+
+
 
 
 -(IBAction)buildBtn:(id)sender;
 -(IBAction)cancelBtn:(id)sender;
--(IBAction)sorrorityBtn:(id)sender;
--(IBAction)fraternityBtn:(id)sender;
--(IBAction)academicBtn:(id)sender;
 
 @end

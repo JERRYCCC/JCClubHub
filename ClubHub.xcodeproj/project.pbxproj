@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C41806F6196D746A00A4CFD4 /* JCClubBuildDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41806F5196D746A00A4CFD4 /* JCClubBuildDetailViewController.m */; };
 		C4486A9D1969D01C002A0AAF /* JCAllClubsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4486A9C1969D01C002A0AAF /* JCAllClubsTableViewController.m */; };
 		C4486AA01969D493002A0AAF /* JCAllEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4486A9F1969D493002A0AAF /* JCAllEventsTableViewController.m */; };
+		C492CC4A196D835500D98E94 /* JCEventEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C492CC49196D835500D98E94 /* JCEventEditViewController.m */; };
 		C4A39D321964076900F8203F /* JCEventCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A39D311964076900F8203F /* JCEventCreateViewController.m */; };
 		C4A39D3819642D1A00F8203F /* JCPickClubTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A39D3719642D1A00F8203F /* JCPickClubTableViewController.m */; };
 		C4A47113196B4E9700C9C31B /* JCAdminTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A47112196B4E9700C9C31B /* JCAdminTableViewController.m */; };
@@ -63,10 +65,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C41806F4196D746A00A4CFD4 /* JCClubBuildDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCClubBuildDetailViewController.h; sourceTree = "<group>"; };
+		C41806F5196D746A00A4CFD4 /* JCClubBuildDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCClubBuildDetailViewController.m; sourceTree = "<group>"; };
 		C4486A9B1969D01C002A0AAF /* JCAllClubsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAllClubsTableViewController.h; sourceTree = "<group>"; };
 		C4486A9C1969D01C002A0AAF /* JCAllClubsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAllClubsTableViewController.m; sourceTree = "<group>"; };
 		C4486A9E1969D493002A0AAF /* JCAllEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAllEventsTableViewController.h; sourceTree = "<group>"; };
 		C4486A9F1969D493002A0AAF /* JCAllEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAllEventsTableViewController.m; sourceTree = "<group>"; };
+		C492CC48196D835500D98E94 /* JCEventEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCEventEditViewController.h; sourceTree = "<group>"; };
+		C492CC49196D835500D98E94 /* JCEventEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCEventEditViewController.m; sourceTree = "<group>"; };
 		C4A39D301964076900F8203F /* JCEventCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCEventCreateViewController.h; sourceTree = "<group>"; };
 		C4A39D311964076900F8203F /* JCEventCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCEventCreateViewController.m; sourceTree = "<group>"; };
 		C4A39D3619642D1A00F8203F /* JCPickClubTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCPickClubTableViewController.h; sourceTree = "<group>"; };
@@ -218,8 +224,6 @@
 		C4F303BE1960302B00EC723F /* ClubHub */ = {
 			isa = PBXGroup;
 			children = (
-				C4F303C71960302B00EC723F /* JCAppDelegate.h */,
-				C4F303C81960302B00EC723F /* JCAppDelegate.m */,
 				C4F303CA1960302B00EC723F /* Main.storyboard */,
 				C4A47111196B4E9700C9C31B /* JCAdminTableViewController.h */,
 				C4A47112196B4E9700C9C31B /* JCAdminTableViewController.m */,
@@ -239,6 +243,8 @@
 		C4F303BF1960302B00EC723F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C4F303C71960302B00EC723F /* JCAppDelegate.h */,
+				C4F303C81960302B00EC723F /* JCAppDelegate.m */,
 				C4F303C01960302B00EC723F /* ClubHub-Info.plist */,
 				C4F303C11960302B00EC723F /* InfoPlist.strings */,
 				C4F303C41960302B00EC723F /* main.m */,
@@ -293,6 +299,8 @@
 				C4F3041119607A6500EC723F /* JCClubDetailViewController.m */,
 				C4D23B8D19629F7600F3C7C3 /* JCClubBuildViewController.h */,
 				C4D23B8E19629F7600F3C7C3 /* JCClubBuildViewController.m */,
+				C41806F4196D746A00A4CFD4 /* JCClubBuildDetailViewController.h */,
+				C41806F5196D746A00A4CFD4 /* JCClubBuildDetailViewController.m */,
 			);
 			name = ClubViewController;
 			sourceTree = "<group>";
@@ -308,6 +316,8 @@
 				C4F3042119613AB800EC723F /* JCEventTableViewCell.m */,
 				C4F3041D1961354400EC723F /* JCEventDetailViewController.h */,
 				C4F3041E1961354400EC723F /* JCEventDetailViewController.m */,
+				C492CC48196D835500D98E94 /* JCEventEditViewController.h */,
+				C492CC49196D835500D98E94 /* JCEventEditViewController.m */,
 				C4A39D301964076900F8203F /* JCEventCreateViewController.h */,
 				C4A39D311964076900F8203F /* JCEventCreateViewController.m */,
 				C4A39D3619642D1A00F8203F /* JCPickClubTableViewController.h */,
@@ -415,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4F3040C196070E900EC723F /* JCClubTableViewController.m in Sources */,
+				C41806F6196D746A00A4CFD4 /* JCClubBuildDetailViewController.m in Sources */,
 				C4F3042219613AB800EC723F /* JCEventTableViewCell.m in Sources */,
 				C4486A9D1969D01C002A0AAF /* JCAllClubsTableViewController.m in Sources */,
 				C4F3040F196075B300EC723F /* JCEventTableViewController.m in Sources */,
@@ -423,6 +434,7 @@
 				C4A39D321964076900F8203F /* JCEventCreateViewController.m in Sources */,
 				C4F3041219607A6500EC723F /* JCClubDetailViewController.m in Sources */,
 				C4A47113196B4E9700C9C31B /* JCAdminTableViewController.m in Sources */,
+				C492CC4A196D835500D98E94 /* JCEventEditViewController.m in Sources */,
 				C4F303C91960302B00EC723F /* JCAppDelegate.m in Sources */,
 				C4F303F21960444D00EC723F /* JCRegisterViewController.m in Sources */,
 				C4D23B8F19629F7600F3C7C3 /* JCClubBuildViewController.m in Sources */,

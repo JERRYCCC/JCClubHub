@@ -84,7 +84,7 @@
     
     NSDate *date=[object objectForKey:@"date"];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"h:mm a           EEE, MMM-d"];
+    [formatter setDateFormat:@"h:mm a   EEE, MMM-d"];
     cell.dateLabel.text = [formatter stringFromDate:date];
     
     return cell;

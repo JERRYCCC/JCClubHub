@@ -19,9 +19,11 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *markBtn;
 @property (strong, nonatomic) IBOutlet UIButton *deleteBtn;
+@property (strong, nonatomic) IBOutlet UIButton *editBtn;
 
 -(IBAction)deleteBtn:(id)sender;
 -(IBAction)markBtn:(id)sender;
+-(IBAction)editBtn:(id)sender;
 
 
 @end

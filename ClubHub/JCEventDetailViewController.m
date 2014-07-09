@@ -7,6 +7,7 @@
 //
 
 #import "JCEventDetailViewController.h"
+#import "JCEventEditViewController.h"
 
 
 @interface JCEventDetailViewController ()
@@ -49,8 +50,10 @@
     
     if([self checkPriority]){
         _deleteBtn.hidden = NO;
+        _editBtn.hidden = NO;
     }else{
         _deleteBtn.hidden =YES;
+        _editBtn.hidden = YES;
     }
 
 }
@@ -143,6 +146,17 @@
     }
 }
 
+-(IBAction)editBtn:(id)sender
+{
+    [self performSegueWithIdentifier:@"toEventEdit" sender:self];
+}
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"toEventEdit"]){
+        JCEventEditViewController* eventEditVC = [segue destinationViewController];
+        eventEditVC.currentEvent = _currentEvent;
+    }
+}
 
 @end
