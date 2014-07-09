@@ -143,6 +143,9 @@
         [relation removeObject:_currentEvent];
         [user saveInBackground];
         [sender setTitle:@"Mark" forState:UIControlStateNormal];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unmark" message:@"Are you sure to take the event off your list?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Unmark", nil];
+        [alert show];
     }
 }
 
@@ -162,6 +165,25 @@
 -(IBAction)backBtn:(id)sender;
 {
     [self performSegueWithIdentifier:@"toMain" sender:self];
+}
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    
+    if([[alertView title] isEqualToString:@"Unmark"] && buttonIndex ==1){
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!"
+                                                        message:@"You have unmark the event"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+        [self performSegueWithIdentifier:@"toMain" sender:self];
+    }
+    
+    
 }
 
 @end

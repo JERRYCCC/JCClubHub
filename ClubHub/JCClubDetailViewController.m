@@ -175,7 +175,7 @@
     if([[alertView title] isEqualToString:@"Unfollow"] && buttonIndex ==1){
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!"
-                                                        message:@"You have unfollowed the Club"
+                                                        message:@"You have unfollowed the club"
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
