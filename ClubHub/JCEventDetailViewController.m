@@ -98,7 +98,7 @@
         [alert show];
         
         //go back to event list
-        [self performSegueWithIdentifier:@"toEventList" sender:self];
+        [self performSegueWithIdentifier:@"toMain" sender:self];
         
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!"

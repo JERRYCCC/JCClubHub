@@ -1042,7 +1042,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyi-KY-Rx6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2656" y="901"/>
+            <point key="canvasLocation" x="2584" y="895"/>
         </scene>
         <!--Event Edit View Controller-->
         <scene sceneID="Z5d-on-PnI">
@@ -1443,7 +1443,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="TBi-xe-K2f"/>
-        <segue reference="yPU-ud-HrZ"/>
+        <segue reference="fAR-0M-qhq"/>
         <segue reference="5pp-Wi-pu8"/>
         <segue reference="HBS-eC-vzP"/>
     </inferredMetricsTieBreakers>
