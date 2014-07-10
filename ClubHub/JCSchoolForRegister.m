@@ -50,6 +50,12 @@
     return [schoolList[rowNum] objectId];
 }
 
+-(NSString*) getSchoolDomain:(int)rowNum{
+    
+    NSString* domain = schoolList[rowNum][@"domain"];
+    return domain;
+}
+
 
 
 @end

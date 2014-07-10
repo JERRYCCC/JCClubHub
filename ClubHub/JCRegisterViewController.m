@@ -25,6 +25,7 @@
     if (self) {
         
         
+        
     }
     return self;
 }
@@ -42,7 +43,8 @@
     
     sfr = [[JCSchoolForRegister alloc] init];
     _schoolNameList = [sfr getSchoolNameList];
-
+    
+    
 }
 
 
@@ -59,12 +61,6 @@
     [_emailField resignFirstResponder];
     [_passwordField resignFirstResponder];
     [_reEnterPasswordField resignFirstResponder];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(IBAction)registerAction:(id)sender{
@@ -96,38 +92,30 @@
         [alert show];
     }
     else {
-        [self registerNewUser];
+        [self checkDomain];
     }
 }
 
-/*
--(void) checkUniqueUserName{
+-(void) checkDomain{
     
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
-    [query whereKey:@"username" equalTo:_usernameField.text];
-    if([query countObjects]==0||query==nil){
-        [self checkUniqueEmail];
-        }
-    else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!" message:@"Username has been used" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    NSString *string = _emailField.text;
+    NSRange range = [string rangeOfString:@"@"];
+    
+    if ([string rangeOfString:@"@"].location == NSNotFound){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!" message:@"Please enter a valid email address" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
+    }else{
+        NSString* domainName = [[string substringFromIndex:NSMaxRange(range)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+        if([[sfr getSchoolDomain:pickRow] isEqualToString: domainName]){
+            [self registerNewUser];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!" message:@"School don't match your email" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
     }
 }
 
--(void) checkUniqueEmail{
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
-    [query whereKey:@"email" equalTo: _emailField.text];
-    if([query countObjects]==0||query==nil){
-          [self registerNewUser];
-        }
-    else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!" message:@"Email has been used " delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-    }
-    
-}
-*/
 
 -(void) registerNewUser{
     NSLog(@"registering...");

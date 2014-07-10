@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <PassKit/PassKit.h>
 
 @interface JCSchoolForRegister : NSObject
 
 -(NSMutableArray*)getSchoolNameList;
 -(id)getSchoolId: (int)rowNum;
+-(NSString*)getSchoolDomain:(int)rowNum;
 
 @end

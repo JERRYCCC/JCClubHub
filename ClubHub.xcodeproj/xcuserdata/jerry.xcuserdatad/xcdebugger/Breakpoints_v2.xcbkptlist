@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClubHub/JCRegisterViewController.m"
-            timestampString = "426704787.884906"
+            timestampString = "426722351.320661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-registerNewUser"
             landmarkType = "5">
          </BreakpointContent>
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClubHub/JCRegisterViewController.m"
-            timestampString = "426705547.494582"
+            timestampString = "426722351.320661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "-registerNewUser"
             landmarkType = "5">
          </BreakpointContent>
