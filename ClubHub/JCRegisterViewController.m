@@ -100,6 +100,35 @@
     }
 }
 
+/*
+-(void) checkUniqueUserName{
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query whereKey:@"username" equalTo:_usernameField.text];
+    if([query countObjects]==0||query==nil){
+        [self checkUniqueEmail];
+        }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!" message:@"Username has been used" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+-(void) checkUniqueEmail{
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query whereKey:@"email" equalTo: _emailField.text];
+    if([query countObjects]==0||query==nil){
+          [self registerNewUser];
+        }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!" message:@"Email has been used " delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+    
+}
+*/
+
 -(void) registerNewUser{
     NSLog(@"registering...");
     PFUser *newUser = [PFUser user];
@@ -119,9 +148,12 @@
             _reEnterPasswordField.text = nil;
             _emailField.text = nil;
             [self performSegueWithIdentifier:@"login" sender:self];
-        }
-        else{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem signing you up" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        }else{
+            NSString *string = [error description];
+            NSRange range = [string rangeOfString:@"error="];
+            NSString *substring = [[string substringFromIndex:NSMaxRange(range)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            substring = [substring stringByReplacingOccurrencesOfString:@"}" withString:@" :("];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:substring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
         }
     }];
