@@ -1203,7 +1203,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <scene sceneID="TzA-qr-Dot">
             <objects>
                 <navigationController title="MarkedEvents" definesPresentationContext="YES" id="d83-c5-ynK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="MyEvents" id="9kU-bb-kPn"/>
+                    <tabBarItem key="tabBarItem" title="MyEvents" image="all event" id="9kU-bb-kPn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G7G-vN-OuR">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1219,10 +1219,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <scene sceneID="msD-QI-oQQ">
             <objects>
                 <navigationController title="FollowedClubs" definesPresentationContext="YES" id="egD-U9-g1o" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="MyClubs" id="gfP-6x-nl5"/>
+                    <tabBarItem key="tabBarItem" title="MyClubs" image="all clubs" id="gfP-6x-nl5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6vh-Pd-cdn">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ac8-l9-kzC">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="Gyh-ol-FNu" kind="relationship" relationship="rootViewController" id="cZe-Xp-cK9"/>
                     </connections>
@@ -1524,10 +1528,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="HBS-eC-vzP"/>
-        <segue reference="TBi-xe-K2f"/>
-        <segue reference="yPU-ud-HrZ"/>
+        <segue reference="K1I-4w-OBM"/>
+        <segue reference="WLt-eI-qKN"/>
         <segue reference="5pp-Wi-pu8"/>
+        <segue reference="yPU-ud-HrZ"/>
         <segue reference="yAS-gG-sgF"/>
     </inferredMetricsTieBreakers>
 </document>
