@@ -22,6 +22,7 @@
 
 -(IBAction)followBtn:(id)sender;
 -(IBAction)backBtn:(id)sender;
+-(IBAction)addEventBtn:(id)sender;
 
 
 @end

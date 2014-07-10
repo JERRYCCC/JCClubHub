@@ -23,6 +23,8 @@
 {
     [super viewDidLoad];
     
+    self.clearsSelectionOnViewWillAppear = NO;
+    
     menuItems = @[@"myClubHub", @"myAdmins", @"allClubs", @"allEvents",@"createEvent", @"copyright"];
 }
 

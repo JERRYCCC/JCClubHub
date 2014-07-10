@@ -78,14 +78,14 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(cell==nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
     cell.textLabel.text = [object objectForKey:@"name"];
     
     NSDate *date=[object objectForKey:@"date"];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"h:mm a           EEE, MMM-d"];
+    [formatter setDateFormat:@"h:mm a  EEE, MMM-d"];
     cell.detailTextLabel.text = [formatter stringFromDate:date];
     
     return cell;

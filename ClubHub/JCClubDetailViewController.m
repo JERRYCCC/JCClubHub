@@ -9,6 +9,7 @@
 #import "JCClubDetailViewController.h"
 #import "JCEventTableViewCell.h"
 #import "JCEventDetailViewController.h"
+#import "JCEventCreateViewController.h"
 
 @interface JCClubDetailViewController ()
 
@@ -161,6 +162,14 @@
         PFObject *object = [eventList objectAtIndex:row];
         eventDetailViewController.currentEvent = object;
     }
+    
+    if([[segue identifier] isEqualToString:@"toEventCreate"]){
+        
+        JCEventCreateViewController *eventCreateVC = [segue destinationViewController];
+        
+        eventCreateVC.targetClub = _currentClub;
+        
+    }
 }
 
 -(IBAction)backBtn:(id)sender
@@ -183,8 +192,11 @@
         
         [self performSegueWithIdentifier:@"toMain" sender:self];
     }
-    
-    
+}
+
+-(IBAction)addEventBtn:(id)sender
+{
+    [self performSegueWithIdentifier:@"toEventCreate" sender:self];
 }
 
 

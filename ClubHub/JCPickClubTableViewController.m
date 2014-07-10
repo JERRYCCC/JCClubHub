@@ -95,6 +95,7 @@
         tagString = [tagString stringByAppendingString:@", "];
     }
     cell.detailTextLabel.text = tagString;
+    cell.imageView.image = [UIImage imageNamed:@"CLUB-HUB-LOGO.png"];
     
     return cell;
 }
