@@ -93,7 +93,7 @@
     [clubList whereKey:@"objectId" equalTo:_currentClub.objectId];
     
     
-    if([clubList countObjects]==0){
+    if([clubList countObjects]==0||clubList==nil){
         return NO;
         
     }else{
@@ -119,16 +119,16 @@
         [sender setTitle:@"Unfollow" forState:UIControlStateNormal];
         
     }else{
-        [self unmarkAllClubEevnts];  //unmark all the events belongs to this club
+        
         [relation removeObject:_currentClub];  //unfollow
         [user saveInBackground];
         //done unfollowing the club and check the button text to "follow"
         [sender setTitle:@"Follow" forState:UIControlStateNormal];
         
-        //back to main page
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unfollow" message:@"Are you sure to take the club off your list?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Unfollow", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done Unfollow the Club" message:@"Do you also want to unmark all the events related to this club?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
         [alert show];
+        
+        [self performSegueWithIdentifier:@"toMain" sender:self];
     }
 }
 
@@ -233,19 +233,14 @@
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    
-    
-    if([[alertView title] isEqualToString:@"Unfollow"] && buttonIndex ==1){
+
+    if([[alertView title] isEqualToString:@"Done Unfollow the Club"] && buttonIndex ==1){
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!"
-                                                        message:@"You have unfollowed the club"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-        
-        [self performSegueWithIdentifier:@"toMain" sender:self];
+        [self unmarkAllClubEevnts];  //unmark all the events belongs to this club
     }
+    
+    
+    
 }
 
 -(IBAction)addEventBtn:(id)sender

@@ -7,6 +7,7 @@
 //
 
 #import "JCAllClubsTableViewController.h"
+#import "JCClubTableViewCell.h"
 #import "JCClubDetailViewController.h"
 #import "SWRevealViewController.h"
 
@@ -69,25 +70,27 @@
     
     static NSString *cellIdentifier = @"ClubCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    JCClubTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if(cell==nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell = [[JCClubTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.textLabel.text = [object objectForKey:@"name"];
+    cell.currentClub = object;
+    cell.titleLable.text = object[@"name"];
     
-    NSArray *tagList = [object objectForKey:@"tags"];
+    NSArray *tagList = object[@"tags"];
     NSString *tagString = @" ";
     for(NSString *string in tagList){
         tagString = [tagString stringByAppendingString:string];
         tagString = [tagString stringByAppendingString:@", "];
     }
-    cell.detailTextLabel.text = tagString;
-    cell.imageView.image = [UIImage imageNamed:@"CLUB-HUB-LOGO.png"];
+    cell.tagsLable.text = tagString;
+
     
     return cell;
 }
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
