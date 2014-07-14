@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface JCEventDetailViewController : UIViewController
+@interface JCEventDetailViewController : UIViewController <UIActionSheetDelegate>
 
 @property (weak, nonatomic) PFObject *currentEvent;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
@@ -19,12 +19,12 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *markBtn;
 @property (strong, nonatomic) IBOutlet UIButton *deleteBtn;
-@property (strong, nonatomic) IBOutlet UIButton *editBtn;
+@property (strong, nonatomic) IBOutlet UIButton *adminBtn;
 
 -(IBAction)deleteBtn:(id)sender;
 -(IBAction)markBtn:(id)sender;
--(IBAction)editBtn:(id)sender;
 -(IBAction)backBtn:(id)sender;
+-(IBAction)adminBtn:(id)sender;
 
 
 @end

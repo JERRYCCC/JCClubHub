@@ -52,6 +52,9 @@
     PFUser *user = [PFUser currentUser];
     PFObject *schoolObject = user[@"school"];
     [query whereKey:@"school" equalTo: schoolObject];
+    [query whereKey:@"available" equalTo:[NSNumber numberWithBool:YES]]; //only get the even that is available
+    [query whereKey:@"date" greaterThanOrEqualTo:[[NSDate date] dateByAddingTimeInterval:-60*60]]; //getting the events which start one hour ago from now
+    //get the event later than current date
     [query orderByAscending:@"date"];
     
     eventList = [query findObjects];  //for prepareForSegue use
@@ -83,10 +86,15 @@
     
     cell.textLabel.text = [object objectForKey:@"name"];
     
-    NSDate *date=[object objectForKey:@"date"];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"h:mm a  EEE, MMM-d"];
-    cell.detailTextLabel.text = [formatter stringFromDate:date];
+    if([object[@"date"] timeIntervalSinceDate:[[NSDate date] dateByAddingTimeInterval:-(60*60)]]<=60*60)
+    {
+        cell.detailTextLabel.text = @"Happening";
+    }else{
+        NSDate *date=[object objectForKey:@"date"];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"h:mm a  EEE, MMM-d"];
+        cell.detailTextLabel.text = [formatter stringFromDate:date];
+    }
     
     return cell;
 }

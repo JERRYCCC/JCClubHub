@@ -14,7 +14,9 @@
 
 @end
 
-@implementation JCEventDetailViewController
+@implementation JCEventDetailViewController{
+    NSString *cancelString;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,7 +35,7 @@
     
     NSDate *date=[_currentEvent objectForKey:@"date"];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"h:mm a           EEE, MMM-d"];
+    [formatter setDateFormat:@"h:mm a  EEE, MMM-d"];
     _dateLabel.text = [formatter stringFromDate:date];
     
     _locationTextView.text = (_currentEvent[@"location"]);
@@ -42,20 +44,27 @@
     _descriptionTextView.text = (_currentEvent[@"description"]);
     _descriptionTextView.editable=NO;
 
-    if([self markStatus]){
-        _markBtn.titleLabel.text = @"Unmark";
-    }else{
-        _markBtn.titleLabel.text = @"Mark";
-    }
     
     if([self checkPriority]){
-        _deleteBtn.hidden = NO;
-        _editBtn.hidden = NO;
+        _adminBtn.hidden = NO;
+        _markBtn.hidden = YES;
     }else{
-        _deleteBtn.hidden =YES;
-        _editBtn.hidden = YES;
+        _adminBtn.hidden = YES;
+        _markBtn.hidden = NO;
+        
+        if([self markStatus]){
+            _markBtn.titleLabel.text = @"Unmark";
+        }else{
+            _markBtn.titleLabel.text = @"Mark";
+        }
     }
-
+    
+    if(_currentEvent[@"available"] == [NSNumber numberWithBool:YES]){
+        cancelString = @"Cancel Event";
+    }else{
+         cancelString = @"Revive Event";
+        _dateLabel.text = @"This event has been canceled.";
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,10 +86,10 @@
     
     [adminsQuery whereKey:@"objectId" equalTo:user.objectId];
         
-        if([adminsQuery countObjects]!=0){
-            return YES;
-        }else{
+        if([adminsQuery countObjects]==0||adminsQuery==nil){
             return NO;
+        }else{
+            return YES;
         }
 }
 
@@ -149,16 +158,70 @@
     }
 }
 
--(IBAction)editBtn:(id)sender
-{
-    [self performSegueWithIdentifier:@"toEventEdit" sender:self];
-}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([[segue identifier] isEqualToString:@"toEventEdit"]){
         JCEventEditViewController* eventEditVC = [segue destinationViewController];
         eventEditVC.currentEvent = _currentEvent;
+    }
+}
+
+
+-(IBAction)adminBtn:(id)sender
+{
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Administration"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                otherButtonTitles:@"Edit Event", cancelString, nil];
+    
+    [actionSheet showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            [self performSegueWithIdentifier:@"toEventEdit" sender:self];
+            break;
+        
+        case 1:
+            if(_currentEvent[@"available"] == [NSNumber numberWithBool:YES]){
+                
+                _currentEvent[@"available"] = [NSNumber numberWithBool:NO];
+                cancelString = @"Revive Event";
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!"
+                                                                message:@"You have canceled this event"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+                _dateLabel.text = @"This event has been canceled.";
+            }else{
+                
+                _currentEvent[@"available"] = [NSNumber numberWithBool:YES];
+                cancelString = @"Cancel Event";
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulation!"
+                                                                message:@"You have revived this event"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+                
+                NSDate *date=[_currentEvent objectForKey:@"date"];
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateFormat:@"h:mm a  EEE, MMM-d"];
+                _dateLabel.text = [formatter stringFromDate:date];
+                
+            }
+            [_currentEvent saveInBackground];
+            break;
+            
+        default:
+            break;
     }
 }
 

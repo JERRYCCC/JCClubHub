@@ -47,11 +47,21 @@
     _descriptionTextView.text = (_currentClub[@"description"]);
     _descriptionTextView.editable=NO;
     
-    if([self followStatus]){
-        _followBtn.titleLabel.text = @"Unfollow";
+    if([self checkPriority]){
+        _adminBtn.hidden = NO;
+        _followBtn.hidden = YES;
     }else{
-        _followBtn.titleLabel.text = @"Follow";
+        _adminBtn.hidden = YES;
+        _followBtn.hidden = NO;
+        
+        if([self followStatus]){
+            _followBtn.titleLabel.text = @"Unfollow";
+        }else{
+            _followBtn.titleLabel.text = @"Follow";
+        }
     }
+    
+    
     
     eventList = [self getEventList];
 }
@@ -62,6 +72,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)checkPriority{
+    PFRelation *relation = [_currentClub relationForKey:@"admins"];
+    PFQuery *adminQuery = [relation query];
+    [adminQuery whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
+    
+    if([adminQuery countObjects]==0||adminQuery==nil){
+        return NO;
+    }else{
+        return YES;
+    }
+}
+
 -(BOOL)followStatus
 {
     PFUser *user = [PFUser currentUser];
@@ -69,6 +91,7 @@
     PFRelation *relation=[user relationForKey:@"followClubs"];
     PFQuery *clubList = [relation query];
     [clubList whereKey:@"objectId" equalTo:_currentClub.objectId];
+    
     
     if([clubList countObjects]==0){
         return NO;
@@ -113,6 +136,7 @@
     
     //only get the events of current club
     [query whereKey:@"club" equalTo:_currentClub];
+    [query whereKey:@"date" greaterThanOrEqualTo:[[NSDate date] dateByAddingTimeInterval:-60*60]];
     [query orderByDescending:@"date"];
     NSArray *list = [query findObjects];
     return list;
@@ -140,10 +164,16 @@
     PFObject *event = eventList[indexPath.row];
     cell.textLabel.text = event[@"name"];
     
-    NSDate *date=[event objectForKey:@"date"];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"h:mm a  EEE, MMM-d"];
-    cell.detailTextLabel.text = [formatter stringFromDate:date];
+    if(event[@"available"]== [NSNumber numberWithBool:NO]){
+        cell.detailTextLabel.text = @"Canceled";
+    }else if ([event[@"date"] timeIntervalSinceDate:[[NSDate date] dateByAddingTimeInterval:-(60*60)]]<=60*60){
+        cell.detailTextLabel.text = @"Happening";
+    }
+    else{
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"h:mm a   EEE, MMM-d"];
+        cell.detailTextLabel.text = [formatter stringFromDate:event[@"date"]];
+    }
     
     return cell;
 }
@@ -198,6 +228,34 @@
 {
     [self performSegueWithIdentifier:@"toEventCreate" sender:self];
 }
+
+-(IBAction)adminBtn:(id)sender
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Administration"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Edit Club", nil];
+    
+    [actionSheet showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"Not done yet");
+            break;
+            
+        default:
+            break;
+    }
+}
+
+
+
+
+
 
 
 

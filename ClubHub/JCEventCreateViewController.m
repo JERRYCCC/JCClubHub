@@ -17,13 +17,16 @@
 @implementation JCEventCreateViewController
 {
     PFObject *newEvent;
+    BOOL ava;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
+        _datePicker = [[UIDatePicker alloc] init];
+        
     }
     return self;
 }
@@ -36,6 +39,10 @@
     _descriptionView.delegate = self;
     
     _descriptionView.text = [@"Add some details about the event.\n\nBy: " stringByAppendingString: _targetClub[@"name"]];
+    
+    //the user can only build an event for one hour later
+    NSDate *currrentTime = [NSDate date];
+    [_datePicker setMinimumDate:[currrentTime dateByAddingTimeInterval:60*60]];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField*) textField{
@@ -95,6 +102,8 @@
     newEvent[@"date"] = _datePicker.date;
     newEvent[@"club"] = _targetClub;
     newEvent[@"school"] =_targetClub[@"school"];
+    newEvent[@"available"] = [NSNumber numberWithBool:YES]; //set the event is available when it is built
+    
     
     [newEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         

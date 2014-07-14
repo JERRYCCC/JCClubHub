@@ -54,6 +54,9 @@
     PFRelation *relation = [user relationForKey:@"markEvents"];
     PFQuery *query = [relation query];
     
+    //getting the events which start one hour ago from now
+    [query whereKey:@"date" greaterThanOrEqualTo:[[NSDate date] dateByAddingTimeInterval:-(60*60)]];
+    
     
     [query orderByAscending:@"date"];
     
@@ -86,10 +89,18 @@
     
     cell.titleLable.text = [object objectForKey:@"name"];
     
-    NSDate *date=[object objectForKey:@"date"];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"h:mm a   EEE, MMM-d"];
-    cell.dateLabel.text = [formatter stringFromDate:date];
+    
+    if(object[@"available"]== [NSNumber numberWithBool:NO]){
+        cell.dateLabel.text = @"Canceled";
+    }else if ([object[@"date"] timeIntervalSinceDate:[[NSDate date] dateByAddingTimeInterval:-(60*60)]]<=60*60){
+        cell.dateLabel.text = @"Happening";
+    }
+    else{
+        NSDate *date=[object objectForKey:@"date"];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"h:mm a   EEE, MMM-d"];
+        cell.dateLabel.text = [formatter stringFromDate:date];
+    }
     
     return cell;
 }

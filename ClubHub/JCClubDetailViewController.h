@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface JCClubDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface JCClubDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) PFObject *currentClub;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
@@ -19,10 +19,12 @@
 @property (weak, nonatomic) IBOutlet UITableView *eventListTableView;
 
 @property (strong, nonatomic) IBOutlet UIButton *followBtn;
+@property (strong, nonatomic) IBOutlet UIButton *adminBtn;
 
 -(IBAction)followBtn:(id)sender;
 -(IBAction)backBtn:(id)sender;
 -(IBAction)addEventBtn:(id)sender;
+-(IBAction)adminBtn:(id)sender;
 
 
 @end
