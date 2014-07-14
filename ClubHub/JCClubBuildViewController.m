@@ -118,6 +118,11 @@
     }
 }
 
+-(void) checkUniqeness
+{
+    
+}
+
 -(void) registerNewClub
 {
     
