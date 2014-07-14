@@ -113,11 +113,13 @@
     //follow the club,  else unfollow the club
     
     if(![self followStatus]){
+        [self markAllClubEvents]; //mark all the events belongs to this club
         [relation addObject:_currentClub];    //follow
         [user saveInBackground];
         [sender setTitle:@"Unfollow" forState:UIControlStateNormal];
         
     }else{
+        [self unmarkAllClubEevnts];  //unmark all the events belongs to this club
         [relation removeObject:_currentClub];  //unfollow
         [user saveInBackground];
         //done unfollowing the club and check the button text to "follow"
@@ -128,6 +130,28 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unfollow" message:@"Are you sure to take the club off your list?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Unfollow", nil];
         [alert show];
     }
+}
+
+-(void)markAllClubEvents
+{
+    PFUser *user = [PFUser currentUser];
+    PFRelation *relation = [user relationForKey:@"markEvents"];
+
+    for (PFObject *event in self.getEventList) {
+        [relation addObject:event];
+    }
+    [user saveInBackground];
+}
+
+-(void)unmarkAllClubEevnts
+{
+    PFUser *user = [PFUser currentUser];
+    PFRelation *relation = [user relationForKey:@"markEvents"];
+    for (PFObject *event in self.getEventList) {
+        [relation removeObject:event];
+    }
+    [user saveInBackground];
+    
 }
 
 -(NSArray*) getEventList
