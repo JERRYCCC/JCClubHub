@@ -65,6 +65,8 @@
          cancelString = @"Revive Event";
         _dateLabel.text = @"This event has been canceled.";
     }
+    
+     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"greyBackground"]];
 }
 
 - (void)didReceiveMemoryWarning

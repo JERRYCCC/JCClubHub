@@ -46,6 +46,8 @@
     [self.menuBtn setAction:@selector(revealToggle:)];
     [self.navigationController.navigationBar addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
+    
+    
 }
 
 -(PFQuery*) queryForTable{

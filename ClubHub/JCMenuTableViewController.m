@@ -25,7 +25,10 @@
     
     self.clearsSelectionOnViewWillAppear = NO;
     
-    menuItems = @[@"myClubHub", @"myAdmins", @"allClubs", @"allEvents",@"createEvent", @"copyright"];
+    menuItems = @[@"myClubHub", @"createEvent", @"allClubs", @"allEvents", @"copyright", @"myAdmins"];
+    
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bluelight"]];
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
