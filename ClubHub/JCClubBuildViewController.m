@@ -112,15 +112,35 @@
         [alert show];
     }
     else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulation" message:@"Want to build this club now?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Build", nil];
-        [alert show];
-        
+        [self checkUniqeness];
     }
 }
 
 -(void) checkUniqeness
 {
+    PFQuery *query = [PFQuery queryWithClassName:@"Club"];
+    [query whereKey:@"name" equalTo:_nameField.text];
+    NSArray *clubList = [query findObjects];
     
+    NSLog(@"%d", [clubList count]);
+    
+    if([clubList count]==0||clubList==nil){
+        //build the club
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulation"
+                                                        message:@"Want to build this club now?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"Build", nil];
+        [alert show];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Oooopss!"
+                              message:@"Club Name has been taken"
+                              delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 -(void) registerNewClub

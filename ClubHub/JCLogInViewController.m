@@ -59,20 +59,88 @@
 }
 
 - (IBAction)loginButton:(id)sender {
-    [PFUser logInWithUsernameInBackground:_usernameField.text password:_passwordField.text block:^(PFUser *user, NSError *error) {
+    
+    NSRange range = [_usernameField.text rangeOfString:@"@"];
+    NSString *username;
+    
+    if (range.location == NSNotFound) {
+        
+        NSLog(@"log in with username");
+        //log in with username
+        username = _usernameField.text;
+        
+    }else{
+
+        NSLog(@"log in with email");
+        //log in with email
+        PFQuery *userList =[PFUser query];
+        [userList whereKey:@"email" equalTo:_usernameField.text];
+        PFObject *user = [userList getFirstObject];
+        username = user[@"username"];
+    }
+    
+    [PFUser logInWithUsernameInBackground:username
+                                 password:_passwordField.text
+                                    block:^(PFUser *user, NSError *error)
+    {
         if (!error) {
             NSLog(@"Login user!");
             _passwordField.text = nil;
             _usernameField.text = nil;
             
             [self performSegueWithIdentifier:@"login" sender:self];
-        }
-        if (error) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Please make sure you enter the right account and password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Please make sure you enter the right account or password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
         }
     }];
 }
+
+-(IBAction)resetBtn:(id)sender
+{
+    NSRange range = [_usernameField.text rangeOfString:@"@"];
+    
+    if(range.location == NSNotFound){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                        message:@"Enter your email(.edu) please!"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+    }else{
+        
+        
+        [PFUser requestPasswordResetForEmailInBackground: _usernameField.text block:^(BOOL succeeded, NSError *error){
+            
+            if (!error) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email sent"
+                                                                message:@"Check your inbox and reset your passwrod"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            } else {
+                
+                NSString *string = [error description];
+                NSRange range = [string rangeOfString:@"error="];
+                NSString *substring = [[string substringFromIndex:NSMaxRange(range)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                substring = [substring stringByReplacingOccurrencesOfString:@"}" withString:@" "];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                                message:substring
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+            
+        }];
+    
+    }
+    
+}
+
 
 
 

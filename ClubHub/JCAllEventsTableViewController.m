@@ -86,7 +86,10 @@
     
     cell.textLabel.text = [object objectForKey:@"name"];
     
-    if([object[@"date"] timeIntervalSinceDate:[[NSDate date] dateByAddingTimeInterval:-(60*60)]]<=60*60)
+    
+    if(object[@"available"]==[NSNumber numberWithBool:NO]) {
+        cell.detailTextLabel.text = @"Canceled";
+    }else if([object[@"date"] timeIntervalSinceDate:[[NSDate date] dateByAddingTimeInterval:-(60*60)]]<=60*60)
     {
         cell.detailTextLabel.text = @"Happening";
     }else{

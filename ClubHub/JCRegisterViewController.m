@@ -101,7 +101,7 @@
     NSString *string = _emailField.text;
     NSRange range = [string rangeOfString:@"@"];
     
-    if ([string rangeOfString:@"@"].location == NSNotFound){
+    if (range.location == NSNotFound){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!" message:@"Please enter a valid email address" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }else{
@@ -140,7 +140,7 @@
             NSString *string = [error description];
             NSRange range = [string rangeOfString:@"error="];
             NSString *substring = [[string substringFromIndex:NSMaxRange(range)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            substring = [substring stringByReplacingOccurrencesOfString:@"}" withString:@" :("];
+            substring = [substring stringByReplacingOccurrencesOfString:@"}" withString:@" "];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:substring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
         }
