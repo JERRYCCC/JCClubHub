@@ -301,6 +301,8 @@
 				C4D23B8E19629F7600F3C7C3 /* JCClubBuildViewController.m */,
 				C41806F4196D746A00A4CFD4 /* JCClubBuildDetailViewController.h */,
 				C41806F5196D746A00A4CFD4 /* JCClubBuildDetailViewController.m */,
+				C4A39D3619642D1A00F8203F /* JCPickClubTableViewController.h */,
+				C4A39D3719642D1A00F8203F /* JCPickClubTableViewController.m */,
 			);
 			name = ClubViewController;
 			sourceTree = "<group>";
@@ -320,8 +322,6 @@
 				C492CC49196D835500D98E94 /* JCEventEditViewController.m */,
 				C4A39D301964076900F8203F /* JCEventCreateViewController.h */,
 				C4A39D311964076900F8203F /* JCEventCreateViewController.m */,
-				C4A39D3619642D1A00F8203F /* JCPickClubTableViewController.h */,
-				C4A39D3719642D1A00F8203F /* JCPickClubTableViewController.m */,
 			);
 			name = EventViewController;
 			sourceTree = "<group>";

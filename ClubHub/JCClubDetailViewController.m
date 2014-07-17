@@ -158,12 +158,20 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Event"];
     
-    //only get the events of current club
     [query whereKey:@"club" equalTo:_currentClub];
     [query whereKey:@"date" greaterThanOrEqualTo:[[NSDate date] dateByAddingTimeInterval:-60*60]];
-    [query orderByDescending:@"date"];
-    NSArray *list = [query findObjects];
+    [query orderByAscending:@"date"];
+    NSArray *futureEvent = [query findObjects];
+    
+    PFQuery *query2 = [PFQuery queryWithClassName:@"Event"];
+    [query2 whereKey:@"club" equalTo:_currentClub];
+    [query2 whereKey:@"date" lessThan:[[NSDate date] dateByAddingTimeInterval:-60*60]];
+    [query2 orderByDescending:@"date"];
+    NSArray *pastEvent = [query2 findObjects];
+     
+    NSArray *list = [futureEvent arrayByAddingObjectsFromArray:pastEvent];
     return list;
+     
 }
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
@@ -188,17 +196,20 @@
     PFObject *event = eventList[indexPath.row];
     cell.textLabel.text = event[@"name"];
     
-    if(event[@"available"]== [NSNumber numberWithBool:NO]){
+    if(event[@"available"]== [NSNumber numberWithBool:NO])
+    {
         cell.detailTextLabel.text = @"Canceled";
-    }else if ([event[@"date"] timeIntervalSinceDate:[[NSDate date] dateByAddingTimeInterval:-(60*60)]]<=60*60){
+    }else if([event[@"date"] timeIntervalSince1970]<[[NSDate date] timeIntervalSince1970]-60*60)
+    {
+        cell.detailTextLabel.text = @"Past";
+    }else if([event[@"date"] timeIntervalSince1970]<[[NSDate date] timeIntervalSince1970])
+    {
         cell.detailTextLabel.text = @"Happening";
-    }
-    else{
+    }else{
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"h:mm a   EEE, MMM-d"];
         cell.detailTextLabel.text = [formatter stringFromDate:event[@"date"]];
     }
-    
     return cell;
 }
 
@@ -270,6 +281,8 @@
             break;
     }
 }
+
+
 
 
 
