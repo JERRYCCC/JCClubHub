@@ -10,6 +10,7 @@
 #import "JCEventTableViewCell.h"
 #import "JCEventDetailViewController.h"
 #import "JCEventCreateViewController.h"
+#import "JCClubEditViewController.h"
 
 @interface JCClubDetailViewController ()
 
@@ -231,9 +232,13 @@
     if([[segue identifier] isEqualToString:@"toEventCreate"]){
         
         JCEventCreateViewController *eventCreateVC = [segue destinationViewController];
-        
         eventCreateVC.targetClub = _currentClub;
         
+    }
+    
+    if([[segue identifier] isEqualToString:@"toClubEdit"]){
+        JCClubEditViewController * clubEditVC = [segue destinationViewController];
+        clubEditVC.currentClub = _currentClub ;
     }
 }
 
@@ -274,7 +279,7 @@
 {
     switch (buttonIndex) {
         case 0:
-            NSLog(@"Not done yet");
+            [self performSegueWithIdentifier:@"toClubEdit" sender:self];
             break;
             
         default:

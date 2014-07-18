@@ -14,6 +14,7 @@
 		C4A39D321964076900F8203F /* JCEventCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A39D311964076900F8203F /* JCEventCreateViewController.m */; };
 		C4A39D3819642D1A00F8203F /* JCPickClubTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A39D3719642D1A00F8203F /* JCPickClubTableViewController.m */; };
 		C4A47113196B4E9700C9C31B /* JCAdminTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A47112196B4E9700C9C31B /* JCAdminTableViewController.m */; };
+		C4BF68011978EF4C00D274FC /* JCClubEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BF68001978EF4C00D274FC /* JCClubEditViewController.m */; };
 		C4D23B881962796A00F3C7C3 /* JCSchoolForRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D23B871962796A00F3C7C3 /* JCSchoolForRegister.m */; };
 		C4D23B8C1962857500F3C7C3 /* JCBasicFunctionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D23B8B1962857500F3C7C3 /* JCBasicFunctionsTests.m */; };
 		C4D23B8F19629F7600F3C7C3 /* JCClubBuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D23B8E19629F7600F3C7C3 /* JCClubBuildViewController.m */; };
@@ -79,6 +80,8 @@
 		C4A39D3719642D1A00F8203F /* JCPickClubTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCPickClubTableViewController.m; sourceTree = "<group>"; };
 		C4A47111196B4E9700C9C31B /* JCAdminTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAdminTableViewController.h; sourceTree = "<group>"; };
 		C4A47112196B4E9700C9C31B /* JCAdminTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAdminTableViewController.m; sourceTree = "<group>"; };
+		C4BF67FF1978EF4C00D274FC /* JCClubEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCClubEditViewController.h; sourceTree = "<group>"; };
+		C4BF68001978EF4C00D274FC /* JCClubEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCClubEditViewController.m; sourceTree = "<group>"; };
 		C4D23B861962796A00F3C7C3 /* JCSchoolForRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCSchoolForRegister.h; sourceTree = "<group>"; };
 		C4D23B871962796A00F3C7C3 /* JCSchoolForRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCSchoolForRegister.m; sourceTree = "<group>"; };
 		C4D23B8B1962857500F3C7C3 /* JCBasicFunctionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCBasicFunctionsTests.m; sourceTree = "<group>"; };
@@ -301,6 +304,8 @@
 				C4D23B8E19629F7600F3C7C3 /* JCClubBuildViewController.m */,
 				C41806F4196D746A00A4CFD4 /* JCClubBuildDetailViewController.h */,
 				C41806F5196D746A00A4CFD4 /* JCClubBuildDetailViewController.m */,
+				C4BF67FF1978EF4C00D274FC /* JCClubEditViewController.h */,
+				C4BF68001978EF4C00D274FC /* JCClubEditViewController.m */,
 				C4A39D3619642D1A00F8203F /* JCPickClubTableViewController.h */,
 				C4A39D3719642D1A00F8203F /* JCPickClubTableViewController.m */,
 			);
@@ -435,6 +440,7 @@
 				C4F3041219607A6500EC723F /* JCClubDetailViewController.m in Sources */,
 				C4A47113196B4E9700C9C31B /* JCAdminTableViewController.m in Sources */,
 				C492CC4A196D835500D98E94 /* JCEventEditViewController.m in Sources */,
+				C4BF68011978EF4C00D274FC /* JCClubEditViewController.m in Sources */,
 				C4F303C91960302B00EC723F /* JCAppDelegate.m in Sources */,
 				C4F303F21960444D00EC723F /* JCRegisterViewController.m in Sources */,
 				C4D23B8F19629F7600F3C7C3 /* JCClubBuildViewController.m in Sources */,
