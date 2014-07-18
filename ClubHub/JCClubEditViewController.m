@@ -13,7 +13,9 @@
 
 @end
 
-@implementation JCClubEditViewController
+@implementation JCClubEditViewController{
+    NSString* oldName;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +32,7 @@
     _nameField.delegate = self;
     _descriptionView.delegate = self;
     
+    oldName = _currentClub[@"name"];
     _nameField.text = _currentClub[@"name"];
     _descriptionView.text = _currentClub[@"description"];
     NSArray *tagList = _currentClub[@"tags"];
@@ -50,6 +53,24 @@
         _fraternitySwitch.on = YES;
     }else{
         _fraternitySwitch.on = NO;
+    }
+    
+    if([tagList containsObject:@"Sports"]){
+        _sportsSwitch.on = YES;
+    }else{
+        _sportsSwitch.on = NO;
+    }
+    
+    if([tagList containsObject:@"Cultural"]){
+        _culturalSwitch.on = YES;
+    }else{
+        _culturalSwitch.on = NO;
+    }
+    
+    if([tagList containsObject:@"Religious"]){
+        _religiousSwitch.on = YES;
+    }else{
+        _religiousSwitch.on = NO;
     }
 }
 
@@ -99,7 +120,18 @@
         [alert show];
     }
     else {
-        [self checkUniqeness];
+        
+        //no change to the name
+        if([_nameField.text isEqualToString:oldName]){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulation"
+                                                            message:@"Want to save this club now?"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:@"Save", nil];
+            [alert show];
+        }else{
+            [self checkUniqeness];
+        }
     }
 }
 
@@ -159,6 +191,15 @@
     }
     if(_academicSwitch.on==YES){
         [tagList addObject:@"Academic"];
+    }
+    if(_sportsSwitch.on == YES){
+        [tagList addObject:@"Sports"];
+    }
+    if(_culturalSwitch.on == YES){
+        [tagList addObject:@"Cultural"];
+    }
+    if(_religiousSwitch.on == YES){
+        [tagList addObject:@"Religious"];
     }
     
     _currentClub[@"name"] = _nameField.text;

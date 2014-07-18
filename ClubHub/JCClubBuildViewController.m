@@ -40,6 +40,9 @@
     _sororitySwitch.on = NO;
     _fraternitySwitch.on = NO;
     _academicSwitch.on = NO;
+    _sportsSwitch.on = NO;
+    _culturalSwitch.on = NO;
+    _religiousSwitch.on = NO;
 
 }
 
@@ -101,7 +104,12 @@
 
 -(void) checkTags{
 
-    if(_sororitySwitch.on==NO && _fraternitySwitch.on==NO && _academicSwitch.on==NO)
+    if(_sororitySwitch.on==NO
+       && _fraternitySwitch.on==NO
+       && _academicSwitch.on==NO
+       && _sportsSwitch.on == NO
+       && _culturalSwitch.on ==NO
+       && _religiousSwitch.on == NO)
     {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Oooopss!"
@@ -161,6 +169,15 @@
     }
     if(_academicSwitch.on==YES){
         [tagList addObject:@"Academic"];
+    }
+    if(_sportsSwitch.on == YES){
+        [tagList addObject:@"Sports"];
+    }
+    if(_culturalSwitch.on == YES){
+        [tagList addObject:@"Cultural"];
+    }
+    if(_religiousSwitch.on == YES){
+        [tagList addObject:@"Religious"];
     }
     
     newClub = [PFObject objectWithClassName: @"Club"];

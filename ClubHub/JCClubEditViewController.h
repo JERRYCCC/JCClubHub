@@ -18,6 +18,9 @@
 @property (strong, nonatomic) IBOutlet UISwitch *sororitySwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *fraternitySwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *academicSwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *sportsSwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *culturalSwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *religiousSwitch;
 
 -(IBAction)saveBtn:(id)sender;
 -(IBAction)cancelBtn:(id)sender;
