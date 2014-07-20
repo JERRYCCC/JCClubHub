@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UITextView *locationTextView;
 @property (strong, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (strong, nonatomic) IBOutlet UILabel *markerNum;
 
 @property (strong, nonatomic) IBOutlet UIButton *markBtn;
 @property (strong, nonatomic) IBOutlet UIButton *deleteBtn;

@@ -104,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClubHub/JCEventDetailViewController.m"
-            timestampString = "427261674.295582"
+            timestampString = "427512146.661184"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "@implementation JCEventDetailViewController"
             landmarkType = "3">
          </BreakpointContent>

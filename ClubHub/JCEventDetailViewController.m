@@ -66,6 +66,7 @@
         _dateLabel.text = @"This event has been canceled.";
     }
     
+    _markerNum.text = [[self getMarkerNum] stringValue];
 }
 
 - (void)didReceiveMemoryWarning
@@ -149,6 +150,13 @@
         [relation addObject:_currentEvent];
         [user saveInBackground];
         [sender setTitle:@"Unmark" forState:UIControlStateNormal];
+        
+        int newNum = [[_currentEvent objectForKey:@"markerNum"] intValue] +1;
+        [_currentEvent setObject:[NSNumber numberWithInt:newNum] forKey:@"markerNum"];
+        [_currentEvent saveInBackground];
+        [_markerNum setText:[_currentEvent[@"markerNum"] stringValue]];
+        
+        
     }else{
         [relation removeObject:_currentEvent];
         [user saveInBackground];
@@ -156,6 +164,11 @@
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unmark" message:@"Are you sure to take the event off your list?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Unmark", nil];
         [alert show];
+        
+        int newNum = [[_currentEvent objectForKey:@"markerNum"] intValue] -1;
+        [_currentEvent setObject:[NSNumber numberWithInt:newNum] forKey:@"markerNum"];
+        [_currentEvent saveInBackground];
+        [_markerNum setText:[_currentEvent[@"markerNum"] stringValue]];
     }
 }
 
@@ -246,8 +259,17 @@
         
         [self performSegueWithIdentifier:@"toMain" sender:self];
     }
+}
+
+-(NSNumber *) getMarkerNum
+{
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"markEvents" equalTo:_currentEvent];
+    NSNumber *num = [NSNumber numberWithInt:[query countObjects]];
     
-    
+    _currentEvent[@"markerNum"] = num;
+    [_currentEvent saveInBackground];
+    return num;
 }
 
 @end
