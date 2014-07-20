@@ -61,10 +61,12 @@
             _followBtn.titleLabel.text = @"Follow";
         }
     }
-    
-    
-    
     eventList = [self getEventList];
+    
+    
+    //once any user read the detail, the system will refresh the clubs follower number
+    //instead just increase or decrease
+    _followerNum.text = [[self getFollowerNum] stringValue];
 }
 
 - (void)didReceiveMemoryWarning
@@ -119,6 +121,12 @@
         [user saveInBackground];
         [sender setTitle:@"Unfollow" forState:UIControlStateNormal];
         
+        //increase the followerNum in database and reset the follower label
+        int newNum = [[_currentClub objectForKey:@"followerNum"] intValue] +1;
+        [_currentClub setObject:[NSNumber numberWithInt:newNum] forKey:@"followerNum"];
+        [_currentClub saveInBackground];
+        [_followerNum setText:[_currentClub[@"followerNum"] stringValue]];
+        
     }else{
         
         [relation removeObject:_currentClub];  //unfollow
@@ -126,10 +134,19 @@
         //done unfollowing the club and check the button text to "follow"
         [sender setTitle:@"Follow" forState:UIControlStateNormal];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done Unfollow the Club" message:@"Do you also want to unmark all the events related to this club?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+        
+        //decrease the followerNum in database and reset the follower label
+        int newNum = [[_currentClub objectForKey:@"followerNum"] intValue] - 1;
+        [_currentClub setObject:[NSNumber numberWithInt:newNum] forKey:@"followerNum"];
+        [_currentClub saveInBackground];
+        [_followerNum setText:[_currentClub[@"followerNum"] stringValue]];
+        
+        
+        //show the unmark all related events AlertView
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unmark its Events" message:@"Do you also want to unmark all the events related to this club?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
         [alert show];
         
-        [self performSegueWithIdentifier:@"toMain" sender:self];
+        //[self performSegueWithIdentifier:@"toMain" sender:self];
     }
 }
 
@@ -285,6 +302,20 @@
         default:
             break;
     }
+}
+
+//once any user read the detail, the system will refresh the clubs follower number
+//instead of just increase or decrease
+-(NSNumber*)getFollowerNum
+{
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"followClubs" equalTo:_currentClub];
+    NSNumber* num = [NSNumber numberWithInt:[query countObjects]];
+    //set the followers number for the object as well
+    
+    _currentClub[@"followerNum"]=num;
+    [_currentClub saveInBackground];
+    return num;
 }
 
 

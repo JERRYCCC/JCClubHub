@@ -48,7 +48,7 @@
     PFRelation *relation = [user relationForKey:@"followClubs"];
     PFQuery *query = [relation query];
     
-    [query orderByAscending:@"name"];
+    [query orderByDescending:@"followerNum"];
     
     clubList = [query findObjects];  //for prepareForSegue use
     
@@ -78,15 +78,7 @@
         cell = [[JCClubTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    cell.titleLable.text = [object objectForKey:@"name"];
-    
-    NSArray *tagList = [object objectForKey:@"tags"];
-    NSString *tagString = @" ";
-    for(NSString *string in tagList){
-        tagString = [tagString stringByAppendingString:string];
-        tagString = [tagString stringByAppendingString:@", "];
-    }
-    cell.tagsLable.text = tagString;
+    cell.currentClub = object;
     
     return cell;
 }
@@ -98,12 +90,13 @@
     
     if([[segue identifier] isEqualToString:@"clubDetails"]){
         
-        JCClubDetailViewController *clubDetailViewController = [segue destinationViewController];
+        JCClubDetailViewController *clubDetailVC = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         
         int row = [myIndexPath row];
         PFObject *object = [clubList objectAtIndex:row];
-        clubDetailViewController.currentClub = object;
+        clubDetailVC.currentClub = object;
+        
     }
 }
 

@@ -47,7 +47,7 @@
     PFUser *user = [PFUser currentUser];
     PFObject *schoolObject = user[@"school"];
     [query whereKey:@"school" equalTo: schoolObject];
-    [query orderByAscending:@"name"];
+    [query orderByDescending:@"followerNum"];
     
     clubList = [query findObjects];  //for prepareForSegue use
     
@@ -77,16 +77,6 @@
     }
     
     cell.currentClub = object;
-    cell.titleLable.text = object[@"name"];
-    
-    NSArray *tagList = object[@"tags"];
-    NSString *tagString = @" ";
-    for(NSString *string in tagList){
-        tagString = [tagString stringByAppendingString:string];
-        tagString = [tagString stringByAppendingString:@", "];
-    }
-    cell.tagsLable.text = tagString;
-
     
     return cell;
 }

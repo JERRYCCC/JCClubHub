@@ -186,6 +186,7 @@
     newClub[@"password"] = _passwordField.text;
     newClub[@"school"] = [PFObject objectWithoutDataWithClassName:@"School" objectId:schoolId];
     newClub[@"tags"] = tagList;
+    newClub[@"followerNum"] = [NSNumber numberWithInt:1];
     
     //the current user become the club administer automatically when he builds the club
     PFUser *user = [PFUser currentUser];

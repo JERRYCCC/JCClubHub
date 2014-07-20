@@ -15,13 +15,55 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
+       
+        
     }
     return self;
 }
 
-- (void)awakeFromNib
+//"viewDidLoad" for the TableViewCell, run automatically when the cell is built
+-(void)layoutSubviews
 {
     
+    if([self followStatus]){
+       _followBtn.hidden = YES;
+        
+    }
+    
+    _titleLable.text = _currentClub[@"name"];
+    
+    NSArray *tagList = [_currentClub objectForKey:@"tags"];
+    NSString *tagString = @"";
+    
+    //show the follower number
+    if(_currentClub[@"followerNum"]!=nil){
+        tagString = [tagString stringByAppendingString:[_currentClub[@"followerNum"] stringValue]];
+        tagString = [tagString stringByAppendingString:@" | "];
+    }
+    //show the tags
+    for(NSString *string in tagList){
+        tagString = [tagString stringByAppendingString:string];
+        tagString = [tagString stringByAppendingString:@", "];
+    }
+    
+    _tagsLable.text = tagString;
+}
+
+-(BOOL)followStatus
+{
+    PFUser *user = [PFUser currentUser];
+    PFRelation *relation=[user relationForKey:@"followClubs"];
+    PFQuery *clubList = [relation query];
+    [clubList whereKey:@"objectId" equalTo:_currentClub.objectId];
+    
+    if([clubList countObjects]==0||clubList==nil){
+        return NO;
+        
+    }else{
+        return YES;
+        
+    }
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -40,6 +82,26 @@
     [self markAllClubEvents]; //mark all the events belongs to this club
     [relation addObject:_currentClub];    //follow
     [user saveInBackground];
+    
+    int newNum = [[_currentClub objectForKey:@"followerNum"] intValue] + 1;
+    [_currentClub setObject:[NSNumber numberWithInt:newNum] forKey:@"followerNum"];
+    [_currentClub saveInBackground];
+    
+    NSArray *tagList = [_currentClub objectForKey:@"tags"];
+    NSString *tagString = @"";
+    
+    //show the follower number
+    if(_currentClub[@"followerNum"]!=nil){
+        tagString = [tagString stringByAppendingString:[_currentClub[@"followerNum"] stringValue]];
+        tagString = [tagString stringByAppendingString:@" | "];
+    }
+    //show the tags
+    for(NSString *string in tagList){
+        tagString = [tagString stringByAppendingString:string];
+        tagString = [tagString stringByAppendingString:@", "];
+    }
+    
+    _tagsLable.text = tagString;
     
 }
 

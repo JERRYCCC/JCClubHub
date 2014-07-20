@@ -701,7 +701,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NameLable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAc-IV-23Z">
                                 <rect key="frame" x="127" y="74" width="193" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="38" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="M7d-F7-cDY">
@@ -754,7 +754,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJS-f5-kEp">
-                                <rect key="frame" x="165" y="106" width="155" height="78"/>
+                                <rect key="frame" x="121" y="131" width="199" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium orum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -781,6 +781,19 @@
                                     <action selector="addEventBtn:" destination="Cnz-z3-FVU" eventType="touchUpInside" id="i8R-xH-v2a"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Follower:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fp6-zF-aNG">
+                                <rect key="frame" x="127" y="114" width="65" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vp-Bk-ASs">
+                                <rect key="frame" x="185" y="111" width="75" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -817,6 +830,7 @@
                         <outlet property="eventList" destination="M7d-F7-cDY" id="faS-zh-mNw"/>
                         <outlet property="eventListTableView" destination="M7d-F7-cDY" id="J9N-95-anA"/>
                         <outlet property="followBtn" destination="ffn-c6-js9" id="dT1-DB-elo"/>
+                        <outlet property="followerNum" destination="1vp-Bk-ASs" id="eaz-jr-L2o"/>
                         <outlet property="nameLabel" destination="kAc-IV-23Z" id="MgE-9L-yVI"/>
                         <outlet property="tagsTextView" destination="Sf3-yF-Zhh" id="REw-YH-wPe"/>
                         <segue destination="tCm-ei-fgU" kind="modal" identifier="toMain" id="WLt-eI-qKN"/>
@@ -1766,10 +1780,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hbm-lP-0yc"/>
-        <segue reference="HBS-eC-vzP"/>
-        <segue reference="ija-yg-rId"/>
-        <segue reference="fAR-0M-qhq"/>
+        <segue reference="WLt-eI-qKN"/>
         <segue reference="YZl-Fq-a1T"/>
+        <segue reference="yAS-gG-sgF"/>
+        <segue reference="yPU-ud-HrZ"/>
+        <segue reference="HBS-eC-vzP"/>
     </inferredMetricsTieBreakers>
 </document>
