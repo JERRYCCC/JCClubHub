@@ -15,11 +15,12 @@
 
 @interface JCEventTableViewController ()
 
+@property (strong, nonatomic) NSArray *eventList;
+
 @end
 
-@implementation JCEventTableViewController{
-    NSArray* eventList;
-}
+@implementation JCEventTableViewController
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,8 +42,6 @@
     [self.menuBtn setAction:@selector(revealToggle:)];
     [self.navigationController.navigationBar addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
-    
-    
 }
 
 -(PFQuery*) queryForTable{
@@ -57,16 +56,13 @@
     
     [query orderByAscending:@"date"];
     
-    eventList = [query findObjects];  //for prepareForSegue use
+    self.eventList = [query findObjects];  //for prepareForSegue use
     
+
+
     //if Pull to Refresh is enabled, query against the network by default
     if(self.pullToRefreshEnabled){
         query.cachePolicy = kPFCachePolicyNetworkOnly;
-    }
-    
-    //if no objects are loaded in memory, we look to the cache first to fill the table
-    if([self.objects count]==0){
-        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
     return query;
 }
@@ -106,15 +102,15 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     //pass the whole object directly, instead the data of the object
+   
+    
     if([[segue identifier] isEqualToString:@"eventDetail"]){
         
         JCEventDetailViewController *eventDetailViewController = [segue destinationViewController];
-        
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
-        
         int row = [myIndexPath row];
-        PFObject *object = [eventList objectAtIndex:row];
-        eventDetailViewController.currentEvent = object;
+        eventDetailViewController.currentEvent = [self.eventList objectAtIndex:row];
+    
     }
 }
 

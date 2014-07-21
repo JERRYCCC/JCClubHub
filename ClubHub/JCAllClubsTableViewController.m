@@ -12,6 +12,7 @@
 #import "SWRevealViewController.h"
 
 @interface JCAllClubsTableViewController ()
+@property (strong, nonatomic) NSArray* searchResult;
 
 @end
 
@@ -37,6 +38,8 @@
     [self.menuBtn setTarget:self.revealViewController];
     [self.menuBtn setAction:@selector(revealToggle:)];
     [self.navigationController.navigationBar addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    _searchResult = [[NSArray alloc] init];
 }
 
 -(PFQuery *) queryForTable{
@@ -63,6 +66,17 @@
     return query;
 }
 
+/*
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return [self.searchResult count];
+    }else{
+        return [clubList count];
+    }
+}
+*/
 -(UITableViewCell *) tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
                         object:(PFObject *)object
@@ -76,10 +90,32 @@
         cell = [[JCClubTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
+    /*
+    if(tableView == self.searchDisplayController.searchResultsTableView){
+        cell.currentClub = [self.searchResult objectAtIndex:indexPath.row];
+    }else{
+        cell.currentClub = object;
+    }
+    */
     cell.currentClub = object;
     
     return cell;
 }
+/*
+-(void)filterContentForSearchText:(NSString*) searchText scope:(NSString*)scope
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF beginswith[c] %@", searchText];
+    self.searchResult = [clubList filteredArrayUsingPredicate:predicate];
+}
+
+-(BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    
+    [self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    
+    return YES;
+}
+ */
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -11,6 +11,7 @@
 #import "JCEventDetailViewController.h"
 #import "JCEventCreateViewController.h"
 #import "JCClubEditViewController.h"
+#import <Parse/Parse.h>
 
 @interface JCClubDetailViewController ()
 
@@ -19,6 +20,7 @@
 
 @implementation JCClubDetailViewController{
     NSArray *eventList;
+    UITextField *passwordTextField;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -52,7 +54,7 @@
         _adminBtn.hidden = NO;
         _followBtn.hidden = YES;
     }else{
-        _adminBtn.hidden = YES;
+        _adminBtn.hidden = NO;
         _followBtn.hidden = NO;
         
         if([self followStatus]){
@@ -264,17 +266,6 @@
     [self performSegueWithIdentifier:@"toMain" sender:self];
 }
 
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-
-    if([[alertView title] isEqualToString:@"Done Unfollow the Club"] && buttonIndex ==1){
-        
-        [self unmarkAllClubEevnts];  //unmark all the events belongs to this club
-    }
-    
-    
-    
-}
 
 -(IBAction)addEventBtn:(id)sender
 {
@@ -283,26 +274,113 @@
 
 -(IBAction)adminBtn:(id)sender
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Administration"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Edit Club", nil];
+ 
+    if([self checkPriority]){
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Administration"
+                                                                 delegate:self
+                                                        cancelButtonTitle:@"Cancel"
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:@"Edit Club", nil];
+        
+        [actionSheet showInView:self.view];
+    }else{
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Entitle"
+                                                                 delegate:self
+                                                        cancelButtonTitle:@"Cancel"
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:@"Enter Club Password", nil];
+        
+        [actionSheet showInView:self.view];
+    }
     
-    [actionSheet showInView:self.view];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    switch (buttonIndex) {
-        case 0:
+    
+    if([[actionSheet title] isEqualToString:@"Administration"]){
+        switch (buttonIndex) {
+            case 0:
+                [self performSegueWithIdentifier:@"toClubEdit" sender:self];
+                break;
+                
+            default:
+                break;
+    }
+    }
+    
+    if([[actionSheet title] isEqualToString:@"Entitle"]){
+        switch (buttonIndex) {
+            case 0:
+                [self enterPassword:NO];
+                break;
+                
+                
+            default:
+                break;
+        }
+    }
+    
+    
+}
+
+-(void)enterPassword:(BOOL) wrongPassword
+{
+    NSString* message;
+    
+    if(wrongPassword){
+        message = @"Wrong Password, Enter again Please";
+    }else{
+        message = @"Enter Password Please!";
+    }
+    
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Entitle"
+                                                      message:message
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Continue", nil];
+    alertView.alertViewStyle = UIAlertViewStyleSecureTextInput;
+    passwordTextField = [alertView textFieldAtIndex:0];
+    
+    [alertView show];
+}
+
+-(void) alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if([[alertView title] isEqualToString:@"Done Unfollow the Club"] && buttonIndex ==1){
+        
+        [self unmarkAllClubEevnts];  //unmark all the events belongs to this club
+    }
+    
+    
+    if([[alertView title] isEqualToString:@"Entitle"] && buttonIndex == 1){
+        
+        if([passwordTextField.text isEqualToString: _currentClub[@"password"]]){
+            [self entitleNewAdmin];
             [self performSegueWithIdentifier:@"toClubEdit" sender:self];
-            break;
-            
-        default:
-            break;
+        }else{
+            [self enterPassword:YES];
+        }
     }
 }
+
+-(void)entitleNewAdmin
+{
+    PFUser *user = [PFUser currentUser];
+    PFRelation *adminRelation = [_currentClub relationForKey:@"admins"];
+    [adminRelation addObject:user];
+    [_currentClub saveInBackground];
+    
+    //current user follows the club he built immediately
+    PFRelation *followRleaion = [user relationForKey:@"followClubs"];
+    [followRleaion addObject:_currentClub];
+    [user saveInBackground];
+    
+}
+
+
 
 //once any user read the detail, the system will refresh the clubs follower number
 //instead of just increase or decrease

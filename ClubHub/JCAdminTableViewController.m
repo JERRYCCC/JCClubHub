@@ -91,5 +91,10 @@
         clubDetailViewController.currentClub = object;
     }
 }
+-(void) logoutBtn:(id)sender{
+    [PFUser logOut];
+    
+    [self performSegueWithIdentifier:@"toLogIn" sender:self];
+}
 
 @end

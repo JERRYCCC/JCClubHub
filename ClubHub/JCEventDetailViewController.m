@@ -78,7 +78,7 @@
 //to see if the event's club's admins field has the current user
 -(BOOL) checkPriority{
     
-    [_currentEvent[@"club"] fetchIfNeeded];
+    //[_currentEvent[@"club"] fetchIfNeeded];
     PFObject *targetClub = _currentEvent[@"club"];
     
     PFRelation *relation = [targetClub relationForKey:@"admins"];
@@ -88,7 +88,7 @@
     
     [adminsQuery whereKey:@"objectId" equalTo:user.objectId];
         
-        if([adminsQuery countObjects]==0||adminsQuery==nil){
+        if([adminsQuery getFirstObject]==nil||adminsQuery==nil){
             return NO;
         }else{
             return YES;
@@ -130,7 +130,7 @@
     PFQuery *eventList = [relation query];
     [eventList whereKey:@"objectId" equalTo:_currentEvent.objectId];
     
-    if([eventList countObjects]==0){
+    if([eventList getFirstObject]==nil||eventList==nil){
         return NO;
     }else{
         return YES;
@@ -141,7 +141,7 @@
 {
     
     PFUser *user = [PFUser currentUser];
-    [user fetchIfNeeded];
+    //[user fetchIfNeeded];
     PFRelation *relation = [user relationForKey:@"markEvents"];
     
     //mark the event, else unmark the events
@@ -162,7 +162,7 @@
         [user saveInBackground];
         [sender setTitle:@"Mark" forState:UIControlStateNormal];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unmark" message:@"Are you sure to take the event off your list?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Unmark", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Refresh" message:@"Event Unmarked! Wanna refresh your list?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Refresh", nil];
         [alert show];
         
         int newNum = [[_currentEvent objectForKey:@"markerNum"] intValue] -1;
@@ -248,7 +248,7 @@
 {
     
     
-    if([[alertView title] isEqualToString:@"Unmark"] && buttonIndex ==1){
+    if([[alertView title] isEqualToString:@"Refresh"] && buttonIndex ==1){
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!"
                                                         message:@"You have unmark the event"
