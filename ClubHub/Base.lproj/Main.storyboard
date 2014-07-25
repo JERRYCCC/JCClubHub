@@ -441,7 +441,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9d-7k-Snl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1965" y="-807"/>
+            <point key="canvasLocation" x="1225" y="-511"/>
         </scene>
         <!--Club Build View Controller-->
         <scene sceneID="ctm-OT-VuL">
@@ -824,7 +824,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="adminBtn" destination="OEk-UI-PV6" id="dWo-em-AWH"/>
                         <outlet property="descriptionTextView" destination="dJS-f5-kEp" id="6Lx-aN-SM6"/>
@@ -1307,7 +1307,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="adminBtn" destination="e67-QZ-bc1" id="Z2R-kx-Buo"/>
@@ -1828,10 +1828,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="HBS-eC-vzP"/>
-        <segue reference="WLt-eI-qKN"/>
+        <segue reference="TBi-xe-K2f"/>
+        <segue reference="3H0-BM-ORa"/>
+        <segue reference="O9V-df-Bun"/>
         <segue reference="Hiv-xZ-hNA"/>
         <segue reference="yAS-gG-sgF"/>
-        <segue reference="O9V-df-Bun"/>
-        <segue reference="3H0-BM-ORa"/>
     </inferredMetricsTieBreakers>
 </document>
