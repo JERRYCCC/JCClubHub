@@ -790,22 +790,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldf-Py-yYI">
-                                <rect key="frame" x="121" y="80" width="68" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Unfollow">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="followBtn:" destination="Cnz-z3-FVU" eventType="touchUpInside" id="BHl-PX-C45"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="4tb-4C-MvN">
                         <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ldf-Py-yYI">
+                            <rect key="frame" x="126" y="12" width="68" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="Unfollow">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="followBtn:" destination="Cnz-z3-FVU" eventType="touchUpInside" id="BHl-PX-C45"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="yUb-I6-UZ1">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OEk-UI-PV6">
                                 <rect key="frame" x="233" y="5" width="71" height="33"/>
@@ -1828,10 +1828,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="HBS-eC-vzP"/>
-        <segue reference="TBi-xe-K2f"/>
-        <segue reference="3H0-BM-ORa"/>
-        <segue reference="O9V-df-Bun"/>
+        <segue reference="WLt-eI-qKN"/>
         <segue reference="Hiv-xZ-hNA"/>
+        <segue reference="yPU-ud-HrZ"/>
         <segue reference="yAS-gG-sgF"/>
+        <segue reference="O9V-df-Bun"/>
     </inferredMetricsTieBreakers>
 </document>

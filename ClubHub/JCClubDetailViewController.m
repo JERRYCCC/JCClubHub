@@ -56,9 +56,9 @@
         _followBtn.hidden = NO;
         
         if([self followStatus]){
-            _followBtn.titleLabel.text = @"Unfollow";
+            [_followBtn setTitle:@"Unfollow" forState:UIControlStateNormal];
         }else{
-            _followBtn.titleLabel.text = @"Follow";
+            [_followBtn setTitle:@"Follow" forState:UIControlStateNormal];
         }
     }
     eventList = [self getEventList];

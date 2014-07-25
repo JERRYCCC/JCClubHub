@@ -53,9 +53,9 @@
         _markBtn.hidden = NO;
         
         if([self markStatus]){
-            _markBtn.titleLabel.text = @"Unmark";
+            [_markBtn setTitle:@"Unmark" forState:UIControlStateNormal];
         }else{
-            _markBtn.titleLabel.text = @"Mark";
+            [_markBtn setTitle:@"Mark" forState:UIControlStateNormal];
         }
     }
     

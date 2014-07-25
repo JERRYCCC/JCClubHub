@@ -14,7 +14,7 @@
 @property (strong, nonatomic) PFObject *currentClub;
 @property (strong, nonatomic) IBOutlet UILabel *titleLable;
 @property (strong, nonatomic) IBOutlet UILabel *tagsLable;
-@property (strong, nonatomic) IBOutlet UIButton *followBtn;
+@property (weak, nonatomic) IBOutlet UIButton *followBtn;
 
 -(IBAction)followBtn:(id)sender;
 
