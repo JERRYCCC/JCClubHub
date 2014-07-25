@@ -76,6 +76,7 @@
     
     JCEventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    
     if(cell==nil){
         cell = [[JCEventTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
@@ -95,6 +96,22 @@
         cell.dateLabel.text = [formatter stringFromDate:date];
     }
     
+    
+    //add utility buttons
+    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+
+    [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.2f green:1.0f blue:0.2f alpha:0.7] title:@"Remind"];
+    
+    [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.2f green:0.2f blue:1.0f alpha:0.7] title:@"More"];
+    
+    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0] title:@"Delete"];
+    
+    cell.leftUtilityButtons = leftUtilityButtons;
+    cell.rightUtilityButtons = rightUtilityButtons;
+    cell.delegate = self;
+                                           
+                                        
     return cell;
 }
 

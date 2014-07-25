@@ -32,4 +32,14 @@
     // Configure the view for the selected state
 }
 
+-(IBAction)deleteBtn:(id)sender{
+    
+}
+-(IBAction)moreBtn:(id)sender{
+    
+}
+-(IBAction)remind:(id)sender{
+    
+}
+
 @end
