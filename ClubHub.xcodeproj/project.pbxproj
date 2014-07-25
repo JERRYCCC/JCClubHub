@@ -8,8 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		C41806F6196D746A00A4CFD4 /* JCClubBuildDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41806F5196D746A00A4CFD4 /* JCClubBuildDetailViewController.m */; };
+		C43050E6198040110056E353 /* Club.m in Sources */ = {isa = PBXBuildFile; fileRef = C43050E5198040110056E353 /* Club.m */; };
+		C43050E9198041680056E353 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = C43050E8198041680056E353 /* School.m */; };
+		C43050EC1980417B0056E353 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = C43050EB1980417B0056E353 /* Event.m */; };
 		C4486A9D1969D01C002A0AAF /* JCAllClubsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4486A9C1969D01C002A0AAF /* JCAllClubsTableViewController.m */; };
 		C4486AA01969D493002A0AAF /* JCAllEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4486A9F1969D493002A0AAF /* JCAllEventsTableViewController.m */; };
+		C4810981198245CD0097E5FD /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = C4810976198245CD0097E5FD /* NSMutableArray+SWUtilityButtons.m */; };
+		C4810982198245CD0097E5FD /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4810978198245CD0097E5FD /* SWCellScrollView.m */; };
+		C4810983198245CD0097E5FD /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = C481097A198245CD0097E5FD /* SWLongPressGestureRecognizer.m */; };
+		C4810984198245CD0097E5FD /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C481097C198245CD0097E5FD /* SWTableViewCell.m */; };
+		C4810985198245CD0097E5FD /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = C481097E198245CD0097E5FD /* SWUtilityButtonTapGestureRecognizer.m */; };
+		C4810986198245CD0097E5FD /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4810980198245CD0097E5FD /* SWUtilityButtonView.m */; };
 		C492CC4A196D835500D98E94 /* JCEventEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C492CC49196D835500D98E94 /* JCEventEditViewController.m */; };
 		C4A39D321964076900F8203F /* JCEventCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A39D311964076900F8203F /* JCEventCreateViewController.m */; };
 		C4A39D3819642D1A00F8203F /* JCPickClubTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A39D3719642D1A00F8203F /* JCPickClubTableViewController.m */; };
@@ -68,10 +77,28 @@
 /* Begin PBXFileReference section */
 		C41806F4196D746A00A4CFD4 /* JCClubBuildDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCClubBuildDetailViewController.h; sourceTree = "<group>"; };
 		C41806F5196D746A00A4CFD4 /* JCClubBuildDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCClubBuildDetailViewController.m; sourceTree = "<group>"; };
+		C43050E4198040110056E353 /* Club.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Club.h; sourceTree = "<group>"; };
+		C43050E5198040110056E353 /* Club.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Club.m; sourceTree = "<group>"; };
+		C43050E7198041680056E353 /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
+		C43050E8198041680056E353 /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
+		C43050EA1980417B0056E353 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		C43050EB1980417B0056E353 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		C4486A9B1969D01C002A0AAF /* JCAllClubsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAllClubsTableViewController.h; sourceTree = "<group>"; };
 		C4486A9C1969D01C002A0AAF /* JCAllClubsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAllClubsTableViewController.m; sourceTree = "<group>"; };
 		C4486A9E1969D493002A0AAF /* JCAllEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAllEventsTableViewController.h; sourceTree = "<group>"; };
 		C4486A9F1969D493002A0AAF /* JCAllEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAllEventsTableViewController.m; sourceTree = "<group>"; };
+		C4810975198245CD0097E5FD /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
+		C4810976198245CD0097E5FD /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
+		C4810977198245CD0097E5FD /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
+		C4810978198245CD0097E5FD /* SWCellScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCellScrollView.m; sourceTree = "<group>"; };
+		C4810979198245CD0097E5FD /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLongPressGestureRecognizer.h; sourceTree = "<group>"; };
+		C481097A198245CD0097E5FD /* SWLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLongPressGestureRecognizer.m; sourceTree = "<group>"; };
+		C481097B198245CD0097E5FD /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCell.h; sourceTree = "<group>"; };
+		C481097C198245CD0097E5FD /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCell.m; sourceTree = "<group>"; };
+		C481097D198245CD0097E5FD /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonTapGestureRecognizer.h; sourceTree = "<group>"; };
+		C481097E198245CD0097E5FD /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
+		C481097F198245CD0097E5FD /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
+		C4810980198245CD0097E5FD /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
 		C492CC48196D835500D98E94 /* JCEventEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCEventEditViewController.h; sourceTree = "<group>"; };
 		C492CC49196D835500D98E94 /* JCEventEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCEventEditViewController.m; sourceTree = "<group>"; };
 		C4A39D301964076900F8203F /* JCEventCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCEventCreateViewController.h; sourceTree = "<group>"; };
@@ -176,6 +203,18 @@
 		C4D697AF1969585C007C5370 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				C4810975198245CD0097E5FD /* NSMutableArray+SWUtilityButtons.h */,
+				C4810976198245CD0097E5FD /* NSMutableArray+SWUtilityButtons.m */,
+				C4810977198245CD0097E5FD /* SWCellScrollView.h */,
+				C4810978198245CD0097E5FD /* SWCellScrollView.m */,
+				C4810979198245CD0097E5FD /* SWLongPressGestureRecognizer.h */,
+				C481097A198245CD0097E5FD /* SWLongPressGestureRecognizer.m */,
+				C481097B198245CD0097E5FD /* SWTableViewCell.h */,
+				C481097C198245CD0097E5FD /* SWTableViewCell.m */,
+				C481097D198245CD0097E5FD /* SWUtilityButtonTapGestureRecognizer.h */,
+				C481097E198245CD0097E5FD /* SWUtilityButtonTapGestureRecognizer.m */,
+				C481097F198245CD0097E5FD /* SWUtilityButtonView.h */,
+				C4810980198245CD0097E5FD /* SWUtilityButtonView.m */,
 				C4D698E31969C338007C5370 /* SWRevealViewController.h */,
 				C4D698E41969C338007C5370 /* SWRevealViewController.m */,
 			);
@@ -252,6 +291,12 @@
 				C4F303C11960302B00EC723F /* InfoPlist.strings */,
 				C4F303C41960302B00EC723F /* main.m */,
 				C4F303C61960302B00EC723F /* ClubHub-Prefix.pch */,
+				C43050E4198040110056E353 /* Club.h */,
+				C43050E5198040110056E353 /* Club.m */,
+				C43050EA1980417B0056E353 /* Event.h */,
+				C43050EB1980417B0056E353 /* Event.m */,
+				C43050E7198041680056E353 /* School.h */,
+				C43050E8198041680056E353 /* School.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -434,24 +479,33 @@
 				C4F3042219613AB800EC723F /* JCEventTableViewCell.m in Sources */,
 				C4486A9D1969D01C002A0AAF /* JCAllClubsTableViewController.m in Sources */,
 				C4F3040F196075B300EC723F /* JCEventTableViewController.m in Sources */,
+				C4810986198245CD0097E5FD /* SWUtilityButtonView.m in Sources */,
+				C4810982198245CD0097E5FD /* SWCellScrollView.m in Sources */,
 				C4F3041819607B1E00EC723F /* JCClubTableViewCell.m in Sources */,
 				C4F303C51960302B00EC723F /* main.m in Sources */,
 				C4A39D321964076900F8203F /* JCEventCreateViewController.m in Sources */,
+				C4810981198245CD0097E5FD /* NSMutableArray+SWUtilityButtons.m in Sources */,
+				C4810983198245CD0097E5FD /* SWLongPressGestureRecognizer.m in Sources */,
+				C4810984198245CD0097E5FD /* SWTableViewCell.m in Sources */,
 				C4F3041219607A6500EC723F /* JCClubDetailViewController.m in Sources */,
 				C4A47113196B4E9700C9C31B /* JCAdminTableViewController.m in Sources */,
 				C492CC4A196D835500D98E94 /* JCEventEditViewController.m in Sources */,
 				C4BF68011978EF4C00D274FC /* JCClubEditViewController.m in Sources */,
 				C4F303C91960302B00EC723F /* JCAppDelegate.m in Sources */,
 				C4F303F21960444D00EC723F /* JCRegisterViewController.m in Sources */,
+				C4810985198245CD0097E5FD /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				C4D23B8F19629F7600F3C7C3 /* JCClubBuildViewController.m in Sources */,
 				C4F303EF1960312800EC723F /* JCLogInViewController.m in Sources */,
+				C43050EC1980417B0056E353 /* Event.m in Sources */,
 				C4D698E51969C338007C5370 /* SWRevealViewController.m in Sources */,
 				C4486AA01969D493002A0AAF /* JCAllEventsTableViewController.m in Sources */,
 				C4F3041F1961354400EC723F /* JCEventDetailViewController.m in Sources */,
 				C4D23B881962796A00F3C7C3 /* JCSchoolForRegister.m in Sources */,
 				C4A39D3819642D1A00F8203F /* JCPickClubTableViewController.m in Sources */,
+				C43050E9198041680056E353 /* School.m in Sources */,
 				C4D698E21969BE9C007C5370 /* JCCopyrightViewController.m in Sources */,
 				C4D698DF1969A8B9007C5370 /* JCMenuTableViewController.m in Sources */,
+				C43050E6198040110056E353 /* Club.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
