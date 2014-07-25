@@ -132,6 +132,8 @@
         case 1:
         {
             //more
+            
+            [self performSegueWithIdentifier:@"eventDetail" sender:self];
             break;
         }
         default:
@@ -155,8 +157,7 @@
             [relation removeObject:currentEvent];
             [user saveInBackground];
             
-            NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-            [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            [self loadObjects];
             
             break;
         }
