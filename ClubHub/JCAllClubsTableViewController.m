@@ -49,9 +49,20 @@
     //only get the clubs from current user's school
     PFUser *user = [PFUser currentUser];
     PFObject *schoolObject = user[@"school"];
-    [query whereKey:@"school" equalTo: schoolObject];
-    [query orderByDescending:@"followerNum"];
+    [query whereKey:@"school" equalTo:schoolObject];
     
+    //exclude the followed clubs , only show the unfollow clubs
+    PFRelation *relation=[user relationForKey:@"followClubs"];
+    PFQuery *followedClubList = [relation query];
+    NSArray *list = [followedClubList findObjects];
+    NSMutableArray *idList = [[NSMutableArray alloc] init];
+    for(PFObject* object in list){
+        [idList addObject:object.objectId];
+    }
+    [query whereKey:@"objectId" notContainedIn:idList];
+    
+    
+    [query orderByDescending:@"followerNum"];
     clubList = [query findObjects];  //for prepareForSegue use
     
     //if Pull to Refresh is enabled, query against the network by default
@@ -66,17 +77,7 @@
     return query;
 }
 
-/*
--(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if(tableView == self.searchDisplayController.searchResultsTableView)
-    {
-        return [self.searchResult count];
-    }else{
-        return [clubList count];
-    }
-}
-*/
+
 -(UITableViewCell *) tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
                         object:(PFObject *)object
@@ -90,33 +91,10 @@
         cell = [[JCClubTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    /*
-    if(tableView == self.searchDisplayController.searchResultsTableView){
-        cell.currentClub = [self.searchResult objectAtIndex:indexPath.row];
-    }else{
-        cell.currentClub = object;
-    }
-    */
     cell.currentClub = object;
     
     return cell;
 }
-/*
--(void)filterContentForSearchText:(NSString*) searchText scope:(NSString*)scope
-{
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF beginswith[c] %@", searchText];
-    self.searchResult = [clubList filteredArrayUsingPredicate:predicate];
-}
-
--(BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    
-    [self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
-    
-    return YES;
-}
- */
-
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     

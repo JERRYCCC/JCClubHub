@@ -422,7 +422,7 @@
                                 <connections>
                                     <outlet property="tagsLable" destination="7sa-HV-w2b" id="4fx-OL-7rF"/>
                                     <outlet property="titleLable" destination="5da-OL-Roj" id="SM0-wX-Wwl"/>
-                                    <segue destination="Cnz-z3-FVU" kind="push" identifier="clubDetails" id="XM7-6l-ZoX"/>
+                                    <segue destination="Cnz-z3-FVU" kind="push" identifier="clubDetails" id="Hiv-xZ-hNA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -441,7 +441,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9d-7k-Snl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1225" y="-451"/>
+            <point key="canvasLocation" x="1965" y="-807"/>
         </scene>
         <!--Club Build View Controller-->
         <scene sceneID="ctm-OT-VuL">
@@ -790,22 +790,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldf-Py-yYI">
+                                <rect key="frame" x="121" y="80" width="68" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Unfollow">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="followBtn:" destination="Cnz-z3-FVU" eventType="touchUpInside" id="BHl-PX-C45"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="4tb-4C-MvN">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ldf-Py-yYI">
-                            <rect key="frame" x="123" y="7" width="75" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <state key="normal" title="Unfollow">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="followBtn:" destination="Cnz-z3-FVU" eventType="touchUpInside" id="BHl-PX-C45"/>
-                            </connections>
-                        </button>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="yUb-I6-UZ1">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OEk-UI-PV6">
                                 <rect key="frame" x="233" y="5" width="71" height="33"/>
@@ -815,15 +815,15 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="adminBtn:" destination="Cnz-z3-FVU" eventType="touchUpInside" id="zdx-ke-Kcw"/>
+                                    <action selector="moreBtn:" destination="Cnz-z3-FVU" eventType="touchUpInside" id="4lA-ek-4ig"/>
                                 </connections>
                             </button>
                             <connections>
-                                <action selector="adminBtn:" destination="Cnz-z3-FVU" id="71N-JL-1Pp"/>
+                                <action selector="moreBtn:" destination="Cnz-z3-FVU" id="vOE-uJ-OHc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="adminBtn" destination="OEk-UI-PV6" id="dWo-em-AWH"/>
@@ -1682,20 +1682,20 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5X-lx-7ls">
-                                            <rect key="frame" x="13" y="11" width="22" height="22"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdC-iw-9Uz">
+                                            <rect key="frame" x="8" y="11" width="22" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="followBtn:" destination="oY5-W4-bLP" eventType="touchUpInside" id="TcY-GS-aBQ"/>
+                                                <action selector="followBtn:" destination="oY5-W4-bLP" eventType="touchUpInside" id="AeP-EB-2Wx"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="followBtn" destination="Q5X-lx-7ls" id="jpZ-ZM-SXA"/>
+                                    <outlet property="followBtn" destination="fdC-iw-9Uz" id="jUS-9F-ru0"/>
                                     <outlet property="tagsLable" destination="cQb-aZ-P9T" id="BcR-wR-IVv"/>
                                     <outlet property="titleLable" destination="HmW-LW-hMM" id="dSw-nz-2hN"/>
                                     <segue destination="Cnz-z3-FVU" kind="push" identifier="clubDetails" id="KPN-bW-mWx"/>
@@ -1827,11 +1827,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="KPN-bW-mWx"/>
-        <segue reference="ebH-83-de7"/>
-        <segue reference="O9V-df-Bun"/>
         <segue reference="HBS-eC-vzP"/>
-        <segue reference="ija-yg-rId"/>
-        <segue reference="KQb-7Q-qew"/>
+        <segue reference="WLt-eI-qKN"/>
+        <segue reference="Hiv-xZ-hNA"/>
+        <segue reference="yAS-gG-sgF"/>
+        <segue reference="O9V-df-Bun"/>
+        <segue reference="3H0-BM-ORa"/>
     </inferredMetricsTieBreakers>
 </document>

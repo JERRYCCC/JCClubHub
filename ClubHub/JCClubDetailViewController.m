@@ -51,10 +51,8 @@
     _descriptionTextView.editable=NO;
     
     if([self checkPriority]){
-        _adminBtn.hidden = NO;
         _followBtn.hidden = YES;
     }else{
-        _adminBtn.hidden = NO;
         _followBtn.hidden = NO;
         
         if([self followStatus]){
@@ -65,16 +63,7 @@
     }
     eventList = [self getEventList];
     
-    
-    //once any user read the detail, the system will refresh the clubs follower number
-    //instead just increase or decrease
-    _followerNum.text = [[self getFollowerNum] stringValue];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    _followerNum.text = _currentClub[@"followNum"];
 }
 
 -(BOOL)checkPriority{
@@ -96,7 +85,6 @@
     PFRelation *relation=[user relationForKey:@"followClubs"];
     PFQuery *clubList = [relation query];
     [clubList whereKey:@"objectId" equalTo:_currentClub.objectId];
-    
     
     if([clubList countObjects]==0||clubList==nil){
         return NO;
@@ -145,7 +133,7 @@
         
         
         //show the unmark all related events AlertView
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unmark its Events" message:@"Do you also want to unmark all the events related to this club?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Total Delete" message:@"Do you also want to unmark all the events related to this club?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
         [alert show];
         
         //[self performSegueWithIdentifier:@"toMain" sender:self];
@@ -272,7 +260,7 @@
     [self performSegueWithIdentifier:@"toEventCreate" sender:self];
 }
 
--(IBAction)adminBtn:(id)sender
+-(IBAction)moreBtn:(id)sender
 {
  
     if([self checkPriority]){
@@ -310,6 +298,7 @@
     }
     
     if([[actionSheet title] isEqualToString:@"Entitle"]){
+        
         switch (buttonIndex) {
             case 0:
                 [self enterPassword:NO];
@@ -349,7 +338,7 @@
 -(void) alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
-    if([[alertView title] isEqualToString:@"Done Unfollow the Club"] && buttonIndex ==1){
+    if([[alertView title] isEqualToString:@"Total Delete"] && buttonIndex ==1){
         
         [self unmarkAllClubEevnts];  //unmark all the events belongs to this club
     }

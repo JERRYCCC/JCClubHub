@@ -72,10 +72,9 @@
                         object:(PFObject *)object
 {
     
-    static NSString *CellIdentifier = @"EventCell";
+    NSString *CellIdentifier = @"EventCell";
     
     JCEventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
     
     if(cell==nil){
         cell = [[JCEventTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
@@ -83,7 +82,7 @@
     
     cell.titleLable.text = [object objectForKey:@"name"];
     
-    
+    //show the status of the event
     if(object[@"available"]== [NSNumber numberWithBool:NO]){
         cell.dateLabel.text = @"Canceled";
     }else if ([object[@"date"] timeIntervalSinceDate:[[NSDate date] dateByAddingTimeInterval:-(60*60)]]<=60*60){
@@ -98,6 +97,7 @@
     
     
     //add utility buttons
+    
     NSMutableArray *leftUtilityButtons = [NSMutableArray new];
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
 
@@ -110,10 +110,53 @@
     cell.leftUtilityButtons = leftUtilityButtons;
     cell.rightUtilityButtons = rightUtilityButtons;
     cell.delegate = self;
-                                           
-                                        
+                           
     return cell;
 }
+
+
+/**
+ *  add the action to the swip cell buttons
+ *
+ *
+ *
+ */
+-(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index
+{
+    switch (index) {
+        case 0:
+        {
+            //remind
+            break;
+        }
+        case 1:
+        {
+            //more
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+-(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index
+{
+    switch (index) {
+        case 0:
+        {
+            //delete event (unmark)
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"eventDetail" sender:self];
+}
+
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
