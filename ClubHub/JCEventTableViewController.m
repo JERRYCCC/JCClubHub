@@ -145,6 +145,19 @@
         case 0:
         {
             //delete event (unmark)
+            //two step :
+            //1. take it away from user's event list
+            //2. take away the cell immediately
+            
+            PFUser *user = [PFUser currentUser];
+            PFRelation *relation = [user relationForKey:@"markEvents"];
+            PFObject *currentEvent = self.eventList[index];
+            [relation removeObject:currentEvent];
+            [user saveInBackground];
+            
+            NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+            [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            
             break;
         }
         default:

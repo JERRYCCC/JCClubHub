@@ -47,17 +47,16 @@
     
     if([self checkPriority]){
         _adminBtn.hidden = NO;
-        _markBtn.hidden = YES;
     }else{
         _adminBtn.hidden = YES;
-        _markBtn.hidden = NO;
-        
-        if([self markStatus]){
-            [_markBtn setTitle:@"Unmark" forState:UIControlStateNormal];
-        }else{
-            [_markBtn setTitle:@"Mark" forState:UIControlStateNormal];
-        }
     }
+    
+    if([self markStatus]){
+        [_markBtn setTitle:@"Unmark" forState:UIControlStateNormal];
+    }else{
+        [_markBtn setTitle:@"Mark" forState:UIControlStateNormal];
+    }
+    
     
     if(_currentEvent[@"available"] == [NSNumber numberWithBool:YES]){
         cancelString = @"Cancel Event";
@@ -141,7 +140,6 @@
 {
     
     PFUser *user = [PFUser currentUser];
-    //[user fetchIfNeeded];
     PFRelation *relation = [user relationForKey:@"markEvents"];
     
     //mark the event, else unmark the events

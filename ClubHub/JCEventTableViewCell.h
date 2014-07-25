@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 #import "SWTableViewCell.h"
 
 @interface JCEventTableViewCell : SWTableViewCell
 
+
+@property (strong, nonatomic) PFObject *currentEvent;
 @property (strong, nonatomic) IBOutlet UILabel *titleLable;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 
