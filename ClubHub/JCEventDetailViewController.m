@@ -302,10 +302,10 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView
        cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *identifier = @"postCell";
-    JCPostTableViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    static NSString *cellIdentifier = @"postCell";
+    JCPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     if(cell==nil){
-        cell = [[JCPostTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[JCPostTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
     cell.currentPost = [postList objectAtIndex:indexPath.row];

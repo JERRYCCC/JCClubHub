@@ -76,7 +76,9 @@
     }
     
     //you like the post automatically if you submit the post
-    [newPost setObject:[PFUser currentUser] forKey:@"beLikedBy"];
+    newPost[@"likeNum"] = [NSNumber numberWithInt:1];
+    PFRelation *relation = [newPost relationforKey:@"like"];
+    [relation addObject:[PFUser currentUser]];
     
     [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         

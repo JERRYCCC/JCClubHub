@@ -9,11 +9,21 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface JCPostTableViewCell : UITableViewCell
+@interface JCPostTableViewCell : UITableViewCell <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) PFObject *currentPost;
 
-@property (weak, nonatomic) IBOutlet UITextView *postTextView;
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (strong, nonatomic) IBOutlet UITextView *postTextView;
+@property (strong, nonatomic) IBOutlet UIImageView *postImageView;
+
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UIButton *likeBtn;
+@property (strong, nonatomic) IBOutlet UIButton *commentBtn;
+
+@property (strong, nonatomic) IBOutlet UITableView *commentTableView;
+
+-(IBAction)likeBtn:(id)sender;
+-(IBAction)commentBtn:(id)sender;
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface JCEventDetailViewController : UIViewController <UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface JCEventDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) PFObject *currentEvent;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
