@@ -17,12 +17,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLable;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 
-@property (strong, nonatomic) UIButton *deleteBtn;
-@property (strong, nonatomic) UIButton *moreBtn;
-@property (strong, nonatomic) UIButton *remindBtn;
-
--(IBAction)deleteBtn:(id)sender;
--(IBAction)moreBtn:(id)sender;
--(IBAction)remind:(id)sender;
 
 @end

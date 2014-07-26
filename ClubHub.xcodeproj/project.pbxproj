@@ -19,6 +19,8 @@
 		C4810984198245CD0097E5FD /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C481097C198245CD0097E5FD /* SWTableViewCell.m */; };
 		C4810985198245CD0097E5FD /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = C481097E198245CD0097E5FD /* SWUtilityButtonTapGestureRecognizer.m */; };
 		C4810986198245CD0097E5FD /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4810980198245CD0097E5FD /* SWUtilityButtonView.m */; };
+		C4810990198328610097E5FD /* JCPostCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C481098F198328610097E5FD /* JCPostCreateViewController.m */; };
+		C4810996198378BF0097E5FD /* JCPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4810995198378BF0097E5FD /* JCPostTableViewCell.m */; };
 		C492CC4A196D835500D98E94 /* JCEventEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C492CC49196D835500D98E94 /* JCEventEditViewController.m */; };
 		C4A39D321964076900F8203F /* JCEventCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A39D311964076900F8203F /* JCEventCreateViewController.m */; };
 		C4A39D3819642D1A00F8203F /* JCPickClubTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A39D3719642D1A00F8203F /* JCPickClubTableViewController.m */; };
@@ -99,6 +101,10 @@
 		C481097E198245CD0097E5FD /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
 		C481097F198245CD0097E5FD /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
 		C4810980198245CD0097E5FD /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
+		C481098E198328610097E5FD /* JCPostCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCPostCreateViewController.h; sourceTree = "<group>"; };
+		C481098F198328610097E5FD /* JCPostCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCPostCreateViewController.m; sourceTree = "<group>"; };
+		C4810994198378BF0097E5FD /* JCPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCPostTableViewCell.h; sourceTree = "<group>"; };
+		C4810995198378BF0097E5FD /* JCPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCPostTableViewCell.m; sourceTree = "<group>"; };
 		C492CC48196D835500D98E94 /* JCEventEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCEventEditViewController.h; sourceTree = "<group>"; };
 		C492CC49196D835500D98E94 /* JCEventEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCEventEditViewController.m; sourceTree = "<group>"; };
 		C4A39D301964076900F8203F /* JCEventCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCEventCreateViewController.h; sourceTree = "<group>"; };
@@ -200,6 +206,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C481098A1983222E0097E5FD /* Post&Commment */ = {
+			isa = PBXGroup;
+			children = (
+				C481098E198328610097E5FD /* JCPostCreateViewController.h */,
+				C481098F198328610097E5FD /* JCPostCreateViewController.m */,
+				C4810994198378BF0097E5FD /* JCPostTableViewCell.h */,
+				C4810995198378BF0097E5FD /* JCPostTableViewCell.m */,
+			);
+			name = "Post&Commment";
+			sourceTree = "<group>";
+		};
 		C4D697AF1969585C007C5370 /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +293,7 @@
 				C4F304191961348100EC723F /* LogIn&Register */,
 				C4F3041B196134C700EC723F /* ClubViewController */,
 				C4F3041C196134F300EC723F /* EventViewController */,
+				C481098A1983222E0097E5FD /* Post&Commment */,
 				C4F303D01960302B00EC723F /* Images.xcassets */,
 				C4F303BF1960302B00EC723F /* Supporting Files */,
 			);
@@ -478,9 +496,11 @@
 				C41806F6196D746A00A4CFD4 /* JCClubBuildDetailViewController.m in Sources */,
 				C4F3042219613AB800EC723F /* JCEventTableViewCell.m in Sources */,
 				C4486A9D1969D01C002A0AAF /* JCAllClubsTableViewController.m in Sources */,
+				C4810996198378BF0097E5FD /* JCPostTableViewCell.m in Sources */,
 				C4F3040F196075B300EC723F /* JCEventTableViewController.m in Sources */,
 				C4810986198245CD0097E5FD /* SWUtilityButtonView.m in Sources */,
 				C4810982198245CD0097E5FD /* SWCellScrollView.m in Sources */,
+				C4810990198328610097E5FD /* JCPostCreateViewController.m in Sources */,
 				C4F3041819607B1E00EC723F /* JCClubTableViewCell.m in Sources */,
 				C4F303C51960302B00EC723F /* main.m in Sources */,
 				C4A39D321964076900F8203F /* JCEventCreateViewController.m in Sources */,

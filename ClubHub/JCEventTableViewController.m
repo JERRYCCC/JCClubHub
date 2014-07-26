@@ -80,6 +80,8 @@
         cell = [[JCEventTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
+    cell.currentEvent = object;
+    
     cell.titleLable.text = [object objectForKey:@"name"];
     
     //show the status of the event
@@ -94,7 +96,6 @@
         [formatter setDateFormat:@"h:mm a   EEE, MMM-d"];
         cell.dateLabel.text = [formatter stringFromDate:date];
     }
-    
     
     //add utility buttons
     

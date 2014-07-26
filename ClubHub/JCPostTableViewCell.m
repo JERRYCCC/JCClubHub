@@ -1,17 +1,14 @@
 //
-//  JCEventTableViewCell.m
+//  JCPostTableViewCell.m
 //  ClubHub
 //
-//  Created by Jerry on 6/30/14.
+//  Created by Jerry on 7/26/14.
 //  Copyright (c) 2014 JC. All rights reserved.
 //
 
-#import "JCEventTableViewCell.h"
+#import "JCPostTableViewCell.h"
 
-
-@implementation JCEventTableViewCell
-
-@synthesize currentEvent, titleLable, dateLabel;
+@implementation JCPostTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -22,6 +19,12 @@
     return self;
 }
 
+-(void)layoutSubviews
+{
+    _label.text = _currentPost[@"postString"];
+    
+    NSLog(_label.text);
+}
 
 - (void)awakeFromNib
 {
@@ -34,7 +37,5 @@
 
     // Configure the view for the selected state
 }
-
-
 
 @end

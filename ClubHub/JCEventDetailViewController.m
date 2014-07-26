@@ -8,6 +8,8 @@
 
 #import "JCEventDetailViewController.h"
 #import "JCEventEditViewController.h"
+#import "JCPostCreateViewController.h"
+#import "JCPostTableViewCell.h"
 
 
 @interface JCEventDetailViewController ()
@@ -16,6 +18,7 @@
 
 @implementation JCEventDetailViewController{
     NSString *cancelString;
+    PFQuery *postQuery;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -66,12 +69,12 @@
     }
     
     _markerNum.text = [[self getMarkerNum] stringValue];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    
+    //get the post query related to currentEvent
+    postQuery = [PFQuery queryWithClassName:@"Post"];
+    [postQuery whereKey:@"event" equalTo:_currentEvent];
+    [postQuery orderByDescending:@"createdAt"];
 }
 
 //to see if the event's club's admins field has the current user
@@ -177,6 +180,12 @@
         JCEventEditViewController* eventEditVC = [segue destinationViewController];
         eventEditVC.currentEvent = _currentEvent;
     }
+    
+    //this is a push segue, so that we can use the navigation bar,  but we dont neet a buttone action for the push
+    if([[segue identifier] isEqualToString:@"toPost"]){
+        JCPostCreateViewController* postCreateVC = [segue destinationViewController];
+        postCreateVC.currentEvent = _currentEvent;
+    }
 }
 
 
@@ -269,5 +278,34 @@
     [_currentEvent saveInBackground];
     return num;
 }
+
+/**
+ *
+ * Below is for the post tableview
+ *
+ *
+ *
+ */
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [postQuery countObjects];
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView
+       cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier = @"postCell";
+    JCPostTableViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    if(cell==nil){
+        cell = [[JCPostTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+    }
+    
+    cell.currentPost = [[postQuery findObjects] objectAtIndex:indexPath.row];
+    return cell;
+}
+
+
+
 
 @end
