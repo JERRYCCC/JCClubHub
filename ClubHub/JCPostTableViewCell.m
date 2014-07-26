@@ -10,6 +10,8 @@
 
 @implementation JCPostTableViewCell
 
+@synthesize postTextView, label;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -19,13 +21,20 @@
     return self;
 }
 
--(void)layoutSubviews
+-(void) layoutSubviews
 {
-    _label.text = _currentPost[@"postString"];
+    self.postTextView.text = self.currentPost[@"postString"];
+    self.label.text = self.currentPost[@"postString"];
+    NSLog(@"%@", self.postTextView.text);
+    NSLog(@"%@", self.label.text);
     
-    NSLog(_label.text);
+    UIButton *scanQRCodeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    scanQRCodeButton.frame = CGRectMake(0.0f, 5.0f, 320.0f, 44.0f);
+    scanQRCodeButton.backgroundColor = [UIColor redColor];
+    [scanQRCodeButton setTitle:@"Hello" forState:UIControlStateNormal];
+    [self addSubview:scanQRCodeButton];
+    
 }
-
 - (void)awakeFromNib
 {
     // Initialization code
@@ -35,7 +44,7 @@
 {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+   
 }
 
 @end

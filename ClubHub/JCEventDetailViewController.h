@@ -18,6 +18,8 @@
 @property (strong, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (strong, nonatomic) IBOutlet UILabel *markerNum;
 
+@property (weak, nonatomic) IBOutlet UITableView *postTableView;
+
 @property (weak, nonatomic) IBOutlet UIButton *markBtn;
 @property (strong, nonatomic) IBOutlet UIButton *deleteBtn;
 @property (strong, nonatomic) IBOutlet UIButton *adminBtn;

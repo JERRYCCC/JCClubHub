@@ -10,6 +10,7 @@
 #import "JCEventEditViewController.h"
 #import "JCPostCreateViewController.h"
 #import "JCPostTableViewCell.h"
+#import <Parse/Parse.h>
 
 
 @interface JCEventDetailViewController ()
@@ -18,7 +19,7 @@
 
 @implementation JCEventDetailViewController{
     NSString *cancelString;
-    PFQuery *postQuery;
+    NSArray *postList;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -72,9 +73,10 @@
     
     
     //get the post query related to currentEvent
-    postQuery = [PFQuery queryWithClassName:@"Post"];
+    PFQuery *postQuery = [PFQuery queryWithClassName:@"Post"];
     [postQuery whereKey:@"event" equalTo:_currentEvent];
     [postQuery orderByDescending:@"createdAt"];
+    postList = [postQuery findObjects];
 }
 
 //to see if the event's club's admins field has the current user
@@ -287,9 +289,14 @@
  *
  */
 
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [postQuery countObjects];
+    return [postList count];
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView
@@ -298,10 +305,11 @@
     static NSString *identifier = @"postCell";
     JCPostTableViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
     if(cell==nil){
-        cell = [[JCPostTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        cell = [[JCPostTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     
-    cell.currentPost = [[postQuery findObjects] objectAtIndex:indexPath.row];
+    cell.currentPost = [postList objectAtIndex:indexPath.row];
+        
     return cell;
 }
 

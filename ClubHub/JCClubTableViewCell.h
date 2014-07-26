@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *tagsLable;
 @property (weak, nonatomic) IBOutlet UIButton *followBtn;
 
+
 -(IBAction)followBtn:(id)sender;
 
 

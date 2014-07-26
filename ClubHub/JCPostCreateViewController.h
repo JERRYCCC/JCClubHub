@@ -18,5 +18,6 @@
 
 
 -(IBAction)postBtn:(id)sender;
+-(IBAction)selectPicBtn:(id)sender;
 -(IBAction)pickPicBtn: (id)sender;
 @end

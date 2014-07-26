@@ -103,8 +103,16 @@
     }
 }
 
+-(IBAction)selectPicBtn:(id)sender
+{
+    
+    
+    
+}
 -(IBAction)pickPicBtn: (id)sender
 {
+    
+    
     
 }
 
