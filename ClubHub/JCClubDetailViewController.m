@@ -236,7 +236,7 @@
         eventDetailViewController.currentEvent = object;
     }
     
-    if([[segue identifier] isEqualToString:@"toEventCreate"]){
+    if([[segue identifier] isEqualToString:@"toEventCreate"] ||[[segue identifier] isEqualToString:@"toEventCeateModal"]){
         
         JCEventCreateViewController *eventCreateVC = [segue destinationViewController];
         eventCreateVC.targetClub = _currentClub;
@@ -254,10 +254,9 @@
     [self performSegueWithIdentifier:@"toMain" sender:self];
 }
 
-
 -(IBAction)addEventBtn:(id)sender
 {
-    [self performSegueWithIdentifier:@"toEventCreate" sender:self];
+    [self performSegueWithIdentifier:@"toEventCeateModal" sender:self];
 }
 
 -(IBAction)moreBtn:(id)sender
@@ -268,7 +267,7 @@
                                                                  delegate:self
                                                         cancelButtonTitle:@"Cancel"
                                                    destructiveButtonTitle:nil
-                                                        otherButtonTitles:@"Edit Club", nil];
+                                                        otherButtonTitles:@"Add Event", @"Edit Club", nil];
         
         [actionSheet showInView:self.view];
     }else{
@@ -288,7 +287,12 @@
     
     if([[actionSheet title] isEqualToString:@"Administration"]){
         switch (buttonIndex) {
+                
             case 0:
+                [self performSegueWithIdentifier:@"toEventCreate" sender:self];
+                break;
+                
+            case 1:
                 [self performSegueWithIdentifier:@"toClubEdit" sender:self];
                 break;
                 

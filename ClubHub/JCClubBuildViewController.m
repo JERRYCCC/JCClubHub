@@ -36,6 +36,7 @@
     _emailField.delegate = self;
     _passwordField.delegate = self;
     _reEnterPasswordField.delegate = self;
+    _detailTextView.delegate = self;
     
     _sororitySwitch.on = NO;
     _fraternitySwitch.on = NO;
@@ -59,6 +60,7 @@
     [_emailField resignFirstResponder];
     [_passwordField resignFirstResponder];
     [_reEnterPasswordField resignFirstResponder];
+    [_detailTextView resignFirstResponder];
 }
 
 
@@ -184,8 +186,10 @@
     newClub[@"name"] = _nameField.text;
     newClub[@"email"] = _emailField.text;
     newClub[@"password"] = _passwordField.text;
-    newClub[@"school"] = [PFObject objectWithoutDataWithClassName:@"School" objectId:schoolId];
+    newClub[@"description"] = _detailTextView.text;
     newClub[@"tags"] = tagList;
+    
+    newClub[@"school"] = [PFObject objectWithoutDataWithClassName:@"School" objectId:schoolId];
     newClub[@"followerNum"] = [NSNumber numberWithInt:1];
     
     //the current user become the club administer automatically when he builds the club
@@ -207,7 +211,7 @@
             _reEnterPasswordField.text = nil;
             _emailField.text = nil;
             
-            [self performSegueWithIdentifier:@"toDetail" sender:self];
+            [self performSegueWithIdentifier:@"toClubDetail" sender:self];
             
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem building you a club" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -220,7 +224,7 @@
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
-    if ([[segue identifier] isEqualToString:@"toDetail"]) {
+    if ([[segue identifier] isEqualToString:@"toClubDetail"]) {
         
         JCClubBuildDetailViewController *detailVC = [segue destinationViewController];
         detailVC.currentClub = newClub;

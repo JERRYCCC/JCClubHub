@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JCClubBuildViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
+@interface JCClubBuildViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *buildBtn;
 @property (strong, nonatomic) IBOutlet UIButton *cancelBtn;
@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *emailField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UITextField *reEnterPasswordField;
+@property (strong, nonatomic) IBOutlet UITextView *detailTextView;
 
 
 @property (strong, nonatomic) IBOutlet UISwitch *sororitySwitch;
@@ -25,8 +26,6 @@
 @property (strong, nonatomic) IBOutlet UISwitch *sportsSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *culturalSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *religiousSwitch;
-
-
 
 
 -(IBAction)buildBtn:(id)sender;

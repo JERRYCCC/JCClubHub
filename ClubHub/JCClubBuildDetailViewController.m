@@ -73,8 +73,6 @@
         [self performSegueWithIdentifier:@"toClubDetail" sender:self];
         
     }
-    
-    
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

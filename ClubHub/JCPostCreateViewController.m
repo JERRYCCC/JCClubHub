@@ -15,9 +15,9 @@
 @end
 
 @implementation JCPostCreateViewController
-{
-    NSString *userinfo;
-}
+
+@synthesize imageView, textField;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,48 +31,94 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = _currentEvent[@"name"];
-    _postTextView.delegate=self;
+    textField.delegate =self;
     
-    userinfo = [PFUser currentUser][@"username"];
-    userinfo = [userinfo stringByAppendingString:@":\n"];
-    _postTextView.text = userinfo;
+    NSString *string = @"";
+    string = [string stringByAppendingString:[PFUser currentUser].username];
+    string = [string stringByAppendingString:@": "];
+    [textField setText:string];
 }
 
--(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+-(void)cameraBtn:(id)sender
 {
-    [_postTextView resignFirstResponder];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upload a photo" message:nil delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Take a photo", @"Choose existing", nil];
+    
+    alert.alertViewStyle = UIAlertViewStyleDefault;
+    
+    [alert show];
 }
 
--(IBAction)postBtn:(id)sender
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [self checkViewComplete];
-}
-
--(void)checkViewComplete
-{
-    if([_postTextView.text isEqualToString:userinfo]&&_postImageView.image==nil){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!"
-                                                        message:@"You cannot submit a blank post."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }else{
-        [self createPost];
+    if(buttonIndex ==1){
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+        [self presentViewController:imagePicker animated:YES completion:NULL];
+    }
+    
+    if(buttonIndex ==2){
+        UIImagePickerController *imagePicker2 = [[UIImagePickerController alloc] init];
+        imagePicker2.delegate = self;
+        [self presentViewController:imagePicker2 animated:YES completion:NULL];
     }
 }
 
--(void)createPost
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [imageView setImage:image];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [textField resignFirstResponder];
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    if(self.textField){
+        [self.textField resignFirstResponder];
+    }
+    return NO;
+}
+
+//moving the view when edit
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y - 215.0), self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 215.0), self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
+
+-(IBAction)postBtn:(id)sender
 {
     NSLog(@"posting.....");
     
     PFObject *newPost = [PFObject objectWithClassName:@"Post"];
     newPost[@"user"] = [PFObject objectWithoutDataWithClassName:@"_User" objectId:[PFUser currentUser].objectId];
     newPost[@"event"] = [PFObject objectWithoutDataWithClassName:@"Event" objectId:_currentEvent.objectId];
-    newPost[@"postString"] = _postTextView.text;
-    if (_postImageView.image!=nil) {
-        newPost[@"image"] = _postImageView.image;
+    newPost[@"postString"] = textField.text;
+    
+    //the image need to saved as PFFile and passed as data
+    PFFile *imageFile = [PFFile fileWithData:UIImagePNGRepresentation(imageView.image)];
+    if (imageFile!=nil) {
+        newPost[@"image"] = imageFile;
     }
     
     //you like the post automatically if you submit the post
@@ -84,8 +130,8 @@
         
         if(!error){
             NSLog(@"Post success!");
-            _postImageView.image = nil;
-            _postTextView.text = nil;
+            imageView.image = nil;
+            //_postTextView.text = nil;
             
             [self performSegueWithIdentifier:@"toEventDetail" sender:self];
         }else{
@@ -94,6 +140,8 @@
             [alert show];
         }
     }];
+    
+    [self performSegueWithIdentifier:@"toEventDetail" sender:self];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -104,18 +152,4 @@
         eventDetailVC.currentEvent = _currentEvent;
     }
 }
-
--(IBAction)selectPicBtn:(id)sender
-{
-    
-    
-    
-}
--(IBAction)pickPicBtn: (id)sender
-{
-    
-    
-    
-}
-
 @end

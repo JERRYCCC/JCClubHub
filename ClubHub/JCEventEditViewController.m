@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     _nameField.delegate = self;
     _locationField.delegate = self;
     _descriptionView.delegate = self;
@@ -35,6 +36,11 @@
     _locationField.text = _currentEvent[@"location"];
     _descriptionView.text = _currentEvent[@"description"];
     _datePicker.date = _currentEvent[@"date"];
+}
+
+-(BOOL)prefersStatusBarHidden
+{
+    return NO;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField*) textField{
@@ -95,7 +101,9 @@
         
         if(!error){
             
-            [self performSegueWithIdentifier:@"toEventDetail" sender:self];
+            //[self performSegueWithIdentifier:@"toEventDetail" sender:self];
+            //[self.navigationController popViewControllerAnimated:YES];
+            [self.delegate doneEditing:self pass:_currentEvent];
             
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem saving this event" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -104,11 +112,6 @@
     }];
 }
 
--(void) cancelBtn:(id)sender
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Are you sure to cancel?" delegate:self cancelButtonTitle:@"Keep Editing" otherButtonTitles:@"Give Up", nil];
-    [alert show];
-}
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {

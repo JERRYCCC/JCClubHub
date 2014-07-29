@@ -34,6 +34,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBarHidden=NO;
+    
     _nameField.delegate = self;
     _locationField.delegate = self;
     _descriptionView.delegate = self;

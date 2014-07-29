@@ -9,6 +9,9 @@
 #import "JCPostTableViewCell.h"
 
 @implementation JCPostTableViewCell
+{
+    UIImage *postImage;
+}
 
 @synthesize postTextView, dateLabel, currentPost, postImageView, locationLabel, likeBtn, commentBtn, commentTableView;
 
@@ -24,9 +27,14 @@
 
 -(void)layoutSubviews
 {
+    postTextView.editable = NO;
     postTextView.text = currentPost[@"postString"];
+    
     if(currentPost[@"image"]!=nil){
-        postImageView.image = currentPost[@"image"];
+        PFFile *file = [currentPost objectForKey:@"image"];
+        NSData  *data = [file getData];
+        postImage = [UIImage imageWithData:data];
+        postImageView.image = postImage;
     }
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -71,7 +79,27 @@
 
 -(IBAction)commentBtn:(id)sender
 {
+    NSLog(@"comment Btn");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:currentPost[@"postString"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
+    UITableView *tableView = [[UITableView alloc] init];
+    NSMutableArray *commentArray = currentPost[@"comment"];
+
+    [alert addSubview:tableView];
+    
+    
+    [alert show];
+    
+}
+
+-(IBAction)imageBtn:(id)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:currentPost[@"postString"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:postImage];
+    [alert addSubview:imageView];
+    
+    [alert show];
 }
 
 - (void)awakeFromNib
@@ -82,7 +110,6 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-   
 }
 
 @end

@@ -9,15 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface JCPostCreateViewController : UIViewController<UITextViewDelegate, UIAlertViewDelegate>
+@interface JCPostCreateViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, UITextFieldDelegate>
+
 
 @property (strong, nonatomic) PFObject *currentEvent;
 
-@property (strong, nonatomic) IBOutlet UITextView *postTextView;
-@property (strong, nonatomic) IBOutlet UIImageView *postImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 
+-(IBAction)cameraBtn:(id)sender;
 -(IBAction)postBtn:(id)sender;
--(IBAction)selectPicBtn:(id)sender;
--(IBAction)pickPicBtn: (id)sender;
+
+
+
 @end

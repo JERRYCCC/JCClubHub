@@ -23,7 +23,6 @@
 @property (strong, nonatomic) IBOutlet UISwitch *religiousSwitch;
 
 -(IBAction)saveBtn:(id)sender;
--(IBAction)cancelBtn:(id)sender;
 
 
 @end

@@ -13,6 +13,7 @@
 #import <Parse/Parse.h>
 
 
+
 @interface JCEventDetailViewController ()
 
 @end
@@ -20,6 +21,15 @@
 @implementation JCEventDetailViewController{
     NSString *cancelString;
     NSArray *postList;
+}
+
+-(void)doneEditing:(JCEventEditViewController*)editVC pass:(PFObject*)eventObject
+{
+    //[editVC dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"DONE EDITING");
+    _currentEvent = eventObject;
+    [self viewDidLoad];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -48,12 +58,6 @@
     _descriptionTextView.text = (_currentEvent[@"description"]);
     _descriptionTextView.editable=NO;
 
-    
-    if([self checkPriority]){
-        _adminBtn.hidden = NO;
-    }else{
-        _adminBtn.hidden = YES;
-    }
     
     if([self markStatus]){
         [_markBtn setTitle:@"Unmark" forState:UIControlStateNormal];
@@ -97,6 +101,14 @@
         }else{
             return YES;
         }
+}
+
+-(IBAction)detailBtn:(id)sender
+{
+    NSString *detail = _currentEvent[@"description"];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Detail" message:detail delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alertView show];
 }
 
 
@@ -181,6 +193,7 @@
     if([[segue identifier] isEqualToString:@"toEventEdit"]){
         JCEventEditViewController* eventEditVC = [segue destinationViewController];
         eventEditVC.currentEvent = _currentEvent;
+        eventEditVC.delegate = self;
     }
     
     //this is a push segue, so that we can use the navigation bar,  but we dont neet a buttone action for the push
@@ -191,26 +204,34 @@
 }
 
 
--(IBAction)adminBtn:(id)sender
+-(IBAction)moreBtn:(id)sender
 {
+    if([self checkPriority]==YES){
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Administration"
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
-                                                otherButtonTitles:@"Edit Event", cancelString, nil];
+                                                otherButtonTitles:@"Add a Post", @"Edit Event", cancelString, nil];
     
     [actionSheet showInView:self.view];
+    }else{
+        [self performSegueWithIdentifier:@"toPost" sender:self];
+    }
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     switch (buttonIndex) {
         case 0:
+            [self performSegueWithIdentifier:@"toPost" sender:self];
+            break;
+            
+        case 1:
             [self performSegueWithIdentifier:@"toEventEdit" sender:self];
             break;
         
-        case 1:
+        case 2:
             if(_currentEvent[@"available"] == [NSNumber numberWithBool:YES]){
                 
                 _currentEvent[@"available"] = [NSNumber numberWithBool:NO];
@@ -312,7 +333,11 @@
         
     return cell;
 }
-
+/*
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return +211
+}*/
 
 
 

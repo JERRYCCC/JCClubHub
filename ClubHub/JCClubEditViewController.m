@@ -233,11 +233,4 @@
     
 }
 
--(void) cancelBtn:(id)sender
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cancel Edit" message:@"Are you sure to cancel?" delegate:self cancelButtonTitle:@"Keep Editing" otherButtonTitles:@"Give Up", nil];
-    [alert show];
-}
-
-
 @end

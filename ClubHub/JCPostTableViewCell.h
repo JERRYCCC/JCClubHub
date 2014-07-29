@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface JCPostTableViewCell : UITableViewCell <UITableViewDelegate, UITableViewDataSource>
+@interface JCPostTableViewCell : UITableViewCell<UITextFieldDelegate>
+
 
 @property (strong, nonatomic) PFObject *currentPost;
 

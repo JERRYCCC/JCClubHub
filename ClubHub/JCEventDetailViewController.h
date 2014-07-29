@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "JCEventEditViewController.h"
 
-@interface JCEventDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
+@interface JCEventDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, JCEventEditViewControllerDelegate>
 
 @property (strong, nonatomic) PFObject *currentEvent;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
@@ -22,12 +23,14 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *markBtn;
 @property (strong, nonatomic) IBOutlet UIButton *deleteBtn;
-@property (strong, nonatomic) IBOutlet UIButton *adminBtn;
+@property (strong, nonatomic) IBOutlet UIButton *moreBtn;
+@property (strong, nonatomic) IBOutlet UIButton *detailBtn;
 
 -(IBAction)deleteBtn:(id)sender;
 -(IBAction)markBtn:(id)sender;
 -(IBAction)backBtn:(id)sender;
--(IBAction)adminBtn:(id)sender;
+-(IBAction)moreBtn:(id)sender;
+-(IBAction)detailBtn:(id)sender;
 
 
 @end
