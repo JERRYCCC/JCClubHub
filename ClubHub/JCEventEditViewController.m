@@ -100,10 +100,7 @@
     [_currentEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         
         if(!error){
-            
-            //[self performSegueWithIdentifier:@"toEventDetail" sender:self];
-            //[self.navigationController popViewControllerAnimated:YES];
-            [self.delegate doneEditing:self pass:_currentEvent];
+            [self.delegate doneEditing:_currentEvent];
             
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem saving this event" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -120,12 +117,5 @@
     }
 }
 
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([[segue identifier] isEqualToString:@"toEventDetail"]){
-        JCEventDetailViewController *eventDetailViewController = [segue destinationViewController];
-        eventDetailViewController.currentEvent = _currentEvent;
-    }
-}
 
 @end

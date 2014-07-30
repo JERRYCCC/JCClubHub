@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "JCEventEditViewController.h"
+#import "JCPostCreateViewController.h"
 
-@interface JCEventDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, JCEventEditViewControllerDelegate>
+@interface JCEventDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, JCEventEditViewControllerDelegate, JCPostCreateViewControllerDelegate>
 
 @property (strong, nonatomic) PFObject *currentEvent;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UITextView *locationTextView;
-@property (strong, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (strong, nonatomic) IBOutlet UILabel *markerNum;
 
 @property (weak, nonatomic) IBOutlet UITableView *postTableView;

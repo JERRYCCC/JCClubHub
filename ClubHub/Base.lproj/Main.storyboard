@@ -1142,7 +1142,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <rect key="frame" x="0.0" y="131" width="320" height="442"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" patternImage="CA49058D-9E32-4E22-8A53-6729110AFA46" colorSpace="pattern"/>
+                                <color key="separatorColor" patternImage="1F93C267-9238-4156-80DA-8961411A1865" colorSpace="pattern"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="263" id="QmT-X7-dtY" customClass="JCPostTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="263"/>
@@ -1266,7 +1266,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="markBtn" destination="q4a-7I-1Ld" id="fqX-4Q-bmn"/>
                         <outlet property="markerNum" destination="g9b-GO-3Ww" id="haL-j3-XB8"/>
                         <outlet property="nameLabel" destination="Wtn-Hk-Hau" id="IRJ-1v-SWn"/>
-                        <outlet property="postTableView" destination="vhB-tO-WbE" id="jQc-0x-4LD"/>
+                        <outlet property="postTableView" destination="vhB-tO-WbE" id="s2A-ad-6D5"/>
                         <segue destination="hj1-Kx-4e7" kind="push" identifier="toEventEdit" id="fZU-7y-yzI"/>
                         <segue destination="tCm-ei-fgU" kind="modal" identifier="toMain" id="TBi-xe-K2f"/>
                         <segue destination="qyb-Do-BgV" kind="push" identifier="toPost" id="3Uh-ur-iDu"/>
@@ -1336,7 +1336,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <connections>
                         <outlet property="imageView" destination="xAQ-la-jBp" id="2Rg-ht-Htc"/>
                         <outlet property="textField" destination="Khu-8U-dj8" id="sha-88-PLx"/>
-                        <segue destination="tMf-WG-VlU" kind="modal" identifier="toEventDetail" id="ofE-tw-XLo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDj-3h-ll6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1820,8 +1819,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
-        <image name="Blue-green light background" width="640" height="1136"/>
-        <image name="CA49058D-9E32-4E22-8A53-6729110AFA46" width="320" height="460">
+        <image name="1F93C267-9238-4156-80DA-8961411A1865" width="320" height="460">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -11708,6 +11706,7 @@ CQq/AAkKxAAJCswACQrPAAkK1AAJCtwACQrfAAkK8QAJCvQACQr5AAAAAAAABAEAAAAAAAAAQgAAAAAA
 AAAAAAAAAAAJCvs
 </mutableData>
         </image>
+        <image name="Blue-green light background" width="640" height="1136"/>
         <image name="CLUB-HUB-LOGO" width="371" height="416"/>
         <image name="Dim light-colored" width="640" height="1136"/>
         <image name="add-item" width="32" height="32"/>
@@ -11726,11 +11725,11 @@ AAAAAAAAAAAJCvs
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ghw-vo-ukf"/>
         <segue reference="TBi-xe-K2f"/>
-        <segue reference="ofE-tw-XLo"/>
-        <segue reference="HBS-eC-vzP"/>
+        <segue reference="yPU-ud-HrZ"/>
         <segue reference="Hiv-xZ-hNA"/>
+        <segue reference="HBS-eC-vzP"/>
         <segue reference="yAS-gG-sgF"/>
+        <segue reference="ghw-vo-ukf"/>
     </inferredMetricsTieBreakers>
 </document>

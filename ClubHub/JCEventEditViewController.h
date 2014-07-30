@@ -10,9 +10,10 @@
 #import <Parse/Parse.h>
 
 @class JCEventEditViewController;
+
 @protocol JCEventEditViewControllerDelegate <NSObject>
 
--(void)doneEditing:(JCEventEditViewController*)editVC pass:(PFObject*)eventObject;
+-(void)doneEditing:(PFObject*)eventObject;
 
 @end
 

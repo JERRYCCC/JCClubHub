@@ -23,13 +23,25 @@
     NSArray *postList;
 }
 
--(void)doneEditing:(JCEventEditViewController*)editVC pass:(PFObject*)eventObject
+-(void)donePosting:(PFObject*)eventObject
 {
-    //[editVC dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"Done Posting");
+    
+    PFQuery *postQuery = [PFQuery queryWithClassName:@"Post"];
+    [postQuery whereKey:@"event" equalTo:eventObject];
+    [postQuery orderByDescending:@"createdAt"];
+    postList = [postQuery findObjects];
+    [self.postTableView reloadData];
+}
+
+-(void)doneEditing:(PFObject*)eventObject
+{
     [self.navigationController popViewControllerAnimated:YES];
     NSLog(@"DONE EDITING");
     _currentEvent = eventObject;
     [self viewDidLoad];
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -55,10 +67,6 @@
     _locationTextView.text = (_currentEvent[@"location"]);
     _locationTextView.editable = NO;
     
-    _descriptionTextView.text = (_currentEvent[@"description"]);
-    _descriptionTextView.editable=NO;
-
-    
     if([self markStatus]){
         [_markBtn setTitle:@"Unmark" forState:UIControlStateNormal];
     }else{
@@ -81,6 +89,7 @@
     [postQuery whereKey:@"event" equalTo:_currentEvent];
     [postQuery orderByDescending:@"createdAt"];
     postList = [postQuery findObjects];
+    
 }
 
 //to see if the event's club's admins field has the current user
@@ -200,6 +209,7 @@
     if([[segue identifier] isEqualToString:@"toPost"]){
         JCPostCreateViewController* postCreateVC = [segue destinationViewController];
         postCreateVC.currentEvent = _currentEvent;
+        postCreateVC.delegate = self;
     }
 }
 

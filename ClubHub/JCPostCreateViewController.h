@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
+@class JCPostCreateViewController;
+
+@protocol JCPostCreateViewControllerDelegate <NSObject>
+
+-(void)donePosting:(PFObject*) eventObject;
+
+@end
+
 @interface JCPostCreateViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, UITextFieldDelegate>
 
 
@@ -16,6 +24,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+
+@property (assign, nonatomic) id <JCPostCreateViewControllerDelegate> delegate;
 
 
 -(IBAction)cameraBtn:(id)sender;
