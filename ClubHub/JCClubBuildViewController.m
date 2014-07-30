@@ -7,7 +7,6 @@
 //
 
 #import "JCClubBuildViewController.h"
-#import "JCClubBuildDetailViewController.h"
 #import <Parse/Parse.h>
 
 @interface JCClubBuildViewController ()
@@ -64,7 +63,7 @@
 }
 
 
-- (IBAction)buildBtn:(id)sender
+- (IBAction)saveBtn:(id)sender
 {
     
     [self checkFieldsComplete];
@@ -211,7 +210,7 @@
             _reEnterPasswordField.text = nil;
             _emailField.text = nil;
             
-            [self performSegueWithIdentifier:@"toClubDetail" sender:self];
+            [self.delegate doneClubBuild];
             
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem building you a club" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -219,17 +218,6 @@
             [alert show];
         }
     }];
-}
-
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-    if ([[segue identifier] isEqualToString:@"toClubDetail"]) {
-        
-        JCClubBuildDetailViewController *detailVC = [segue destinationViewController];
-        detailVC.currentClub = newClub;
-    }
-    
 }
 
 -(void) cancelBtn:(id)sender

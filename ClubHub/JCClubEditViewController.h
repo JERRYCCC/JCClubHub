@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
+@protocol JCClubEditViewControllerDelegate <NSObject>
+
+-(void)doneClubEditing:(PFObject*)clubObject;
+
+@end
+
 @interface JCClubEditViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) PFObject *currentClub;
@@ -21,6 +27,8 @@
 @property (strong, nonatomic) IBOutlet UISwitch *sportsSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *culturalSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *religiousSwitch;
+
+@property (assign, nonatomic) id <JCClubEditViewControllerDelegate> delegate;
 
 -(IBAction)saveBtn:(id)sender;
 

@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JCClubBuildViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate, UITextViewDelegate>
+@protocol JCClubBuildViewControllerDelegate <NSObject>
 
-@property (strong, nonatomic) IBOutlet UIButton *buildBtn;
-@property (strong, nonatomic) IBOutlet UIButton *cancelBtn;
+-(void) doneClubBuild;
+
+@end
+
+@interface JCClubBuildViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
 @property (strong, nonatomic) IBOutlet UITextField *emailField;
@@ -27,8 +30,10 @@
 @property (strong, nonatomic) IBOutlet UISwitch *culturalSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *religiousSwitch;
 
+@property (assign, nonatomic) id <JCClubBuildViewControllerDelegate> delegate;
 
--(IBAction)buildBtn:(id)sender;
+
+-(IBAction)saveBtn:(id)sender;
 -(IBAction)cancelBtn:(id)sender;
 
 @end

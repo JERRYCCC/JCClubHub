@@ -11,6 +11,7 @@
 #import "JCEventDetailViewController.h"
 #import "JCEventCreateViewController.h"
 #import "JCClubEditViewController.h"
+
 #import <Parse/Parse.h>
 
 @interface JCClubDetailViewController ()
@@ -30,6 +31,23 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)doneClubEditing:(PFObject*)clubObject
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"DONE EDITING");
+    _currentClub = clubObject;
+    [self viewDidLoad];
+}
+
+-(void)doneEventCreate:(PFObject*)clubObject
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"Done Creating Event");
+    _currentClub = clubObject;
+    eventList = [self getEventList];
+    [self.eventListTableView reloadData];
 }
 
 - (void)viewDidLoad
@@ -240,12 +258,14 @@
         
         JCEventCreateViewController *eventCreateVC = [segue destinationViewController];
         eventCreateVC.targetClub = _currentClub;
+        eventCreateVC.delegate = self;
         
     }
     
     if([[segue identifier] isEqualToString:@"toClubEdit"]){
         JCClubEditViewController * clubEditVC = [segue destinationViewController];
-        clubEditVC.currentClub = _currentClub ;
+        clubEditVC.currentClub = _currentClub;
+        clubEditVC.delegate = self;
     }
 }
 

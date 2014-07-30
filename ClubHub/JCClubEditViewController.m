@@ -211,7 +211,8 @@
             
             NSLog(@"save success!");
             
-            [self performSegueWithIdentifier:@"toClubDetail" sender:self];
+            [self.delegate doneClubEditing:_currentClub];
+            
         }else{
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem saving you a club" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

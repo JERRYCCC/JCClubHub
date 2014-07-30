@@ -82,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3320" y="272"/>
+            <point key="canvasLocation" x="-3256" y="-40"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="Q7r-n2-tLA">
@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEr-UP-ZU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2336" y="329"/>
+            <point key="canvasLocation" x="-2072" y="-47"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Rk7-VB-f1S">
@@ -294,7 +294,7 @@
             </objects>
             <point key="canvasLocation" x="-1793" y="-1149"/>
         </scene>
-        <!--All Events Table View Controller-->
+        <!--All Events Table View Controller - All Events-->
         <scene sceneID="Xqd-hi-HKz">
             <objects>
                 <tableViewController id="jOh-k3-NfX" customClass="JCAllEventsTableViewController" sceneMemberID="viewController">
@@ -336,7 +336,7 @@
                             <outlet property="delegate" destination="jOh-k3-NfX" id="CCJ-wN-PcJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="kzZ-Rx-Hz9">
+                    <navigationItem key="navigationItem" title="All Events" id="kzZ-Rx-Hz9">
                         <barButtonItem key="leftBarButtonItem" image="reveal-icon" id="Uxr-Cx-6Li"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -346,7 +346,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rrr-VJ-uNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134" y="919"/>
+            <point key="canvasLocation" x="-98" y="855"/>
         </scene>
         <!--Copyright View Controller - CopyRight-->
         <scene sceneID="RmK-kn-6js">
@@ -382,7 +382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9m-Iu-sLo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="-2494"/>
+            <point key="canvasLocation" x="-394" y="-3214"/>
         </scene>
         <!--Club Table View Controller - Clubs-->
         <scene sceneID="pba-DZ-WWT">
@@ -441,9 +441,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9d-7k-Snl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1225" y="-511"/>
+            <point key="canvasLocation" x="1385" y="-507"/>
         </scene>
-        <!--Club Build View Controller-->
+        <!--Club Build View Controller - Building New A Club-->
         <scene sceneID="ctm-OT-VuL">
             <objects>
                 <viewController id="JOy-C4-rE3" customClass="JCClubBuildViewController" sceneMemberID="viewController">
@@ -558,10 +558,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="obj-sI-0tg">
+                    <navigationItem key="navigationItem" title="Building New A Club" id="obj-sI-0tg">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="N2r-qf-mRg">
                             <connections>
-                                <action selector="buildBtn:" destination="JOy-C4-rE3" id="yE0-Kt-2RT"/>
+                                <action selector="saveBtn:" destination="JOy-C4-rE3" id="kUh-4M-pWX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -578,13 +578,11 @@
                         <outlet property="religiousSwitch" destination="RXu-HS-VJY" id="FrR-D8-BuO"/>
                         <outlet property="sororitySwitch" destination="zyH-gd-2cU" id="YKh-0b-L3T"/>
                         <outlet property="sportsSwitch" destination="XEb-R2-fIh" id="C3b-WT-Bie"/>
-                        <segue destination="tCm-ei-fgU" kind="modal" identifier="toMain" id="hbm-lP-0yc"/>
-                        <segue destination="Cnz-z3-FVU" kind="modal" identifier="toClubDetail" id="pD4-pE-mXf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZGi-ge-qyU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-973" y="3000"/>
+            <point key="canvasLocation" x="1307" y="-2056"/>
         </scene>
         <!--Club Detail View Controller-->
         <scene sceneID="JOL-dG-WBt">
@@ -661,26 +659,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ph0-bp-7Tw">
-                                <rect key="frame" x="29" y="25" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backBtn:" destination="Cnz-z3-FVU" eventType="touchUpInside" id="ar3-6y-OE6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNd-ZR-3Hv">
-                                <rect key="frame" x="229" y="25" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Event">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addEventBtn:" destination="Cnz-z3-FVU" eventType="touchUpInside" id="KyZ-Tp-zmB"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Follower:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fp6-zF-aNG">
                                 <rect key="frame" x="127" y="114" width="65" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -726,17 +704,15 @@
                         <outlet property="followerNum" destination="1vp-Bk-ASs" id="eaz-jr-L2o"/>
                         <outlet property="nameLabel" destination="kAc-IV-23Z" id="MgE-9L-yVI"/>
                         <outlet property="tagsTextView" destination="Sf3-yF-Zhh" id="REw-YH-wPe"/>
-                        <segue destination="tCm-ei-fgU" kind="modal" identifier="toMain" id="WLt-eI-qKN"/>
                         <segue destination="8FP-PI-kZZ" kind="push" identifier="toEventCreate" id="yAS-gG-sgF"/>
                         <segue destination="PfJ-gA-Cc7" kind="push" identifier="toClubEdit" id="iIW-7z-i2W"/>
-                        <segue destination="8FP-PI-kZZ" kind="modal" identifier="toEventCeateModal" id="iDP-vB-wml"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2SL-mR-kv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2518" y="-1063"/>
+            <point key="canvasLocation" x="1863" y="-1385"/>
         </scene>
-        <!--Club Edit View Controller - Event Edit-->
+        <!--Club Edit View Controller - Editing Club-->
         <scene sceneID="hnL-Y9-ZVH">
             <objects>
                 <viewController id="PfJ-gA-Cc7" customClass="JCClubEditViewController" sceneMemberID="viewController">
@@ -837,7 +813,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Event Edit" id="kcy-cU-2Yz">
+                    <navigationItem key="navigationItem" title="Editing Club" id="kcy-cU-2Yz">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="FOH-tr-UO6">
                             <connections>
                                 <action selector="saveBtn:" destination="PfJ-gA-Cc7" id="Tpp-WF-83j"/>
@@ -854,12 +830,11 @@
                         <outlet property="religiousSwitch" destination="5aa-Cx-p2W" id="3qB-hJ-APJ"/>
                         <outlet property="sororitySwitch" destination="lwV-j0-7QP" id="obF-V2-uJ2"/>
                         <outlet property="sportsSwitch" destination="zxN-0Q-XvL" id="y0s-bf-kjR"/>
-                        <segue destination="Cnz-z3-FVU" kind="modal" identifier="toClubDetail" id="YZl-Fq-a1T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Crf-QT-aSS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2505" y="-2013"/>
+            <point key="canvasLocation" x="2713" y="-1135"/>
         </scene>
         <!--Event Table View Controller - Events-->
         <scene sceneID="Hlh-Ni-ppE">
@@ -931,7 +906,7 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                             <state key="normal" title="Build A New Club"/>
                             <connections>
-                                <segue destination="JOy-C4-rE3" kind="push" identifier="" id="ghw-vo-ukf"/>
+                                <action selector="buildClubBtn:" destination="tsl-gr-dop" eventType="touchUpInside" id="yaF-Bn-Rm5"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -943,7 +918,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="8FP-PI-kZZ" kind="push" identifier="toCreateEvent" id="ija-yg-rId"/>
+                                    <segue destination="Cnz-z3-FVU" kind="push" identifier="toClubDetail" id="uWL-Bo-6a7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -954,18 +929,24 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Pick a Club for you event?" id="sar-S6-kVO">
                         <barButtonItem key="leftBarButtonItem" image="reveal-icon" id="TpI-aj-bFF"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="H5P-UU-zpc">
+                            <connections>
+                                <action selector="buildClubBtn:" destination="tsl-gr-dop" id="btX-FR-noE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="menuBtn" destination="TpI-aj-bFF" id="DPe-VO-pDz"/>
+                        <segue destination="JOy-C4-rE3" kind="push" identifier="toClubBuild" id="s6J-DY-Xdm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moB-J9-P2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-322" y="1719"/>
+            <point key="canvasLocation" x="-404" y="-2441"/>
         </scene>
-        <!--Event Create View Controller-->
+        <!--Event Create View Controller - Creating A New Event-->
         <scene sceneID="2SD-jG-rdM">
             <objects>
                 <viewController id="8FP-PI-kZZ" customClass="JCEventCreateViewController" sceneMemberID="viewController">
@@ -1024,58 +1005,28 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light" enablesReturnKeyAutomatically="YES"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzS-vj-3HO">
-                                <rect key="frame" x="20" y="38" width="58" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelBtn:" destination="8FP-PI-kZZ" eventType="touchUpInside" id="apn-de-M3h"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAM-gl-x67">
-                                <rect key="frame" x="233" y="38" width="67" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="createBtn:" destination="8FP-PI-kZZ" eventType="touchUpInside" id="1OD-2G-fDf"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0RT-pB-CYo">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="NIa-T2-eWf">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Vef-GW-hOY">
-                                <rect key="frame" x="228" y="7" width="76" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="createBtn:" destination="8FP-PI-kZZ" eventType="touchUpInside" id="oBV-rU-3OF"/>
-                                </connections>
-                            </button>
+                    <navigationItem key="navigationItem" title="Creating A New Event" id="0RT-pB-CYo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="jVH-Xd-JXX">
+                            <connections>
+                                <action selector="saveBtn:" destination="8FP-PI-kZZ" id="QFd-CZ-kp1"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="cancelBtn" destination="RzS-vj-3HO" id="sFV-u0-O4C"/>
-                        <outlet property="createBtn" destination="Vef-GW-hOY" id="aSa-M8-AyT"/>
                         <outlet property="datePicker" destination="0uc-W7-wTa" id="PE4-Yo-wSb"/>
                         <outlet property="descriptionView" destination="8A4-fq-aVR" id="Dg5-fa-VQT"/>
                         <outlet property="locationField" destination="jmn-TA-b2L" id="EG9-bz-W4g"/>
                         <outlet property="nameField" destination="R2g-y8-vSu" id="KC3-dx-Jao"/>
-                        <segue destination="tMf-WG-VlU" kind="modal" identifier="toEventDetail" id="fAR-0M-qhq"/>
-                        <segue destination="tCm-ei-fgU" kind="modal" identifier="toMain" id="9wn-ZI-Cy7"/>
+                        <outlet property="saveBtn" destination="jVH-Xd-JXX" id="RIC-gU-jq8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiB-Rd-vq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="531" y="1731"/>
+            <point key="canvasLocation" x="2595" y="-2593"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="zFd-UL-AD5">
@@ -1116,16 +1067,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8L-Hg-vqD">
-                                <rect key="frame" x="130" y="25" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backBtn:" destination="tMf-WG-VlU" eventType="touchUpInside" id="xhX-VA-8OB"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="marks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHH-dh-RoQ">
                                 <rect key="frame" x="272" y="73" width="39" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1142,7 +1083,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <rect key="frame" x="0.0" y="131" width="320" height="442"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" patternImage="1F93C267-9238-4156-80DA-8961411A1865" colorSpace="pattern"/>
+                                <color key="separatorColor" patternImage="8572C3A3-C950-4B2B-8002-908199932DE2" colorSpace="pattern"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="263" id="QmT-X7-dtY" customClass="JCPostTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="263"/>
@@ -1268,13 +1209,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="nameLabel" destination="Wtn-Hk-Hau" id="IRJ-1v-SWn"/>
                         <outlet property="postTableView" destination="vhB-tO-WbE" id="s2A-ad-6D5"/>
                         <segue destination="hj1-Kx-4e7" kind="push" identifier="toEventEdit" id="fZU-7y-yzI"/>
-                        <segue destination="tCm-ei-fgU" kind="modal" identifier="toMain" id="TBi-xe-K2f"/>
                         <segue destination="qyb-Do-BgV" kind="push" identifier="toPost" id="3Uh-ur-iDu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyi-KY-Rx6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3080" y="775"/>
+            <point key="canvasLocation" x="2448" y="439"/>
         </scene>
         <!--Post Create View Controller - New Post-->
         <scene sceneID="jgA-MX-w2N">
@@ -1288,7 +1228,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xAQ-la-jBp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xAQ-la-jBp">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1298,7 +1238,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu4-6Z-tqZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu4-6Z-tqZ">
                                 <rect key="frame" x="269" y="464" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1309,17 +1249,21 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="postBtn:" destination="qyb-Do-BgV" eventType="touchUpInside" id="bEp-Y5-eeE"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bh7-fv-1Q3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bh7-fv-1Q3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.19479345780000001" green="0.64524469149999997" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="fu4-6Z-tqZ" firstAttribute="top" secondItem="bh7-fv-1Q3" secondAttribute="bottom" constant="8" symbolic="YES" id="1Lc-tZ-C3r"/>
                             <constraint firstItem="Khu-8U-dj8" firstAttribute="leading" secondItem="9df-nm-ehw" secondAttribute="leading" constant="6" id="1r2-7b-0tn"/>
                             <constraint firstItem="jJf-jP-a72" firstAttribute="top" secondItem="fu4-6Z-tqZ" secondAttribute="bottom" constant="10" id="9br-Ou-LYf"/>
                             <constraint firstItem="jJf-jP-a72" firstAttribute="top" secondItem="Khu-8U-dj8" secondAttribute="bottom" constant="9" id="E0s-pm-fAP"/>
+                            <constraint firstItem="fu4-6Z-tqZ" firstAttribute="top" secondItem="xAQ-la-jBp" secondAttribute="bottom" constant="8" symbolic="YES" id="Jei-MZ-RMn"/>
+                            <constraint firstItem="fu4-6Z-tqZ" firstAttribute="leading" secondItem="Khu-8U-dj8" secondAttribute="trailing" constant="8" symbolic="YES" id="Rp1-B3-Voj"/>
                             <constraint firstAttribute="trailing" secondItem="Khu-8U-dj8" secondAttribute="trailing" constant="59" id="Sjw-F7-yrk"/>
+                            <constraint firstItem="fu4-6Z-tqZ" firstAttribute="top" secondItem="bh7-fv-1Q3" secondAttribute="bottom" constant="8" id="qbT-T8-rMi"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -1340,7 +1284,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDj-3h-ll6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3811" y="775"/>
+            <point key="canvasLocation" x="3183" y="31"/>
         </scene>
         <!--Event Edit View Controller - Edit Event-->
         <scene sceneID="Z5d-on-PnI">
@@ -1406,7 +1350,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Edit Event" id="0Gc-eS-5o6">
+                    <navigationItem key="navigationItem" title="Editing Event" id="0Gc-eS-5o6">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="FeL-B8-eJY">
                             <connections>
                                 <action selector="saveBtn:" destination="hj1-Kx-4e7" id="M0n-CH-OXN"/>
@@ -1424,7 +1368,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jYr-uf-a1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3671" y="1609"/>
+            <point key="canvasLocation" x="3219" y="1013"/>
         </scene>
         <!--Navigation Controller - MarkedEvents-->
         <scene sceneID="TzA-qr-Dot">
@@ -1484,7 +1428,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yoh-dd-ika" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3876" y="291"/>
+            <point key="canvasLocation" x="-3812" y="-21"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="Lqb-Gt-0QC">
@@ -1580,9 +1524,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="872-jR-qss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2769" y="-287"/>
+            <point key="canvasLocation" x="-2705" y="-599"/>
         </scene>
-        <!--Admin Table View Controller - Pick Your Club-->
+        <!--Admin Table View Controller - Your Admin Club-->
         <scene sceneID="Fmh-5L-pIk">
             <objects>
                 <tableViewController id="oxV-gC-exf" customClass="JCAdminTableViewController" sceneMemberID="viewController">
@@ -1597,7 +1541,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <segue destination="JOy-C4-rE3" kind="push" id="O9V-df-Bun"/>
+                                <action selector="buildClubBtn:" destination="oxV-gC-exf" eventType="touchUpInside" id="HnC-fO-vfb"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -1618,7 +1562,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="oxV-gC-exf" id="JiE-2q-3zI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pick Your Club" id="mL7-3Q-CIU">
+                    <navigationItem key="navigationItem" title="Your Admin Club" id="mL7-3Q-CIU">
                         <barButtonItem key="leftBarButtonItem" image="reveal-icon" id="EN7-Rb-Uzw"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="aM0-pW-dVg">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GUQ-6g-j4Q">
@@ -1638,6 +1582,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <connections>
                         <outlet property="menuBtn" destination="EN7-Rb-Uzw" id="aYC-CG-82s"/>
                         <segue destination="8Oa-bs-elv" kind="modal" identifier="toLogIn" animates="NO" id="30Y-1l-FKK"/>
+                        <segue destination="JOy-C4-rE3" kind="push" identifier="toClubBuild" id="cO3-Op-7Oe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPM-Yd-WAe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1662,9 +1607,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BIw-tb-q47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1029" y="1743"/>
+            <point key="canvasLocation" x="-911" y="-2393"/>
         </scene>
-        <!--All Clubs Table View Controller-->
+        <!--All Clubs Table View Controller - All Clubs-->
         <scene sceneID="hNr-0C-158">
             <objects>
                 <tableViewController id="gdj-if-WOc" customClass="JCAllClubsTableViewController" sceneMemberID="viewController">
@@ -1718,7 +1663,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="gdj-if-WOc" id="Mux-yn-fIy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="e2Y-3d-jcR">
+                    <navigationItem key="navigationItem" title="All Clubs" id="e2Y-3d-jcR">
                         <barButtonItem key="leftBarButtonItem" image="reveal-icon" id="wpy-ZD-MSD"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -1760,7 +1705,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mKf-62-epB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-898" y="-2494"/>
+            <point key="canvasLocation" x="-920" y="-3214"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Aq-7x-Jy4">
@@ -1796,7 +1741,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQi-yb-Do2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-832" y="855"/>
+            <point key="canvasLocation" x="-720" y="807"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="A9y-K5-Aco">
@@ -1819,7 +1764,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
-        <image name="1F93C267-9238-4156-80DA-8961411A1865" width="320" height="460">
+        <image name="8572C3A3-C950-4B2B-8002-908199932DE2" width="320" height="460">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -11725,11 +11670,10 @@ AAAAAAAAAAAJCvs
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TBi-xe-K2f"/>
-        <segue reference="yPU-ud-HrZ"/>
-        <segue reference="Hiv-xZ-hNA"/>
-        <segue reference="HBS-eC-vzP"/>
-        <segue reference="yAS-gG-sgF"/>
-        <segue reference="ghw-vo-ukf"/>
+        <segue reference="ebH-83-de7"/>
+        <segue reference="K1I-4w-OBM"/>
+        <segue reference="KPN-bW-mWx"/>
+        <segue reference="HmT-Np-xe8"/>
+        <segue reference="cO3-Op-7Oe"/>
     </inferredMetricsTieBreakers>
 </document>

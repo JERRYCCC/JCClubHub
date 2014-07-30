@@ -19,6 +19,12 @@
     NSArray* clubList;
 }
 
+-(void)doneClubBuild
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    [self loadObjects];
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -90,11 +96,21 @@
         PFObject *object = [clubList objectAtIndex:row];
         clubDetailViewController.currentClub = object;
     }
+    
+    if([[segue identifier] isEqualToString:@"toClubBuild"]){
+        
+        JCClubBuildViewController *clubBuildVC = [segue destinationViewController];
+        clubBuildVC.delegate = self;
+    }
 }
 -(void) logoutBtn:(id)sender{
     [PFUser logOut];
-    
     [self performSegueWithIdentifier:@"toLogIn" sender:self];
+}
+
+-(IBAction)buildClubBtn:(id)sender
+{
+    [self performSegueWithIdentifier:@"toClubBuild" sender:self];
 }
 
 @end

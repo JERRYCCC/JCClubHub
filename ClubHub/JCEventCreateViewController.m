@@ -69,7 +69,7 @@
 }
 
 
--(IBAction)createBtn:(id)sender
+-(IBAction)saveBtn:(id)sender
 {
     [_nameField resignFirstResponder];
     [_locationField resignFirstResponder];
@@ -123,7 +123,7 @@
             _locationField.text = nil;
             _descriptionView.text = nil;
             
-            [self performSegueWithIdentifier:@"toEventDetail" sender:self];
+            [self.delegate doneEventCreate:_targetClub];
             
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem creating an event" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

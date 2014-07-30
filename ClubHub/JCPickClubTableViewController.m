@@ -8,6 +8,7 @@
 
 #import "JCPickClubTableViewController.h"
 #import "JCEventCreateViewController.h"
+#import "JCClubDetailViewController.h"
 #import "SWRevealViewController.h"
 
 @interface JCPickClubTableViewController ()
@@ -16,6 +17,12 @@
 
 @implementation JCPickClubTableViewController{
     NSArray *clubList;
+}
+
+-(void)doneClubBuild
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    [self loadObjects];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -104,15 +111,27 @@
     
     //pass the whole object directly, instead the data of the object
     
-    if([[segue identifier] isEqualToString:@"toCreateEvent"]){
+    if([[segue identifier] isEqualToString:@"toClubDetail"]){
         
-        JCEventCreateViewController *eventCreateViewController = [segue destinationViewController];
+        JCClubDetailViewController *clubDetailVC = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         
         int row = [myIndexPath row];
         PFObject *object = [clubList objectAtIndex:row];
-        eventCreateViewController.targetClub = object;
+        clubDetailVC.currentClub= object;
     }
+    
+
+    if([[segue identifier] isEqualToString:@"toClubBuild"]){
+        
+        JCClubBuildViewController *clubBuildVC = [segue destinationViewController];
+        clubBuildVC.delegate = self;
+    }
+}
+
+-(IBAction)buildClubBtn:(id)sender
+{
+    [self performSegueWithIdentifier:@"toClubBuild" sender:self];
 }
 
 @end

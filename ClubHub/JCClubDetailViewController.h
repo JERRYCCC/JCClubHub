@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "JCClubEditViewController.h"
+#import "JCEventCreateViewController.h"
 
-@interface JCClubDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
+@interface JCClubDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, JCClubEditViewControllerDelegate, JCEventCreateViewControllerDelegate>
 
 @property (weak, nonatomic) PFObject *currentClub;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;

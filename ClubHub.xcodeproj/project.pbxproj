@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C41806F6196D746A00A4CFD4 /* JCClubBuildDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41806F5196D746A00A4CFD4 /* JCClubBuildDetailViewController.m */; };
 		C43050E6198040110056E353 /* Club.m in Sources */ = {isa = PBXBuildFile; fileRef = C43050E5198040110056E353 /* Club.m */; };
 		C43050E9198041680056E353 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = C43050E8198041680056E353 /* School.m */; };
 		C43050EC1980417B0056E353 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = C43050EB1980417B0056E353 /* Event.m */; };
@@ -77,8 +76,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C41806F4196D746A00A4CFD4 /* JCClubBuildDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCClubBuildDetailViewController.h; sourceTree = "<group>"; };
-		C41806F5196D746A00A4CFD4 /* JCClubBuildDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCClubBuildDetailViewController.m; sourceTree = "<group>"; };
 		C43050E4198040110056E353 /* Club.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Club.h; sourceTree = "<group>"; };
 		C43050E5198040110056E353 /* Club.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Club.m; sourceTree = "<group>"; };
 		C43050E7198041680056E353 /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
@@ -365,8 +362,6 @@
 				C4F3041119607A6500EC723F /* JCClubDetailViewController.m */,
 				C4D23B8D19629F7600F3C7C3 /* JCClubBuildViewController.h */,
 				C4D23B8E19629F7600F3C7C3 /* JCClubBuildViewController.m */,
-				C41806F4196D746A00A4CFD4 /* JCClubBuildDetailViewController.h */,
-				C41806F5196D746A00A4CFD4 /* JCClubBuildDetailViewController.m */,
 				C4BF67FF1978EF4C00D274FC /* JCClubEditViewController.h */,
 				C4BF68001978EF4C00D274FC /* JCClubEditViewController.m */,
 				C4A39D3619642D1A00F8203F /* JCPickClubTableViewController.h */,
@@ -493,7 +488,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4F3040C196070E900EC723F /* JCClubTableViewController.m in Sources */,
-				C41806F6196D746A00A4CFD4 /* JCClubBuildDetailViewController.m in Sources */,
 				C4F3042219613AB800EC723F /* JCEventTableViewCell.m in Sources */,
 				C4486A9D1969D01C002A0AAF /* JCAllClubsTableViewController.m in Sources */,
 				C4810996198378BF0097E5FD /* JCPostTableViewCell.m in Sources */,

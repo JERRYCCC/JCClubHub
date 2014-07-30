@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "JCClubBuildViewController.h"
 
-@interface JCAdminTableViewController : PFQueryTableViewController < UITableViewDataSource, UITableViewDelegate>
+@interface JCAdminTableViewController : PFQueryTableViewController < UITableViewDataSource, UITableViewDelegate, JCClubBuildViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *menuBtn;
 
 -(IBAction)logoutBtn:(id)sender;
+
+-(IBAction)buildClubBtn:(id)sender;
 
 @end
