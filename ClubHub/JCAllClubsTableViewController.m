@@ -12,13 +12,10 @@
 #import "SWRevealViewController.h"
 
 @interface JCAllClubsTableViewController ()
-@property (strong, nonatomic) NSArray* searchResult;
 
 @end
 
-@implementation JCAllClubsTableViewController{
-    NSArray* clubList;
-}
+@implementation JCAllClubsTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +29,12 @@
     return self;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self loadObjects];
+}
+
+
 -(void)viewDidLoad{
     [super viewDidLoad];
     
@@ -39,7 +42,6 @@
     [self.menuBtn setAction:@selector(revealToggle:)];
     [self.navigationController.navigationBar addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
-    _searchResult = [[NSArray alloc] init];
 }
 
 -(PFQuery *) queryForTable{
@@ -51,19 +53,13 @@
     PFObject *schoolObject = user[@"school"];
     [query whereKey:@"school" equalTo:schoolObject];
     
+    
     //exclude the followed clubs , only show the unfollow clubs
     PFRelation *relation=[user relationForKey:@"followClubs"];
     PFQuery *followedClubList = [relation query];
-    NSArray *list = [followedClubList findObjects];
-    NSMutableArray *idList = [[NSMutableArray alloc] init];
-    for(PFObject* object in list){
-        [idList addObject:object.objectId];
-    }
-    [query whereKey:@"objectId" notContainedIn:idList];
-    
+    [query whereKey:@"objectId" doesNotMatchKey:@"objectId" inQuery:followedClubList];
     
     [query orderByDescending:@"followerNum"];
-    clubList = [query findObjects];  //for prepareForSegue use
     
     //if Pull to Refresh is enabled, query against the network by default
     if(self.pullToRefreshEnabled){
@@ -96,6 +92,7 @@
     return cell;
 }
 
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     //pass the whole object directly, instead the data of the object
@@ -106,7 +103,7 @@
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         
         int row = [myIndexPath row];
-        PFObject *object = [clubList objectAtIndex:row];
+        PFObject *object = [self.objects objectAtIndex:row];
         clubDetailViewController.currentClub = object;
     }
 }

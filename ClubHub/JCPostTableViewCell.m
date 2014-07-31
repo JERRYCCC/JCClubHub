@@ -32,9 +32,11 @@
     
     if(currentPost[@"image"]!=nil){
         PFFile *file = [currentPost objectForKey:@"image"];
-        NSData  *data = [file getData];
-        postImage = [UIImage imageWithData:data];
-        postImageView.image = postImage;
+        [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
+            postImage = [UIImage imageWithData:data];
+            postImageView.image = postImage;
+        }];
+        
     }
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -48,16 +50,26 @@
     string = [string stringByAppendingString:@")"];
     [likeBtn setTitle:string forState:UIControlStateNormal];
     
+    [self setLikeStatus];
+}
+
+-(void)setLikeStatus
+{
     PFRelation *relation = [currentPost relationforKey:@"like"];
     PFQuery *query = [relation query];
     [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
     
-    if([query getFirstObject]==nil||query==nil){
-        likeBtn.enabled = YES;
-    }else{
-        likeBtn.enabled = NO;
-        [likeBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    }
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error){
+        
+        if(!error){
+            if(number==0||query==nil){
+                likeBtn.enabled = YES;
+            }else{
+                likeBtn.enabled = NO;
+                [likeBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            }
+        }
+    }];
 }
 
 -(IBAction)likeBtn:(id)sender

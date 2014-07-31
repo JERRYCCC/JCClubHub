@@ -14,9 +14,8 @@
 
 @end
 
-@implementation JCAllEventsTableViewController{
-    NSArray *eventList;
-}
+@implementation JCAllEventsTableViewController
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -57,7 +56,6 @@
     //get the event later than current date
     [query orderByAscending:@"date"];
     
-    eventList = [query findObjects];  //for prepareForSegue use
     
     //if Pull to Refresh is enabled, query against the network by default
     if(self.pullToRefreshEnabled){
@@ -112,7 +110,7 @@
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         
         int row = [myIndexPath row];
-        PFObject *object = [eventList objectAtIndex:row];
+        PFObject *object = [self.objects objectAtIndex:row];
         eventDetailViewController.currentEvent = object;
     }
 }

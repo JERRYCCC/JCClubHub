@@ -16,10 +16,7 @@
 @interface JCClubTableViewController ()
 @end
 
-@implementation JCClubTableViewController{
-    NSArray* clubList;
-}
-
+@implementation JCClubTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -55,7 +52,7 @@
     
     [query orderByDescending:@"followerNum"];
     
-    clubList = [query findObjects];  //for prepareForSegue use
+    //clubList = [query findObjects];  //for prepareForSegue use
     
     //if Pull to Refresh is enabled, query against the network by default
     if(self.pullToRefreshEnabled){
@@ -88,7 +85,7 @@
     return cell;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     //pass the whole object directly, instead the data of the object
     
@@ -96,9 +93,9 @@
         
         JCClubDetailViewController *clubDetailVC = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
-        
         int row = [myIndexPath row];
-        PFObject *object = [clubList objectAtIndex:row];
+     
+        PFObject *object = [self.objects objectAtIndex:row]; //the system saved the objects(array) when we get the query~~
         clubDetailVC.currentClub = object;
         
     }

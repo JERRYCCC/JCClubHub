@@ -22,13 +22,11 @@
 @property (weak, nonatomic) IBOutlet UITableView *postTableView;
 
 @property (weak, nonatomic) IBOutlet UIButton *markBtn;
-@property (strong, nonatomic) IBOutlet UIButton *deleteBtn;
 @property (strong, nonatomic) IBOutlet UIButton *moreBtn;
 @property (strong, nonatomic) IBOutlet UIButton *detailBtn;
 
--(IBAction)deleteBtn:(id)sender;
+
 -(IBAction)markBtn:(id)sender;
--(IBAction)backBtn:(id)sender;
 -(IBAction)moreBtn:(id)sender;
 -(IBAction)detailBtn:(id)sender;
 

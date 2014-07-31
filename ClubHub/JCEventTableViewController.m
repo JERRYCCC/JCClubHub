@@ -15,8 +15,6 @@
 
 @interface JCEventTableViewController ()
 
-@property (strong, nonatomic) NSArray *eventList;
-
 @end
 
 @implementation JCEventTableViewController
@@ -60,15 +58,12 @@
     
     
     [query orderByAscending:@"date"];
-    
-    self.eventList = [query findObjects];  //for prepareForSegue use
-    
-
 
     //if Pull to Refresh is enabled, query against the network by default
     if(self.pullToRefreshEnabled){
         query.cachePolicy = kPFCachePolicyNetworkOnly;
     }
+    
     return query;
 }
 
@@ -159,9 +154,13 @@
             
             PFUser *user = [PFUser currentUser];
             PFRelation *relation = [user relationForKey:@"markEvents"];
-            PFObject *currentEvent = self.eventList[index];
+            PFObject *currentEvent = self.objects[index];
             [relation removeObject:currentEvent];
             [user saveInBackground];
+            
+            int newNum = [[currentEvent objectForKey:@"markerNum"] intValue] -1;
+            [currentEvent setObject:[NSNumber numberWithInt:newNum] forKey:@"markerNum"];
+            [currentEvent saveInBackground];
             
             [self loadObjects];
             
@@ -189,7 +188,7 @@
         JCEventDetailViewController *eventDetailViewController = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         int row = [myIndexPath row];
-        eventDetailViewController.currentEvent = [self.eventList objectAtIndex:row];
+        eventDetailViewController.currentEvent = [self.objects objectAtIndex:row];
     
     }
 }

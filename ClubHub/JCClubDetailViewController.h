@@ -22,11 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *eventListTableView;
 
 @property (strong, nonatomic) IBOutlet UIButton *followBtn;
-@property (strong, nonatomic) IBOutlet UIButton *adminBtn;
 
 -(IBAction)followBtn:(id)sender;
--(IBAction)backBtn:(id)sender;
--(IBAction)addEventBtn:(id)sender;
 -(IBAction)moreBtn:(id)sender;
 
 

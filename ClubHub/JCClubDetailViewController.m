@@ -20,17 +20,12 @@
 @end
 
 @implementation JCClubDetailViewController{
+    
+    NSArray *oldEvents;
+    NSArray *futureEvents;
     NSArray *eventList;
     UITextField *passwordTextField;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    BOOL admin;
 }
 
 -(void)doneClubEditing:(PFObject*)clubObject
@@ -46,13 +41,13 @@
     [self.navigationController popViewControllerAnimated:YES];
     NSLog(@"Done Creating Event");
     _currentClub = clubObject;
-    eventList = [self getEventList];
-    [self.eventListTableView reloadData];
+    [self setEventList];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     _nameLabel.text = (_currentClub[@"name"]);
     
     NSString *tagString=@"";
@@ -61,42 +56,39 @@
         tagString = [tagString stringByAppendingString:string];
         tagString = [tagString stringByAppendingString:@ ", "];
     }
+    
+    _followerNum.text = _currentClub[@"followNum"];
    
     _tagsTextView.text = tagString;
     _tagsTextView.editable=NO;
     
     _descriptionTextView.text = (_currentClub[@"description"]);
     _descriptionTextView.editable=NO;
-    
-    if([self checkPriority]){
-        _followBtn.hidden = YES;
-    }else{
-        _followBtn.hidden = NO;
-        
-        if([self followStatus]){
-            [_followBtn setTitle:@"Unfollow" forState:UIControlStateNormal];
-        }else{
-            [_followBtn setTitle:@"Follow" forState:UIControlStateNormal];
-        }
-    }
-    eventList = [self getEventList];
-    
-    _followerNum.text = _currentClub[@"followNum"];
+  
+    [self setPriority];
+    [self setEventList];
 }
 
--(BOOL)checkPriority{
+-(void)setPriority{
     PFRelation *relation = [_currentClub relationForKey:@"admins"];
     PFQuery *adminQuery = [relation query];
     [adminQuery whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
     
-    if([adminQuery countObjects]==0||adminQuery==nil){
-        return NO;
-    }else{
-        return YES;
-    }
+    [adminQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error){
+        if(!error){
+            if(number==0||adminQuery==nil){
+                admin=NO;
+                _followBtn.hidden = NO;
+                [self setFollowStatus];
+            }else{
+                admin=YES;
+                _followBtn.hidden = YES;
+            }
+        }
+    }];
 }
 
--(BOOL)followStatus
+-(void)setFollowStatus
 {
     PFUser *user = [PFUser currentUser];
     [user fetchIfNeeded];
@@ -104,15 +96,47 @@
     PFQuery *clubList = [relation query];
     [clubList whereKey:@"objectId" equalTo:_currentClub.objectId];
     
-    if([clubList countObjects]==0||clubList==nil){
-        return NO;
-        
-    }else{
-        return YES;
-        
-    }
+    [clubList countObjectsInBackgroundWithBlock:^(int number, NSError *error){
+        if(!error){
+            if(number==0||clubList==nil){
+                [_followBtn setTitle:@"Follow" forState:UIControlStateNormal];
+            }else{
+                [_followBtn setTitle:@"Unfollow" forState:UIControlStateNormal];
+            }
+        }
+    }];
 }
 
+-(void) setEventList
+{
+    eventList = [[NSMutableArray alloc] init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    
+    //the future events
+    [query whereKey:@"club" equalTo:_currentClub];
+    [query whereKey:@"date" greaterThanOrEqualTo:[[NSDate date] dateByAddingTimeInterval:-60*60]];
+    [query orderByAscending:@"date"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        futureEvents = objects;
+        
+        //the pass events
+        PFQuery *query2 = [PFQuery queryWithClassName:@"Event"];
+        [query2 whereKey:@"club" equalTo:_currentClub];
+        [query2 whereKey:@"date" lessThan:[[NSDate date] dateByAddingTimeInterval:-60*60]];
+        [query2 orderByDescending:@"date"];
+        
+        [query2 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            oldEvents = objects;
+            eventList = [futureEvents arrayByAddingObjectsFromArray:oldEvents];
+            [self.eventListTableView reloadData];
+        }];
+        
+    }];
+}
 
 -(IBAction)followBtn:(id)sender
 {
@@ -123,7 +147,7 @@
     
     //follow the club,  else unfollow the club
     
-    if(![self followStatus]){
+    if([_followBtn.titleLabel.text isEqual:@"Follow"]){
         [self markAllClubEvents]; //mark all the events belongs to this club
         [relation addObject:_currentClub];    //follow
         [user saveInBackground];
@@ -162,8 +186,8 @@
 {
     PFUser *user = [PFUser currentUser];
     PFRelation *relation = [user relationForKey:@"markEvents"];
-
-    for (PFObject *event in self.getEventList) {
+    
+    for (PFObject *event in eventList) {
         [relation addObject:event];
     }
     [user saveInBackground];
@@ -173,32 +197,13 @@
 {
     PFUser *user = [PFUser currentUser];
     PFRelation *relation = [user relationForKey:@"markEvents"];
-    for (PFObject *event in self.getEventList) {
+    for (PFObject *event in eventList) {
         [relation removeObject:event];
     }
     [user saveInBackground];
     
 }
 
--(NSArray*) getEventList
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
-    
-    [query whereKey:@"club" equalTo:_currentClub];
-    [query whereKey:@"date" greaterThanOrEqualTo:[[NSDate date] dateByAddingTimeInterval:-60*60]];
-    [query orderByAscending:@"date"];
-    NSArray *futureEvent = [query findObjects];
-    
-    PFQuery *query2 = [PFQuery queryWithClassName:@"Event"];
-    [query2 whereKey:@"club" equalTo:_currentClub];
-    [query2 whereKey:@"date" lessThan:[[NSDate date] dateByAddingTimeInterval:-60*60]];
-    [query2 orderByDescending:@"date"];
-    NSArray *pastEvent = [query2 findObjects];
-     
-    NSArray *list = [futureEvent arrayByAddingObjectsFromArray:pastEvent];
-    return list;
-     
-}
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -282,7 +287,7 @@
 -(IBAction)moreBtn:(id)sender
 {
  
-    if([self checkPriority]){
+    if(admin){
         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Administration"
                                                                  delegate:self
                                                         cancelButtonTitle:@"Cancel"
@@ -391,22 +396,6 @@
     [followRleaion addObject:_currentClub];
     [user saveInBackground];
     
-}
-
-
-
-//once any user read the detail, the system will refresh the clubs follower number
-//instead of just increase or decrease
--(NSNumber*)getFollowerNum
-{
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"followClubs" equalTo:_currentClub];
-    NSNumber* num = [NSNumber numberWithInt:[query countObjects]];
-    //set the followers number for the object as well
-    
-    _currentClub[@"followerNum"]=num;
-    [_currentClub saveInBackground];
-    return num;
 }
 
 
