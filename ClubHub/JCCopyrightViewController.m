@@ -8,6 +8,7 @@
 
 #import "JCCopyrightViewController.h"
 #import "SWRevealViewController.h"
+#import <Parse/Parse.h>
 
 @interface JCCopyrightViewController ()
 
@@ -30,6 +31,12 @@
     [self.menuBtn setTarget:self.revealViewController];
     [self.menuBtn setAction:@selector(revealToggle:)];
     [self.navigationController.navigationBar addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    _textView.delegate = self;
+}
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [_textView resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,15 +45,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(IBAction)sendBtn:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [_textView resignFirstResponder];
+    [self checkComplete];
 }
-*/
+
+-(void)checkComplete
+{
+    if([_textView.text isEqualToString:@""]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!"
+                                                        message:@"You need to complete all fields"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }else{
+        [self submit];
+    }
+}
+
+-(void)submit
+{
+    PFObject *newComment = [PFObject objectWithClassName:@"AppComment"];
+    newComment[@"comment"] = _textView.text;
+    newComment[@"user"] = [PFUser currentUser];
+    
+    [newComment saveInBackground];
+    
+    _textView.text = nil;
+}
+-(IBAction)emailBtn:(id)sender
+{
+   
+}
 
 @end

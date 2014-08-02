@@ -266,11 +266,28 @@
         cell = [[JCPostTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
+    //CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    //NSLog(@"%f", height);
+    
     cell.currentPost = [postList objectAtIndex:indexPath.row];
-        
+    
     return cell;
 }
 
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PFObject *object = [postList objectAtIndex:indexPath.row];
+    NSString *postString = object[@"postString"];
+  
+    CGSize constraint = CGSizeMake(300, CGFLOAT_MAX);
+    CGSize size = [postString sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+    
+    NSLog(@"%f", size.height);
+
+    return 210+size.height;
+
+}
 
 
 

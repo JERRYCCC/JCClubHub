@@ -14,7 +14,7 @@
 
 @property (strong, nonatomic) PFObject *currentPost;
 
-@property (strong, nonatomic) IBOutlet UITextView *postTextView;
+@property (strong, nonatomic) IBOutlet UILabel *postLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *postImageView;
 
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;

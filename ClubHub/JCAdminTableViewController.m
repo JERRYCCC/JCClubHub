@@ -15,9 +15,7 @@
 
 @end
 
-@implementation JCAdminTableViewController{
-    NSArray* clubList;
-}
+@implementation JCAdminTableViewController
 
 -(void)doneClubBuild
 {
@@ -53,8 +51,15 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Club"];
     [query whereKey:@"admins" equalTo:[PFUser currentUser]];
     
-    clubList = [query findObjects];
-    NSLog(@"%d", [clubList count]);
+    //if Pull to Refresh is enabled, query against the network by default
+    if(self.pullToRefreshEnabled){
+        query.cachePolicy = kPFCachePolicyNetworkOnly;
+    }
+    
+    //if no objects are loaded in memory, we look to the cache first to fill the table
+    if([self.objects count]==0){
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
     
     return query;
 }
@@ -93,7 +98,7 @@
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         
         int row = [myIndexPath row];
-        PFObject *object = [clubList objectAtIndex:row];
+        PFObject *object = [self.objects objectAtIndex:row];
         clubDetailViewController.currentClub = object;
     }
     

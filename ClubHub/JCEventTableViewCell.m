@@ -7,11 +7,11 @@
 //
 
 #import "JCEventTableViewCell.h"
+#import "SWRevealViewController.h"
 
 
 @implementation JCEventTableViewCell
 
-@synthesize currentEvent, titleLable, dateLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -21,7 +21,6 @@
     }
     return self;
 }
-
 
 - (void)awakeFromNib
 {

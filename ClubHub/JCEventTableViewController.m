@@ -56,12 +56,16 @@
     //getting the events which start one hour ago from now
     [query whereKey:@"date" greaterThanOrEqualTo:[[NSDate date] dateByAddingTimeInterval:-(60*60)]];
     
-    
     [query orderByAscending:@"date"];
 
     //if Pull to Refresh is enabled, query against the network by default
     if(self.pullToRefreshEnabled){
         query.cachePolicy = kPFCachePolicyNetworkOnly;
+    }
+    
+    //if no objects are loaded in memory, we look to the cache first to fill the table
+    if([self.objects count]==0){
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
     
     return query;
@@ -72,9 +76,9 @@
                         object:(PFObject *)object
 {
     
-    NSString *CellIdentifier = @"EventCell";
+    static NSString *CellIdentifier = @"EventCell";
     
-    JCEventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    JCEventTableViewCell *cell = (JCEventTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if(cell==nil){
         cell = [[JCEventTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
@@ -99,19 +103,20 @@
     
     //add utility buttons
     
-    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    //NSMutableArray *leftUtilityButtons = [NSMutableArray new];
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
 
-    [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.2f green:1.0f blue:0.2f alpha:0.7] title:@"Remind"];
+    //[leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.2f green:1.0f blue:0.2f alpha:0.7] title:@"Remind"];
     
-    [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.2f green:0.2f blue:1.0f alpha:0.7] title:@"More"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.2f green:0.2f blue:1.0f alpha:0.7] title:@"More"];
     
     [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0] title:@"Delete"];
     
-    cell.leftUtilityButtons = leftUtilityButtons;
+    //cell.leftUtilityButtons = leftUtilityButtons;
     cell.rightUtilityButtons = rightUtilityButtons;
     cell.delegate = self;
-                           
+
+    
     return cell;
 }
 
@@ -122,30 +127,38 @@
  *
  *
  */
+/*
 -(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index
 {
-    switch (index) {
-        case 0:
-        {
-            //remind
-            break;
-        }
-        case 1:
-        {
-            //more
-            
-            [self performSegueWithIdentifier:@"eventDetail" sender:self];
-            break;
-        }
-        default:
-            break;
-    }
+    
 }
+ */
 
 -(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index
 {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    PFObject *currentEvent = self.objects[indexPath.row];
+    NSString *title = [currentEvent objectForKey:@"name"];
+    NSString *message;
+    message = @"Location:\n";
+    message = [message stringByAppendingString:currentEvent[@"location"]];
+    message = [message stringByAppendingString:@"\n\n"];
+    message = [message stringByAppendingString:currentEvent[@"description"]];
+    
+    UIAlertView *moreAlert = [[UIAlertView alloc] initWithTitle:title
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+
     switch (index) {
         case 0:
+        {
+            //more
+            [moreAlert show];
+            break;
+        }
+        case 1:
         {
             //delete event (unmark)
             //two step :
@@ -154,7 +167,6 @@
             
             PFUser *user = [PFUser currentUser];
             PFRelation *relation = [user relationForKey:@"markEvents"];
-            PFObject *currentEvent = self.objects[index];
             [relation removeObject:currentEvent];
             [user saveInBackground];
             
@@ -163,6 +175,7 @@
             [currentEvent saveInBackground];
             
             [self loadObjects];
+    
             
             break;
         }

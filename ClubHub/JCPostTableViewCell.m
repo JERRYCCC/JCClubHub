@@ -13,7 +13,7 @@
     UIImage *postImage;
 }
 
-@synthesize postTextView, dateLabel, currentPost, postImageView, locationLabel, likeBtn, commentBtn, commentTableView;
+@synthesize postLabel, dateLabel, currentPost, postImageView, locationLabel, likeBtn, commentBtn, commentTableView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -27,8 +27,16 @@
 
 -(void)layoutSubviews
 {
-    postTextView.editable = NO;
-    postTextView.text = currentPost[@"postString"];
+    postLabel.text = currentPost[@"postString"];
+    
+    
+    CGSize maximumlabelSize = CGSizeMake(304, FLT_MAX);
+    CGSize expectedLabelSize = [postLabel.text sizeWithFont:postLabel.font constrainedToSize:maximumlabelSize lineBreakMode:NSLineBreakByWordWrapping];
+    
+    CGRect newFrame = postLabel.frame;
+    newFrame.size.height = expectedLabelSize.height;
+    postLabel.frame = newFrame;
+    
     
     if(currentPost[@"image"]!=nil){
         PFFile *file = [currentPost objectForKey:@"image"];
@@ -95,7 +103,7 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:currentPost[@"postString"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     UITableView *tableView = [[UITableView alloc] init];
-    NSMutableArray *commentArray = currentPost[@"comment"];
+    //NSMutableArray *commentArray = currentPost[@"comment"];
 
     [alert addSubview:tableView];
     
@@ -112,11 +120,6 @@
     [alert addSubview:imageView];
     
     [alert show];
-}
-
-- (void)awakeFromNib
-{
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

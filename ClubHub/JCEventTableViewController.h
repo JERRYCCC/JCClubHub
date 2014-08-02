@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "SWTableViewCell.h"
 
+
 @interface JCEventTableViewController : PFQueryTableViewController<UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *menuBtn;

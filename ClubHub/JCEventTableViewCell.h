@@ -10,12 +10,11 @@
 #import <Parse/Parse.h>
 #import "SWTableViewCell.h"
 
-@interface JCEventTableViewCell : SWTableViewCell
+@interface JCEventTableViewCell : SWTableViewCell <SWTableViewCellDelegate>
 
 
 @property (strong, nonatomic) PFObject *currentEvent;
 @property (strong, nonatomic) IBOutlet UILabel *titleLable;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
-
 
 @end

@@ -52,8 +52,6 @@
     
     [query orderByDescending:@"followerNum"];
     
-    //clubList = [query findObjects];  //for prepareForSegue use
-    
     //if Pull to Refresh is enabled, query against the network by default
     if(self.pullToRefreshEnabled){
         query.cachePolicy = kPFCachePolicyNetworkOnly;
