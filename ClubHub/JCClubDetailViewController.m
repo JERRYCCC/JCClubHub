@@ -178,7 +178,6 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Total Delete" message:@"Do you also want to unmark all the events related to this club?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
         [alert show];
         
-        //[self performSegueWithIdentifier:@"toMain" sender:self];
     }
 }
 

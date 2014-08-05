@@ -29,23 +29,26 @@
 {
     postLabel.text = currentPost[@"postString"];
     
-    
+    /*
     CGSize maximumlabelSize = CGSizeMake(304, FLT_MAX);
     CGSize expectedLabelSize = [postLabel.text sizeWithFont:postLabel.font constrainedToSize:maximumlabelSize lineBreakMode:NSLineBreakByWordWrapping];
     
     CGRect newFrame = postLabel.frame;
     newFrame.size.height = expectedLabelSize.height;
     postLabel.frame = newFrame;
+    */
     
-    
-    if(currentPost[@"image"]!=nil){
+    if([currentPost[@"withImage"] isEqualToNumber:[NSNumber numberWithBool:YES]]){
         PFFile *file = [currentPost objectForKey:@"image"];
         [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
             postImage = [UIImage imageWithData:data];
             postImageView.image = postImage;
         }];
-        
+    }else{
+        postImageView.hidden = YES;
     }
+    
+   
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"HH:mm MMM-d"];

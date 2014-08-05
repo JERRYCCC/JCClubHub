@@ -117,8 +117,12 @@
     
     //the image need to saved as PFFile and passed as data
     PFFile *imageFile = [PFFile fileWithData:UIImagePNGRepresentation(imageView.image)];
-    if (imageFile!=nil) {
+    NSLog(@"%@", imageView.image);
+    if (imageView.image!=nil) {
         newPost[@"image"] = imageFile;
+        newPost[@"withImage"] = [NSNumber numberWithBool:YES];
+    }else{
+        newPost[@"withImage"] = [NSNumber numberWithBool:NO];
     }
     
     //you like the post automatically if you submit the post
