@@ -55,7 +55,7 @@
         tagString = [tagString stringByAppendingString:@ ", "];
     }
     
-    _followerNum.text = _currentClub[@"followerNum"];
+    //_followerNum.text = _currentClub[@"followerNum"];
    
     _tagsTextView.text = tagString;
     _tagsTextView.editable=NO;
