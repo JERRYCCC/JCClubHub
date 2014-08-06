@@ -12,8 +12,6 @@
 #import "JCPostTableViewCell.h"
 #import <Parse/Parse.h>
 
-
-
 @interface JCEventDetailViewController ()
 
 @end

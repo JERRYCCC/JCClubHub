@@ -29,10 +29,8 @@
     NSString *tagString = @"";
     
     //show the follower number
-    if(_currentClub[@"followerNum"]!=nil){
-        tagString = [tagString stringByAppendingString:[_currentClub[@"followerNum"] stringValue]];
-        tagString = [tagString stringByAppendingString:@" | "];
-    }
+    _numLable.text = [NSString stringWithFormat:@"%@", _currentClub[@"followerNum"]];
+    
     //show the tags
     for(NSString *string in tagList){
         tagString = [tagString stringByAppendingString:string];
@@ -40,7 +38,9 @@
     }
     
     _tagsLable.text = tagString;
+    _followBtn.hidden = NO;
 }
+
 
 -(IBAction)followBtn:(id)sender
 {
@@ -56,22 +56,8 @@
     [_currentClub setObject:[NSNumber numberWithInt:newNum] forKey:@"followerNum"];
     [_currentClub saveInBackground];
     
-    NSArray *tagList = [_currentClub objectForKey:@"tags"];
-    NSString *tagString = @"";
-    
-    //show the follower number
-    if(_currentClub[@"followerNum"]!=nil){
-        tagString = [tagString stringByAppendingString:[_currentClub[@"followerNum"] stringValue]];
-        tagString = [tagString stringByAppendingString:@" | "];
-    }
-    //show the tags
-    for(NSString *string in tagList){
-        tagString = [tagString stringByAppendingString:string];
-        tagString = [tagString stringByAppendingString:@", "];
-    }
-    
-    _tagsLable.text = tagString;
-    
+     _numLable.text = [NSString stringWithFormat:@"%@", _currentClub[@"followerNum"]];
+
 }
 
 -(void)markAllClubEvents
@@ -79,22 +65,20 @@
     PFUser *user = [PFUser currentUser];
     PFRelation *relation = [user relationForKey:@"markEvents"];
     
-    for (PFObject *event in self.getEventList) {
-        [relation addObject:event];
-    }
-    [user saveInBackground];
-}
-
--(NSArray*) getEventList
-{
     PFQuery *query = [PFQuery queryWithClassName:@"Event"];
     
     //only get the events of current club
     [query whereKey:@"club" equalTo:_currentClub];
     [query whereKey:@"date" greaterThanOrEqualTo:[[NSDate date] dateByAddingTimeInterval:-60*60]];
     [query orderByDescending:@"date"];
-    NSArray *list = [query findObjects];
-    return list;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        for (PFObject *event in objects) {
+            [relation addObject:event];
+        }
+        
+        [user saveInBackground];
+    }];
 }
+
 
 @end

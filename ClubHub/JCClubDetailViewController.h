@@ -13,7 +13,7 @@
 
 @interface JCClubDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, JCClubEditViewControllerDelegate, JCEventCreateViewControllerDelegate>
 
-@property (weak, nonatomic) PFObject *currentClub;
+@property (strong, nonatomic) PFObject *currentClub;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UITextView *tagsTextView;
 @property (strong, nonatomic) IBOutlet UITextView *descriptionTextView;

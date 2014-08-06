@@ -44,9 +44,7 @@
     sfr = [[JCSchoolForRegister alloc] init];
     _schoolNameList = [sfr getSchoolNameList];
     
-    
 }
-
 
 -(BOOL)textFieldShouldReturn:(UITextField*) textField{
     if(textField){
@@ -61,6 +59,7 @@
     [_emailField resignFirstResponder];
     [_passwordField resignFirstResponder];
     [_reEnterPasswordField resignFirstResponder];
+    
 }
 
 -(IBAction)registerAction:(id)sender{
@@ -167,10 +166,7 @@
     pickRow = row;
 }
 
-- (IBAction)logInBtn:(id)sender
-{
-    [self performSegueWithIdentifier:@"toLogIn" sender:self];
-}
+
 
 
 

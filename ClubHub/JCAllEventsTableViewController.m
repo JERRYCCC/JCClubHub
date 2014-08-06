@@ -37,12 +37,6 @@
     [self.navigationController.navigationBar addGestureRecognizer:self.revealViewController.panGestureRecognizer];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(PFQuery*) queryForTable{
     
     PFQuery *query = [PFQuery queryWithClassName:@"Event"];
@@ -51,6 +45,7 @@
     PFUser *user = [PFUser currentUser];
     PFObject *schoolObject = user[@"school"];
     [query whereKey:@"school" equalTo: schoolObject];
+    
     [query whereKey:@"available" equalTo:[NSNumber numberWithBool:YES]]; //only get the even that is available
     [query whereKey:@"date" greaterThanOrEqualTo:[[NSDate date] dateByAddingTimeInterval:-60*60]]; //getting the events which start one hour ago from now
     //get the event later than current date

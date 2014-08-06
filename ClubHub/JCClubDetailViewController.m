@@ -11,18 +11,14 @@
 #import "JCEventDetailViewController.h"
 #import "JCEventCreateViewController.h"
 #import "JCClubEditViewController.h"
-
 #import <Parse/Parse.h>
 
 @interface JCClubDetailViewController ()
-
 
 @end
 
 @implementation JCClubDetailViewController{
     
-    NSArray *oldEvents;
-    NSArray *futureEvents;
     NSArray *eventList;
     UITextField *passwordTextField;
     BOOL admin;
@@ -31,7 +27,7 @@
 -(void)doneClubEditing:(PFObject*)clubObject
 {
     [self.navigationController popViewControllerAnimated:YES];
-    NSLog(@"DONE EDITING");
+    NSLog(@"Done Club Edit");
     _currentClub = clubObject;
     [self viewDidLoad];
 }
@@ -48,6 +44,8 @@
 {
     [super viewDidLoad];
     
+    NSLog(@"%@", _currentClub[@"name"]);
+    
     _nameLabel.text = (_currentClub[@"name"]);
     
     NSString *tagString=@"";
@@ -57,7 +55,7 @@
         tagString = [tagString stringByAppendingString:@ ", "];
     }
     
-    _followerNum.text = _currentClub[@"followNum"];
+    _followerNum.text = _currentClub[@"followerNum"];
    
     _tagsTextView.text = tagString;
     _tagsTextView.editable=NO;
@@ -65,6 +63,7 @@
     _descriptionTextView.text = (_currentClub[@"description"]);
     _descriptionTextView.editable=NO;
   
+    eventList = [[NSArray alloc]init];
     [self setPriority];
     [self setEventList];
 }
@@ -118,23 +117,20 @@
     [query whereKey:@"date" greaterThanOrEqualTo:[[NSDate date] dateByAddingTimeInterval:-60*60]];
     [query orderByAscending:@"date"];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        futureEvents = objects;
-        
-        //the pass events
-        PFQuery *query2 = [PFQuery queryWithClassName:@"Event"];
-        [query2 whereKey:@"club" equalTo:_currentClub];
-        [query2 whereKey:@"date" lessThan:[[NSDate date] dateByAddingTimeInterval:-60*60]];
-        [query2 orderByDescending:@"date"];
-        
-        [query2 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    [query findObjectsInBackgroundWithBlock:^(NSArray *futureEvents, NSError *error) {
+        if(!error){
             
-            oldEvents = objects;
-            eventList = [futureEvents arrayByAddingObjectsFromArray:oldEvents];
-            [self.eventListTableView reloadData];
-        }];
-        
+            //the past events
+            PFQuery *query2 = [PFQuery queryWithClassName:@"Event"];
+            [query2 whereKey:@"club" equalTo:_currentClub];
+            [query2 whereKey:@"date" lessThan:[[NSDate date] dateByAddingTimeInterval:-60*60]];
+            [query2 orderByDescending:@"date"];
+            
+            [query2 findObjectsInBackgroundWithBlock:^(NSArray *oldEvents, NSError *error) {
+                eventList = [futureEvents arrayByAddingObjectsFromArray:oldEvents];
+                [self.eventListTableView reloadData];
+            }];
+        }
     }];
 }
 
@@ -211,11 +207,14 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"%d", [eventList count]);
     return [eventList count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    NSLog(@"Building a cell");
     static NSString *cellIdenrifier = @"eventCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdenrifier];
     

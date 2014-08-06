@@ -17,6 +17,7 @@
 
 @implementation JCAllClubsTableViewController
 
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -41,7 +42,6 @@
     [self.menuBtn setTarget:self.revealViewController];
     [self.menuBtn setAction:@selector(revealToggle:)];
     [self.navigationController.navigationBar addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
 }
 
 -(PFQuery *) queryForTable{
@@ -53,8 +53,7 @@
     PFObject *schoolObject = user[@"school"];
     [query whereKey:@"school" equalTo:schoolObject];
     
-    
-    //exclude the followed clubs , only show the unfollow clubs
+    //exclude the followed clubs , only show the not followed clubs
     PFRelation *relation=[user relationForKey:@"followClubs"];
     PFQuery *followedClubList = [relation query];
     [query whereKey:@"objectId" doesNotMatchKey:@"objectId" inQuery:followedClubList];

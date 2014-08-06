@@ -11,9 +11,8 @@
 #import "JCClubDetailViewController.h"
 #import "SWRevealViewController.h"
 
-
-
 @interface JCClubTableViewController ()
+
 @end
 
 @implementation JCClubTableViewController
@@ -22,7 +21,6 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        
         // This table displays items in the Club class
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
@@ -35,6 +33,7 @@
 {
     [self loadObjects];
 }
+
 
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -83,6 +82,7 @@
     return cell;
 }
 
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     //pass the whole object directly, instead the data of the object
@@ -93,9 +93,7 @@
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         int row = [myIndexPath row];
      
-        PFObject *object = [self.objects objectAtIndex:row]; //the system saved the objects(array) when we get the query~~
-        clubDetailVC.currentClub = object;
-        
+        clubDetailVC.currentClub = [self.objects objectAtIndex:row]; //the system saved the objects(array) when we get the query~~
     }
 }
 

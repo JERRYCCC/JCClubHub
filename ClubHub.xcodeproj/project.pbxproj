@@ -324,8 +324,8 @@
 		C4F304191961348100EC723F /* LogIn&Register */ = {
 			isa = PBXGroup;
 			children = (
-				C4F303F11960444D00EC723F /* JCRegisterViewController.m */,
 				C4F303F01960444D00EC723F /* JCRegisterViewController.h */,
+				C4F303F11960444D00EC723F /* JCRegisterViewController.m */,
 				C4D23B861962796A00F3C7C3 /* JCSchoolForRegister.h */,
 				C4D23B871962796A00F3C7C3 /* JCSchoolForRegister.m */,
 				C4F303ED1960312800EC723F /* JCLogInViewController.h */,
