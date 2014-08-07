@@ -160,7 +160,8 @@
     }
     
     if([[segue identifier] isEqualToString:@"toComment"]){
-    
+        
+        //we find the position we tap and locate the cell index
         CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.postTableView];
         NSIndexPath *indexPath = [self.postTableView indexPathForRowAtPoint:buttonPosition];
        

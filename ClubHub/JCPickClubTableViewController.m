@@ -51,6 +51,18 @@
     [query whereKey:@"admins" equalTo:user];
     [query orderByAscending:@"name"];
     
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        if(number==0){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!"
+                                                            message:@"You need to have at least one club to build a event for"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
+    
+    /*
     if([query countObjects]==0){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!"
                                                         message:@"You need to have at least one club to build a event for"
@@ -59,6 +71,7 @@
                                               otherButtonTitles:nil];
         [alert show];
     }
+     */
 }
 
 -(PFQuery*) queryForTable
