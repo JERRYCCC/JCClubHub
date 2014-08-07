@@ -13,7 +13,7 @@
     UIImage *postImage;
 }
 
-@synthesize postLabel, dateLabel, currentPost, postImageView, locationLabel, likeBtn, commentBtn, commentTableView;
+@synthesize postLabel, dateLabel, currentPost, postImageView, likeBtn;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -53,8 +53,6 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"HH:mm MMM-d"];
     dateLabel.text = [formatter stringFromDate:currentPost.createdAt];
-    
-    locationLabel.text = currentPost[@"location"];
     
     NSString* string=@"Like(";
     string = [string stringByAppendingString:[NSString stringWithFormat:@"%@", currentPost[@"likeNum"]]];
@@ -100,21 +98,6 @@
     [sender setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
 }
 
--(IBAction)commentBtn:(id)sender
-{
-    NSLog(@"comment Btn");
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:currentPost[@"postString"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    
-    UITableView *tableView = [[UITableView alloc] init];
-    //NSMutableArray *commentArray = currentPost[@"comment"];
-
-    [alert addSubview:tableView];
-    
-    
-    [alert show];
-    
-}
-
 -(IBAction)imageBtn:(id)sender
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:currentPost[@"postString"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -129,5 +112,6 @@
 {
     [super setSelected:selected animated:animated];
 }
+
 
 @end

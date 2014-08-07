@@ -135,7 +135,7 @@
         if(!error){
             
             NSLog(@"Done post!!!!");
-            [self.delegate donePosting:_currentEvent];
+            
             
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem sending your post" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -143,6 +143,8 @@
             [alert show];
         }
     }];
+    
+    [self.delegate donePosting:_currentEvent];
 }
 
 @end

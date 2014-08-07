@@ -18,13 +18,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *postImageView;
 
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
-@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 @property (strong, nonatomic) IBOutlet UIButton *likeBtn;
-@property (strong, nonatomic) IBOutlet UIButton *commentBtn;
-
-@property (strong, nonatomic) IBOutlet UITableView *commentTableView;
 
 -(IBAction)likeBtn:(id)sender;
--(IBAction)commentBtn:(id)sender;
 
 @end

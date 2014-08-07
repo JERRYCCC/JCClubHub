@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C42D56D119930B7200560266 /* JCCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42D56D019930B7200560266 /* JCCommentViewController.m */; };
 		C4486A9D1969D01C002A0AAF /* JCAllClubsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4486A9C1969D01C002A0AAF /* JCAllClubsTableViewController.m */; };
 		C4486AA01969D493002A0AAF /* JCAllEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4486A9F1969D493002A0AAF /* JCAllEventsTableViewController.m */; };
 		C4810981198245CD0097E5FD /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = C4810976198245CD0097E5FD /* NSMutableArray+SWUtilityButtons.m */; };
@@ -73,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C42D56CF19930B7200560266 /* JCCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCommentViewController.h; sourceTree = "<group>"; };
+		C42D56D019930B7200560266 /* JCCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCommentViewController.m; sourceTree = "<group>"; };
 		C4486A9B1969D01C002A0AAF /* JCAllClubsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAllClubsTableViewController.h; sourceTree = "<group>"; };
 		C4486A9C1969D01C002A0AAF /* JCAllClubsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAllClubsTableViewController.m; sourceTree = "<group>"; };
 		C4486A9E1969D493002A0AAF /* JCAllEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAllEventsTableViewController.h; sourceTree = "<group>"; };
@@ -197,6 +200,8 @@
 		C481098A1983222E0097E5FD /* Post&Commment */ = {
 			isa = PBXGroup;
 			children = (
+				C42D56CF19930B7200560266 /* JCCommentViewController.h */,
+				C42D56D019930B7200560266 /* JCCommentViewController.m */,
 				C481098E198328610097E5FD /* JCPostCreateViewController.h */,
 				C481098F198328610097E5FD /* JCPostCreateViewController.m */,
 				C4810994198378BF0097E5FD /* JCPostTableViewCell.h */,
@@ -495,6 +500,7 @@
 				C4810985198245CD0097E5FD /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				C4D23B8F19629F7600F3C7C3 /* JCClubBuildViewController.m in Sources */,
 				C4F303EF1960312800EC723F /* JCLogInViewController.m in Sources */,
+				C42D56D119930B7200560266 /* JCCommentViewController.m in Sources */,
 				C4D698E51969C338007C5370 /* SWRevealViewController.m in Sources */,
 				C4486AA01969D493002A0AAF /* JCAllEventsTableViewController.m in Sources */,
 				C4F3041F1961354400EC723F /* JCEventDetailViewController.m in Sources */,

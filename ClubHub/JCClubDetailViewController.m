@@ -272,15 +272,6 @@
     }
 }
 
--(IBAction)backBtn:(id)sender
-{
-    [self performSegueWithIdentifier:@"toMain" sender:self];
-}
-
--(IBAction)addEventBtn:(id)sender
-{
-    [self performSegueWithIdentifier:@"toEventCeateModal" sender:self];
-}
 
 -(IBAction)moreBtn:(id)sender
 {
@@ -393,9 +384,6 @@
     PFRelation *followRleaion = [user relationForKey:@"followClubs"];
     [followRleaion addObject:_currentClub];
     [user saveInBackground];
-    
 }
-
-
 
 @end

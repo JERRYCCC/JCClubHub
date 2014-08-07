@@ -10,6 +10,7 @@
 #import "JCEventEditViewController.h"
 #import "JCPostCreateViewController.h"
 #import "JCPostTableViewCell.h"
+#import "JCCommentViewController.h"
 #import <Parse/Parse.h>
 
 @interface JCEventDetailViewController ()
@@ -157,6 +158,15 @@
         postCreateVC.currentEvent = _currentEvent;
         postCreateVC.delegate = self;
     }
+    
+    if([[segue identifier] isEqualToString:@"toComment"]){
+    
+        CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.postTableView];
+        NSIndexPath *indexPath = [self.postTableView indexPathForRowAtPoint:buttonPosition];
+       
+        JCCommentViewController* commentVC = [segue destinationViewController];
+        commentVC.currentPost = postList[indexPath.row];
+    }
 }
 
 
@@ -264,14 +274,10 @@
         cell = [[JCPostTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    //CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-    //NSLog(@"%f", height);
-    
     cell.currentPost = [postList objectAtIndex:indexPath.row];
     
     return cell;
 }
-
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
