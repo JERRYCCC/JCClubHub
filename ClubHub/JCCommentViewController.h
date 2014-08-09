@@ -16,7 +16,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *commentTableView;
 
--(IBAction)refreshBtn:(id)sender;
 -(IBAction)sendBtn:(id)sender;
 
 @end
