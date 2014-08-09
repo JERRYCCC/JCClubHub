@@ -1,7 +1,7 @@
 //
 //  JCAdminTableViewController.h
 //  ClubHub
-//
+//  pretty good
 //  Created by Jerry on 7/7/14.
 //  Copyright (c) 2014 JC. All rights reserved.
 //
