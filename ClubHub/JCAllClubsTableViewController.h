@@ -11,7 +11,7 @@
 #import <Parse/Parse.h>
 
 
-@interface JCAllClubsTableViewController : PFQueryTableViewController <UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate>
+@interface JCAllClubsTableViewController : PFQueryTableViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *menuBtn;
 

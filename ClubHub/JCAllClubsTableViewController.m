@@ -16,6 +16,9 @@
 @end
 
 @implementation JCAllClubsTableViewController
+{
+    NSMutableArray *searchList;
+}
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -56,7 +59,16 @@
     //exclude the followed clubs , only show the not followed clubs
     PFRelation *relation=[user relationForKey:@"followClubs"];
     PFQuery *followedClubList = [relation query];
-    [query whereKey:@"objectId" doesNotMatchKey:@"objectId" inQuery:followedClubList];
+    
+    [followedClubList countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        
+        NSLog(@"%d", number);
+        if(number!=0||followedClubList!=nil){
+            [query whereKey:@"objectId" doesNotMatchKey:@"objectId" inQuery:followedClubList];
+        }
+        
+    }];
+    
     
     [query orderByDescending:@"followerNum"];
     
@@ -72,6 +84,15 @@
     return query;
 }
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(searchList!=nil){
+        return [searchList count];
+    }else{
+        return [self.objects count];
+    }
+}
+
 
 -(UITableViewCell *) tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -85,10 +106,56 @@
     if(cell==nil){
         cell = [[JCClubTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+
+    if(searchList!=nil){
+        cell.currentClub  = searchList[indexPath.row];
+    }else{
+        cell.currentClub = object;
+    }
+
     
-    cell.currentClub = object;
     
     return cell;
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if(searchText.length==0){
+        searchList=nil;
+    }else{
+        searchList = [[NSMutableArray alloc] init];
+        
+        for (PFObject *object in self.objects) {
+            NSRange nameRange = [object[@"name"] rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            
+            if(nameRange.location !=NSNotFound)
+            {
+                [searchList addObject:object];
+            }
+        }
+    }
+    [self.tableView reloadData];
+}
+
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:NO animated:YES];
+}
+
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
 }
 
 
