@@ -5,7 +5,15 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>DD13CCB1-A5A5-48FB-9015-73168FBEFCB7</string>
+<<<<<<< HEAD
+<<<<<<< HEAD
+	<string>34A0C083-3DC6-45DF-8113-7F8A73288101</string>
+=======
+	<string>DF3FC8A7-0830-4057-82C0-A4238A6E8EA0</string>
+>>>>>>> FETCH_HEAD
+=======
+	<string>DF3FC8A7-0830-4057-82C0-A4238A6E8EA0</string>
+>>>>>>> FETCH_HEAD
 	<key>IDESourceControlProjectName</key>
 	<string>ClubHub</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
