@@ -169,6 +169,8 @@
     PFQuery *query = [PFQuery orQueryWithSubqueries:@[nameQuery, tagsQuery]];
     NSLog(@"%d", [query countObjects]);
     
+    [query orderByDescending:@"followerNum"];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
             searchList = [[NSMutableArray alloc] initWithArray:objects];
