@@ -56,20 +56,6 @@
     PFObject *schoolObject = user[@"school"];
     [query whereKey:@"school" equalTo:schoolObject];
     
-    //exclude the followed clubs , only show the not followed clubs
-    PFRelation *relation=[user relationForKey:@"followClubs"];
-    PFQuery *followedClubList = [relation query];
-    
-    [followedClubList countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
-        
-        NSLog(@"%d", number);
-        if(number!=0||followedClubList!=nil){
-            [query whereKey:@"objectId" doesNotMatchKey:@"objectId" inQuery:followedClubList];
-        }
-        
-    }];
-    
-    
     [query orderByDescending:@"followerNum"];
     
     //if Pull to Refresh is enabled, query against the network by default
@@ -112,14 +98,27 @@
     }else{
         cell.currentClub = object;
     }
-
     
+    //if the club has been followed, then the "followBtn" in this cell will not work
+    PFRelation *relation=[[PFUser currentUser] relationForKey:@"followClubs"];
+    PFQuery *followedClubList = [relation query];
+    [followedClubList whereKey:@"objectId" equalTo:object.objectId];
+    
+    [followedClubList countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        if(!error){
+            if(number!=0){
+                cell.followBtn.enabled = NO;
+            }
+        }
+    }];
     
     return cell;
 }
 
+
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+    
     if(searchText.length==0){
         searchList=nil;
     }else{
@@ -128,7 +127,7 @@
         for (PFObject *object in self.objects) {
             NSRange nameRange = [object[@"name"] rangeOfString:searchText options:NSCaseInsensitiveSearch];
             
-            if(nameRange.location !=NSNotFound)
+            if(nameRange.location!=NSNotFound)
             {
                 [searchList addObject:object];
             }
@@ -153,8 +152,30 @@
     [searchBar resignFirstResponder];
 }
 
+
+//search from the database, search the tags and name fields;
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+
+    NSString *searchString = searchBar.text;
+
+    PFQuery *nameQuery = [PFQuery queryWithClassName:@"Club"];
+    [nameQuery whereKey:@"name" containsString:searchString];
+    
+    PFQuery *tagsQuery = [PFQuery queryWithClassName:@"Club"];
+    [tagsQuery whereKey:@"tags" equalTo:searchString];
+    NSLog(@"%d", [tagsQuery countObjects]);
+    
+    PFQuery *query = [PFQuery orQueryWithSubqueries:@[nameQuery, tagsQuery]];
+    NSLog(@"%d", [query countObjects]);
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error){
+            searchList = [[NSMutableArray alloc] initWithArray:objects];
+            [self.tableView reloadData];
+        }
+    }];
+    
     [searchBar resignFirstResponder];
 }
 

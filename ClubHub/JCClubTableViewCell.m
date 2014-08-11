@@ -38,13 +38,12 @@
     }
     
     _tagsLable.text = tagString;
-    _followBtn.hidden = NO;
 }
 
 
 -(IBAction)followBtn:(id)sender
 {
-    _followBtn.hidden=YES;
+    _followBtn.enabled = NO;
     
     PFUser *user = [PFUser currentUser];
     PFRelation *relation=[user relationForKey:@"followClubs"];
