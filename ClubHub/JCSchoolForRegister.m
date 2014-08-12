@@ -35,7 +35,7 @@
     NSInteger count = [schoolList count];
     NSMutableArray *schoolNameList = [[NSMutableArray alloc] init];
     
-    for(int i=0; i<count; i++){
+    for(NSInteger i=0; i<count; i++){
         
         NSString *stringName = schoolList[i][@"name"];
         
@@ -55,7 +55,6 @@
     NSString* domain = schoolList[rowNum][@"domain"];
     return domain;
 }
-
 
 
 @end

@@ -12,7 +12,7 @@
 @interface JCSchoolForRegister : NSObject
 
 -(NSMutableArray*)getSchoolNameList;
--(id)getSchoolId: (int)rowNum;
--(NSString*)getSchoolDomain:(int)rowNum;
+-(id)getSchoolId: (NSInteger)rowNum;
+-(NSString*)getSchoolDomain:(NSInteger)rowNum;
 
 @end
