@@ -15,7 +15,7 @@
 @end
 
 @implementation JCRegisterViewController{
-    int pickRow;
+    NSInteger pickRow;
     JCSchoolForRegister *sfr;
 }
 

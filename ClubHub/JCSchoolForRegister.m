@@ -32,7 +32,7 @@
 
 -(NSMutableArray *)getSchoolNameList{
     
-    int count = [schoolList count];
+    NSInteger count = [schoolList count];
     NSMutableArray *schoolNameList = [[NSMutableArray alloc] init];
     
     for(int i=0; i<count; i++){
@@ -45,12 +45,12 @@
     return schoolNameList;
 }
 
--(NSString *)getSchoolId:(int)rowNum{
+-(NSString *)getSchoolId:(NSInteger)rowNum{
     
     return [schoolList[rowNum] objectId];
 }
 
--(NSString*) getSchoolDomain:(int)rowNum{
+-(NSString*) getSchoolDomain:(NSInteger)rowNum{
     
     NSString* domain = schoolList[rowNum][@"domain"];
     return domain;
