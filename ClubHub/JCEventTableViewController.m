@@ -200,8 +200,7 @@
         
         JCEventDetailViewController *eventDetailViewController = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
-        int row = [myIndexPath row];
-        eventDetailViewController.currentEvent = [self.objects objectAtIndex:row];
+        eventDetailViewController.currentEvent = [self.objects objectAtIndex:myIndexPath.row];
     
     }
 }

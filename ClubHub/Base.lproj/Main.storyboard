@@ -1371,7 +1371,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="233" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vhB-tO-WbE">
                                 <rect key="frame" x="0.0" y="129" width="320" height="442"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" patternImage="CB4466C8-6547-4444-8F83-BB7625B4FD99" colorSpace="pattern"/>
+                                <color key="separatorColor" patternImage="BE4E1CFE-34B5-4CFA-A42C-9F9A478089CC" colorSpace="pattern"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="233" id="QmT-X7-dtY" customClass="JCPostTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="233"/>
@@ -2044,8 +2044,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Blue-green light background" width="640" height="1136"/>
-        <image name="CB4466C8-6547-4444-8F83-BB7625B4FD99" width="320" height="460">
+        <image name="BE4E1CFE-34B5-4CFA-A42C-9F9A478089CC" width="320" height="460">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGQkNYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsMDQ6PlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -11932,6 +11931,7 @@ CQqKAAkKjwAJCp4ACQqiAAkKqgAJCrEACQq5AAkKxgAJCssACQrNAAkKzwAJCtQACQrcAAkK3wAJCucA
 CQrsAAkK9AAJCvcACQr/AAkLEQAJCxQACQsZAAAAAAAABAEAAAAAAAAARgAAAAAAAAAAAAAAAAAJCxs
 </mutableData>
         </image>
+        <image name="Blue-green light background" width="640" height="1136"/>
         <image name="CLUB-HUB-LOGO" width="371" height="416"/>
         <image name="Dim light-colored" width="640" height="1136"/>
         <image name="add-item" width="32" height="32"/>

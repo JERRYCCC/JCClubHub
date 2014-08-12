@@ -104,8 +104,7 @@
         
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         
-        int row = [myIndexPath row];
-        PFObject *object = [self.objects objectAtIndex:row];
+        PFObject *object = [self.objects objectAtIndex:myIndexPath.row];
         eventDetailViewController.currentEvent = object;
     }
 }

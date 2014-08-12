@@ -207,7 +207,6 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"%d", [eventList count]);
     return [eventList count];
 }
 
@@ -252,8 +251,7 @@
         
         NSIndexPath *myIndexPath = [_eventListTableView indexPathForSelectedRow];
         
-        int row = [myIndexPath row];
-        PFObject *object = [eventList objectAtIndex:row];
+        PFObject *object = [eventList objectAtIndex:myIndexPath.row];
         eventDetailViewController.currentEvent = object;
     }
     

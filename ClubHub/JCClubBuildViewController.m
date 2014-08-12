@@ -131,8 +131,6 @@
     [query whereKey:@"name" equalTo:_nameField.text];
     NSArray *clubList = [query findObjects];
     
-    NSLog(@"%d", [clubList count]);
-    
     if([clubList count]==0||clubList==nil){
         //build the club
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulation"

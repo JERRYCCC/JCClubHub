@@ -129,8 +129,7 @@
         JCClubDetailViewController *clubDetailVC = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         
-        int row = [myIndexPath row];
-        PFObject *object = [clubList objectAtIndex:row];
+        PFObject *object = [clubList objectAtIndex:myIndexPath.row];
         clubDetailVC.currentClub= object;
     }
     

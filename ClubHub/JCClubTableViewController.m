@@ -91,9 +91,8 @@
         
         JCClubDetailViewController *clubDetailVC = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
-        int row = [myIndexPath row];
      
-        clubDetailVC.currentClub = [self.objects objectAtIndex:row]; //the system saved the objects(array) when we get the query~~
+        clubDetailVC.currentClub = [self.objects objectAtIndex:myIndexPath.row]; //the system saved the objects(array) when we get the query~~
     }
 }
 

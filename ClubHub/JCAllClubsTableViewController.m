@@ -164,10 +164,9 @@
     
     PFQuery *tagsQuery = [PFQuery queryWithClassName:@"Club"];
     [tagsQuery whereKey:@"tags" equalTo:searchString];
-    NSLog(@"%d", [tagsQuery countObjects]);
     
     PFQuery *query = [PFQuery orQueryWithSubqueries:@[nameQuery, tagsQuery]];
-    NSLog(@"%d", [query countObjects]);
+  
     
     [query orderByDescending:@"followerNum"];
     
@@ -191,8 +190,7 @@
         JCClubDetailViewController *clubDetailViewController = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         
-        int row = [myIndexPath row];
-        PFObject *object = [self.objects objectAtIndex:row];
+        PFObject *object = [self.objects objectAtIndex:myIndexPath.row];
         clubDetailViewController.currentClub = object;
     }
 }
