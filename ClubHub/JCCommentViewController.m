@@ -24,7 +24,9 @@
     
     //get the comment list
     commentList = [[NSMutableArray alloc] init];
-    commentList = _currentPost[@"comment"];
+    if(_currentPost[@"comment"]!=nil){
+        commentList = _currentPost[@"comment"];
+    }
     
     _commentTextField.text = [[PFUser currentUser][@"username"] stringByAppendingString:@" : "];
     

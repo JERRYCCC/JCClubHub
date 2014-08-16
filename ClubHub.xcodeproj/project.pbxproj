@@ -427,6 +427,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = JC;
 				TargetAttributes = {
+					C4F303B41960302B00EC723F = {
+						DevelopmentTeam = X3S5933A9R;
+					};
 					C4F303D51960302B00EC723F = {
 						TestTargetID = C4F303B41960302B00EC723F;
 					};
@@ -634,6 +637,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -642,6 +647,7 @@
 				GCC_PREFIX_HEADER = "ClubHub/ClubHub-Prefix.pch";
 				INFOPLIST_FILE = "ClubHub/ClubHub-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -651,6 +657,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -659,6 +667,7 @@
 				GCC_PREFIX_HEADER = "ClubHub/ClubHub-Prefix.pch";
 				INFOPLIST_FILE = "ClubHub/ClubHub-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
