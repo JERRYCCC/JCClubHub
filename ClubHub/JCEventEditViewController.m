@@ -117,5 +117,26 @@
     }
 }
 
+//moving the view when edit
+-(void)textViewDidBeginEditing:(UITextView*)textView
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y - 95.0), self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
+
+-(void)textViewDidEndEditing:(UITextView*)textView
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 95.0), self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
+
 
 @end

@@ -285,15 +285,15 @@
     PFObject *object = [postList objectAtIndex:indexPath.row];
     NSString *postString = object[@"postString"];
     
-    CGSize constraint = CGSizeMake(300, CGFLOAT_MAX);
+    CGSize constraint = CGSizeMake(304, CGFLOAT_MAX);
     CGSize size = [postString sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
     
     
     int add;
     if([object[@"withImage"] isEqualToNumber:[NSNumber numberWithBool:YES]]){
-        add=230;
+        add=210;
     }else{
-        add=230;
+        add=210;
     }
     
     return add+size.height;

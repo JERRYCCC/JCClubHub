@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClubHub/JCClubBuildViewController.m"
-            timestampString = "429545745.048143"
+            timestampString = "430129248.469979"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
             landmarkName = "@implementation JCClubBuildViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClubHub/JCRegisterViewController.m"
-            timestampString = "429004639.559841"
+            timestampString = "429918124.063217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "-registerNewUser"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClubHub/JCRegisterViewController.m"
-            timestampString = "429004639.559841"
+            timestampString = "429918124.063217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "-registerNewUser"
             landmarkType = "5">
          </BreakpointContent>
@@ -1221,12 +1221,12 @@
                   symbolName = "-[JCClubDetailViewController setFollowStatus]"
                   moduleName = "ClubHub"
                   urlString = "file:///Users/Jerry/Documents/JCClubHub/ClubHub/JCClubDetailViewController.m"
-                  timestampString = "429556013.539574"
+                  timestampString = "429918124.407578"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "98"
                   endingLineNumber = "98"
-                  offsetFromSymbolStart = "310">
+                  offsetFromSymbolStart = "317">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1235,12 +1235,12 @@
                   symbolName = "__45-[JCClubDetailViewController setFollowStatus]_block_invoke"
                   moduleName = "ClubHub"
                   urlString = "file:///Users/Jerry/Documents/JCClubHub/ClubHub/JCClubDetailViewController.m"
-                  timestampString = "429556013.539664"
+                  timestampString = "429918124.407696"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "98"
                   endingLineNumber = "98"
-                  offsetFromSymbolStart = "58">
+                  offsetFromSymbolStart = "42">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1597,12 +1597,12 @@
                   symbolName = "-[JCCommentViewController sendComment]"
                   moduleName = "ClubHub"
                   urlString = "file:///Users/Jerry/Documents/JCClubHub/ClubHub/JCCommentViewController.m"
-                  timestampString = "429556013.546525"
+                  timestampString = "429918124.416632"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "252">
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "257">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1611,12 +1611,12 @@
                   symbolName = "__38-[JCCommentViewController sendComment]_block_invoke"
                   moduleName = "ClubHub"
                   urlString = "file:///Users/Jerry/Documents/JCClubHub/ClubHub/JCCommentViewController.m"
-                  timestampString = "429556013.546664"
+                  timestampString = "429918124.416745"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "57">
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "47">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1683,6 +1683,190 @@
             endingLineNumber = "109"
             landmarkName = "-sendComment"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClubHub/JCRegisterViewController.m"
+            timestampString = "429918124.063217"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "-registerNewUser"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[JCRegisterViewController registerNewUser]"
+                  moduleName = "ClubHub"
+                  urlString = "file:///Users/Jerry/Documents/JCClubHub/ClubHub/JCRegisterViewController.m"
+                  timestampString = "429918124.419235"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "540">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[JCRegisterViewController registerNewUser]_block_invoke"
+                  moduleName = "ClubHub"
+                  urlString = "file:///Users/Jerry/Documents/JCClubHub/ClubHub/JCRegisterViewController.m"
+                  timestampString = "429918124.419377"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "50">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClubHub/JCRegisterViewController.m"
+            timestampString = "429918124.063217"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "-registerNewUser"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[JCRegisterViewController registerNewUser]"
+                  moduleName = "ClubHub"
+                  urlString = "file:///Users/Jerry/Documents/JCClubHub/ClubHub/JCRegisterViewController.m"
+                  timestampString = "429918124.41997"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "540">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[JCRegisterViewController registerNewUser]_block_invoke"
+                  moduleName = "ClubHub"
+                  urlString = "file:///Users/Jerry/Documents/JCClubHub/ClubHub/JCRegisterViewController.m"
+                  timestampString = "429918124.420117"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "50">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClubHub/JCRegisterViewController.m"
+            timestampString = "429918124.063217"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "-registerNewUser"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[JCRegisterViewController registerNewUser]"
+                  moduleName = "ClubHub"
+                  urlString = "file:///Users/Jerry/Documents/JCClubHub/ClubHub/JCRegisterViewController.m"
+                  timestampString = "429918124.420602"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "540">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[JCRegisterViewController registerNewUser]_block_invoke"
+                  moduleName = "ClubHub"
+                  urlString = "file:///Users/Jerry/Documents/JCClubHub/ClubHub/JCRegisterViewController.m"
+                  timestampString = "429918124.420752"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "50">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClubHub/JCRegisterViewController.m"
+            timestampString = "429918124.063217"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "-registerNewUser"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[JCRegisterViewController registerNewUser]"
+                  moduleName = "ClubHub"
+                  urlString = "file:///Users/Jerry/Documents/JCClubHub/ClubHub/JCRegisterViewController.m"
+                  timestampString = "429918124.421283"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "540">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[JCRegisterViewController registerNewUser]_block_invoke"
+                  moduleName = "ClubHub"
+                  urlString = "file:///Users/Jerry/Documents/JCClubHub/ClubHub/JCRegisterViewController.m"
+                  timestampString = "429918124.421427"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "50">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

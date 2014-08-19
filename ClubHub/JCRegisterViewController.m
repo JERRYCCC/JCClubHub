@@ -126,6 +126,21 @@
     NSString *schoolId = [sfr getSchoolId:pickRow];
     newUser[@"school"] = [PFObject objectWithoutDataWithClassName:@"School" objectId:schoolId];
     
+    /*
+    //follow all the default clubs in school
+    PFRelation *relation = [newUser relationForKey:@"followClubs"];
+    PFObject *schoolObject = newUser[@"school"];
+    NSLog(@"%@", schoolObject[@"name"]);
+    NSLog(@"%@", schoolObject[@"defaultClubs"]);
+    for(NSString *clubId in schoolObject[@"defaultClubs"]){
+        PFObject *clubObject = [PFObject objectWithoutDataWithClassName:@"Club" objectId:clubId];
+        NSLog(@"%@", clubId);
+        [relation addObject:clubObject];
+        
+        //mark all the events in the default club
+    }
+    */
+    
     
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(!error) {
@@ -143,6 +158,26 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:substring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
         }
+    }];
+}
+
+-(void)markClubEvents:(PFObject*)ClubObject forUser:(PFUser*)user
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    
+    //the future events
+    [query whereKey:@"club" equalTo:ClubObject];
+    [query whereKey:@"date" greaterThanOrEqualTo:[[NSDate date] dateByAddingTimeInterval:-60*60]];
+    [query orderByAscending:@"date"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *eventList, NSError *error) {
+        
+        PFRelation *relation = [user relationForKey:@"markEvents"];
+        
+        for (PFObject *event in eventList) {
+            [relation addObject:event];
+        }
+        [user saveInBackground];
     }];
 }
 
