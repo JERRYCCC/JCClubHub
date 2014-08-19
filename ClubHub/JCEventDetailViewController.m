@@ -83,7 +83,6 @@
         postList = objects ;
         [self.postTableView reloadData];
     }];
-    
 }
 
 -(IBAction)detailBtn:(id)sender
@@ -258,7 +257,7 @@
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+        return 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
