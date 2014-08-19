@@ -409,7 +409,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="8l1-lY-y0i">
                         <barButtonItem key="leftBarButtonItem" image="reveal-icon" id="dW8-Vx-fur"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="p89-oI-dof">
+                        <barButtonItem key="rightBarButtonItem" id="p89-oI-dof">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="I4z-DQ-Vxt">
                                 <rect key="frame" x="268" y="7" width="36" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -771,7 +771,7 @@
                                 <action selector="followBtn:" destination="Cnz-z3-FVU" eventType="touchUpInside" id="BHl-PX-C45"/>
                             </connections>
                         </button>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="yUb-I6-UZ1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="yUb-I6-UZ1">
                             <connections>
                                 <action selector="moreBtn:" destination="Cnz-z3-FVU" id="vOE-uJ-OHc"/>
                             </connections>
@@ -1381,7 +1381,7 @@
                                 <action selector="markBtn:" destination="tMf-WG-VlU" eventType="touchUpInside" id="7ku-KJ-iTe"/>
                             </connections>
                         </button>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="xjp-x6-JAB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="xjp-x6-JAB">
                             <connections>
                                 <action selector="moreBtn:" destination="tMf-WG-VlU" id="7IR-O6-Bp5"/>
                             </connections>
@@ -1674,7 +1674,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="hCq-i3-hN0">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="ldT-bv-JbI">
+                        <barButtonItem key="rightBarButtonItem" id="ldT-bv-JbI">
                             <button key="customView" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ayX-my-hQk">
                                 <rect key="frame" x="197" y="4" width="107" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1968,10 +1968,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3H0-BM-ORa"/>
-        <segue reference="K1I-4w-OBM"/>
         <segue reference="ebH-83-de7"/>
-        <segue reference="s6J-DY-Xdm"/>
+        <segue reference="K1I-4w-OBM"/>
+        <segue reference="3H0-BM-ORa"/>
+        <segue reference="cO3-Op-7Oe"/>
         <segue reference="3UC-lN-ydY"/>
         <segue reference="Ruc-gt-4Rg"/>
         <segue reference="WMk-gy-KSF"/>
