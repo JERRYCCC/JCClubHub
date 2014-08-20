@@ -92,14 +92,17 @@
     //show the status of the event
     if(object[@"available"]== [NSNumber numberWithBool:NO]){
         cell.dateLabel.text = @"Canceled";
+        cell.dateLabel.textColor = [UIColor redColor];
     }else if ([object[@"date"] timeIntervalSinceDate:[[NSDate date] dateByAddingTimeInterval:-(60*60)]]<=60*60){
         cell.dateLabel.text = @"Happening";
+        cell.dateLabel.textColor = [UIColor greenColor];
     }
     else{
         NSDate *date=[object objectForKey:@"date"];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"h:mm a   EEE, MMM-d"];
         cell.dateLabel.text = [formatter stringFromDate:date];
+        cell.dateLabel.textColor = [UIColor grayColor];
     }
     
     //add utility buttons

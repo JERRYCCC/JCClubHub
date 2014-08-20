@@ -82,14 +82,17 @@
     
     if(object[@"available"]==[NSNumber numberWithBool:NO]) {
         cell.detailTextLabel.text = @"Canceled";
+        cell.detailTextLabel.textColor = [UIColor redColor];
     }else if([object[@"date"] timeIntervalSinceDate:[[NSDate date] dateByAddingTimeInterval:-(60*60)]]<=60*60)
     {
         cell.detailTextLabel.text = @"Happening";
+        cell.detailTextLabel.textColor = [UIColor greenColor];
     }else{
         NSDate *date=[object objectForKey:@"date"];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"h:mm a  EEE, MMM-d"];
         cell.detailTextLabel.text = [formatter stringFromDate:date];
+        cell.detailTextLabel.textColor = [UIColor grayColor];
     }
     
     return cell;
