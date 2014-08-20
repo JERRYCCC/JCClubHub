@@ -359,7 +359,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rrr-VJ-uNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="582" y="1211"/>
+            <point key="canvasLocation" x="605" y="1195"/>
         </scene>
         <!--Copyright View Controller - CopyRight-->
         <scene sceneID="RmK-kn-6js">
@@ -1073,10 +1073,16 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Events" id="WA3-sU-s62">
                         <barButtonItem key="leftBarButtonItem" image="reveal-icon" id="nd2-2G-NAC"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="iQm-Yw-vf5">
+                            <connections>
+                                <action selector="refreshBtn:" destination="p0g-md-w2X" id="ACK-Yn-Wl6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="menuBtn" destination="nd2-2G-NAC" id="WLN-Za-JUf"/>
+                        <outlet property="refreshBtn" destination="iQm-Yw-vf5" id="kvY-pY-GHT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtP-0I-Lt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1968,10 +1974,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ebH-83-de7"/>
         <segue reference="K1I-4w-OBM"/>
-        <segue reference="3H0-BM-ORa"/>
+        <segue reference="ebH-83-de7"/>
         <segue reference="cO3-Op-7Oe"/>
+        <segue reference="3H0-BM-ORa"/>
         <segue reference="3UC-lN-ydY"/>
         <segue reference="Ruc-gt-4Rg"/>
         <segue reference="WMk-gy-KSF"/>

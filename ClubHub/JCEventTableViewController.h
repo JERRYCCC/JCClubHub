@@ -14,6 +14,9 @@
 @interface JCEventTableViewController : PFQueryTableViewController<UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *menuBtn;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *refreshBtn;
+
+-(IBAction)refreshBtn:(id)sender;  //mark all the followed clubs' new events
 
 
 @end

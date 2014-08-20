@@ -49,6 +49,7 @@
 
 -(PFQuery*) queryForTable{
     
+    
     PFUser *user = [PFUser currentUser];
     PFRelation *relation = [user relationForKey:@"markEvents"];
     PFQuery *query = [relation query];
@@ -168,14 +169,15 @@
             PFUser *user = [PFUser currentUser];
             PFRelation *relation = [user relationForKey:@"markEvents"];
             [relation removeObject:currentEvent];
-            [user saveInBackground];
+            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    [self loadObjects];
+                }
+            }];
             
             int newNum = [[currentEvent objectForKey:@"markerNum"] intValue] -1;
             [currentEvent setObject:[NSNumber numberWithInt:newNum] forKey:@"markerNum"];
             [currentEvent saveInBackground];
-            
-            [self loadObjects];
-    
             
             break;
         }
@@ -203,6 +205,51 @@
         eventDetailViewController.currentEvent = [self.objects objectAtIndex:myIndexPath.row];
     
     }
+}
+
+//mark all the followed clubs' new events - which are created after the "refreshEvent" date
+-(IBAction)refreshBtn:(id)sender{
+    
+    PFUser *user = [PFUser currentUser];
+    PFRelation *clubRelation = [user relationForKey:@"followClubs"];
+    PFQuery *followClubs = [clubRelation query];
+    
+    [followClubs findObjectsInBackgroundWithBlock:^(NSArray *clubs, NSError *error) {
+       
+        if(!error){
+            //get the new events of each followed-club
+            for(PFObject *club in clubs){
+                PFQuery *newEvents = [PFQuery queryWithClassName:@"Event"];
+                [newEvents whereKey:@"club" equalTo:club];
+                [newEvents whereKey:@"createdAt" greaterThanOrEqualTo:[user objectForKey:@"refreshEventsAt"]];
+                
+                //mark all the new events in this club
+                [newEvents findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
+                    
+                    if(!error){
+                        PFRelation *eventRelation = [user relationForKey:@"markEvents"];
+                        
+                        for(PFObject *event in events){
+                            [eventRelation addObject:event];
+                            
+                            int newNum = [[event objectForKey:@"markerNum"] intValue] +1;
+                            [event setObject:[NSNumber numberWithInt:newNum] forKey:@"markerNum"];
+                            [event saveInBackground];
+                        }
+                        
+                        //update the refresh date
+                        user[@"refreshEventsAt"] = [NSDate date];
+                        
+                        [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            if (succeeded) {
+                                [self loadObjects];
+                            }
+                        }];
+                    }
+                }];
+            }
+        }
+    }];
 }
 
 @end
