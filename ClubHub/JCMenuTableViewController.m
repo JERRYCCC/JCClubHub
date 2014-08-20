@@ -27,7 +27,7 @@
     
     menuItems = @[@"myClubHub", @"createEvent", @"allClubs", @"allEvents", @"copyright", @"myAdmins"];
     
-    //self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white"]];
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"blue"]];
     
 }
 
