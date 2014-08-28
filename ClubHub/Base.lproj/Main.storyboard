@@ -450,7 +450,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5da-OL-Roj">
-                                            <rect key="frame" x="71" y="2" width="216" height="21"/>
+                                            <rect key="frame" x="62" y="4" width="216" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -461,10 +461,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="5F9-91-sqV">
-                                            <rect key="frame" x="14" y="8" width="37" height="33"/>
+                                            <rect key="frame" x="9" y="4" width="45" height="41"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXq-Pt-jAY">
-                                            <rect key="frame" x="69" y="28" width="31" height="21"/>
+                                            <rect key="frame" x="62" y="28" width="31" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1494,6 +1494,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bh7-fv-1Q3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
                             </imageView>
+                            <activityIndicatorView appearanceType="aqua" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uUb-0B-eO8">
+                                <rect key="frame" x="142" y="209" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.19479345780000001" green="0.64524469149999997" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1525,6 +1529,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="uUb-0B-eO8" id="hvL-p9-FjO"/>
                         <outlet property="imageView" destination="xAQ-la-jBp" id="2Rg-ht-Htc"/>
                         <outlet property="textField" destination="Khu-8U-dj8" id="sha-88-PLx"/>
                     </connections>

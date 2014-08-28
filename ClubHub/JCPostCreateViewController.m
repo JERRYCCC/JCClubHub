@@ -16,7 +16,7 @@
 
 @implementation JCPostCreateViewController
 
-@synthesize imageView, textField;
+@synthesize imageView, textField, activityIndicatorView;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,6 +33,8 @@
     [super viewDidLoad];
     
     textField.delegate =self;
+    
+    activityIndicatorView.hidden = YES;
     
     NSString *string = @"";
     string = [string stringByAppendingString:[PFUser currentUser].username];
@@ -67,6 +69,22 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    
+    /*
+    double compressionRatio = 1;
+    
+    NSData *imgData=UIImageJPEGRepresentation([info objectForKey:@"UIImagePickerControllerOriginalImage"],compressionRatio);
+    NSLog(@"%d", [imgData length]);
+    NSLog(@"%f", compressionRatio);
+    while ([imgData length]>200000) {
+        compressionRatio=compressionRatio*0.8;
+        imgData=UIImageJPEGRepresentation([info objectForKey:@"UIImagePickerControllerOriginalImage"],compressionRatio);
+        NSLog(@"%d", [imgData length]);
+        NSLog(@"%f", compressionRatio);
+    }
+    UIImage *img = [[UIImage alloc] initWithData:imgData];
+    */
+    
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [imageView setImage:image];
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -110,6 +128,9 @@
 -(IBAction)postBtn:(id)sender
 {
     NSLog(@"posting.....");
+    activityIndicatorView.hidden = NO;
+    [activityIndicatorView startAnimating];
+    
     
     PFObject *newPost = [PFObject objectWithClassName:@"Post"];
     newPost[@"user"] = [PFObject objectWithoutDataWithClassName:@"_User" objectId:[PFUser currentUser].objectId];
@@ -118,7 +139,6 @@
     
     //the image need to saved as PFFile and passed as data
     PFFile *imageFile = [PFFile fileWithData:UIImagePNGRepresentation(imageView.image)];
-    NSLog(@"%@", imageView.image);
     if (imageView.image!=nil) {
         newPost[@"image"] = imageFile;
         newPost[@"withImage"] = [NSNumber numberWithBool:YES];
@@ -136,6 +156,7 @@
         if(!error){
             
             NSLog(@"Done post!!!!");
+            [self.delegate donePosting:_currentEvent];
             
             
         }else{
@@ -144,8 +165,6 @@
             [alert show];
         }
     }];
-    
-    [self.delegate donePosting:_currentEvent];
 }
 
 @end
