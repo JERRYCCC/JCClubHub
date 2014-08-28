@@ -89,6 +89,14 @@
     
     cell.titleLable.text = [object objectForKey:@"name"];
     
+    PFObject *club = object[@"club"];
+    [club fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        PFFile *file = club[@"image"];
+        [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            cell.eventImageView.image = [UIImage imageWithData:data];
+        }];
+    }];
+    
     //show the status of the event
     if(object[@"available"]== [NSNumber numberWithBool:NO]){
         cell.dateLabel.text = @"Canceled";

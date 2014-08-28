@@ -35,6 +35,12 @@
     oldName = _currentClub[@"name"];
     _nameField.text = _currentClub[@"name"];
     _descriptionView.text = _currentClub[@"description"];
+    
+    PFFile *file = [_currentClub objectForKey:@"image"];
+    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        [_imageBtn setBackgroundImage:[UIImage imageWithData:data] forState:UIControlStateNormal];
+    }];
+    
     NSArray *tagList = _currentClub[@"tags"];
     
     if([tagList containsObject:@"Academic"]){
@@ -87,6 +93,21 @@
     [_descriptionView resignFirstResponder];
 }
 
+-(void)imageBtn:(id)sender
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    [self presentViewController:imagePicker animated:YES completion:NULL];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [_imageBtn setBackgroundImage:image forState:UIControlStateNormal];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
 -(IBAction)saveBtn:(id)sender
 {
     [self checkFieldsComplete];
@@ -109,7 +130,7 @@
 
 -(void) checkTags{
     
-    if(_sororitySwitch.on==NO && _fraternitySwitch.on==NO && _academicSwitch.on==NO)
+    if(_sororitySwitch.on==NO && _fraternitySwitch.on==NO && _academicSwitch.on==NO &&_sportsSwitch.on==NO && _culturalSwitch.on==NO && _religiousSwitch.on==NO)
     {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Oooopss!"
@@ -203,6 +224,8 @@
     _currentClub[@"name"] = _nameField.text;
     _currentClub[@"description"] = _descriptionView.text;
     _currentClub[@"tags"] = tagList;
+    PFFile *imageFile = [PFFile fileWithData:UIImagePNGRepresentation(_imageBtn.currentBackgroundImage)];
+    _currentClub[@"image"] = imageFile;
     
     [_currentClub saveInBackgroundWithBlock: ^(BOOL succeeded, NSError *error){
         if (!error) {

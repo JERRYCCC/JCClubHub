@@ -15,10 +15,11 @@
 
 @end
 
-@interface JCClubEditViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate, UIAlertViewDelegate>
+@interface JCClubEditViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (strong, nonatomic) PFObject *currentClub;
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
+@property (strong, nonatomic) IBOutlet UIButton *imageBtn;
 @property (strong, nonatomic) IBOutlet UITextView *descriptionView;
 
 @property (strong, nonatomic) IBOutlet UISwitch *sororitySwitch;
@@ -31,6 +32,7 @@
 @property (assign, nonatomic) id <JCClubEditViewControllerDelegate> delegate;
 
 -(IBAction)saveBtn:(id)sender;
+-(IBAction)imageBtn:(id)sender;
 
 
 @end

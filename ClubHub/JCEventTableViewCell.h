@@ -14,6 +14,7 @@
 
 
 @property (strong, nonatomic) PFObject *currentEvent;
+@property (strong, nonatomic) IBOutlet UIImageView *eventImageView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLable;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 

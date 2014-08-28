@@ -31,6 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     textField.delegate =self;
     
     NSString *string = @"";

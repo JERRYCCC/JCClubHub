@@ -48,6 +48,12 @@
     
     _nameLabel.text = (_currentClub[@"name"]);
     
+    PFFile *file = [_currentClub objectForKey:@"image"];
+    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        _imageView.image = [UIImage imageWithData:data];
+    }];
+    
+    
     NSString *tagString=@"";
     for(NSString *string in _currentClub[@"tags"]){
         

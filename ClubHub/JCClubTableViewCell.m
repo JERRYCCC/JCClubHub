@@ -23,6 +23,11 @@
 -(void)layoutSubviews
 {
     
+    PFFile *file = [_currentClub objectForKey:@"image"];
+    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        _clubImageView.image = [UIImage imageWithData:data];
+    }];
+    
     _titleLable.text = _currentClub[@"name"];
     
     NSArray *tagList = [_currentClub objectForKey:@"tags"];

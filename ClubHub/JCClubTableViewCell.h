@@ -12,6 +12,7 @@
 @interface JCClubTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) PFObject *currentClub;
+@property (strong, nonatomic) IBOutlet UIImageView *clubImageView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLable;
 @property (strong, nonatomic) IBOutlet UILabel *tagsLable;
 @property (strong, nonatomic) IBOutlet UILabel *numLable;

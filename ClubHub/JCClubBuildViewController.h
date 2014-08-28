@@ -14,10 +14,11 @@
 
 @end
 
-@interface JCClubBuildViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate, UITextViewDelegate>
+@interface JCClubBuildViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
 @property (strong, nonatomic) IBOutlet UITextField *emailField;
+@property (strong, nonatomic) IBOutlet UIButton *imageBtn;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UITextField *reEnterPasswordField;
 @property (strong, nonatomic) IBOutlet UITextView *detailTextView;
@@ -35,5 +36,6 @@
 
 -(IBAction)saveBtn:(id)sender;
 -(IBAction)cancelBtn:(id)sender;
+-(IBAction)imageBtn:(id)sender;
 
 @end

@@ -46,6 +46,20 @@
 
 }
 
+-(void)imageBtn:(id)sender
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    [self presentViewController:imagePicker animated:YES completion:NULL];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [_imageBtn setBackgroundImage:image forState:UIControlStateNormal];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField*) textField{
     if(textField){
         [textField resignFirstResponder];
@@ -183,6 +197,9 @@
     newClub[@"name"] = _nameField.text;
     newClub[@"email"] = _emailField.text;
     newClub[@"password"] = _passwordField.text;
+    
+    PFFile *imageFile = [PFFile fileWithData:UIImagePNGRepresentation(_imageBtn.currentBackgroundImage)];
+    newClub[@"image"] = imageFile;
     newClub[@"description"] = _detailTextView.text;
     newClub[@"tags"] = tagList;
     
