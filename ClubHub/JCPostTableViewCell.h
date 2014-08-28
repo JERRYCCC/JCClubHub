@@ -16,10 +16,12 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *postLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *postImageView;
+@property (strong, nonatomic) IBOutlet UIButton *imageBtn;
 
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UIButton *likeBtn;
 
 -(IBAction)likeBtn:(id)sender;
+-(IBAction)imageBtn:(id)sender;
 
 @end

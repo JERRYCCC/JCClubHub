@@ -278,7 +278,7 @@
     
     return cell;
 }
-
+/*
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PFObject *object = [postList objectAtIndex:indexPath.row];
@@ -290,14 +290,14 @@
     
     int add;
     if([object[@"withImage"] isEqualToNumber:[NSNumber numberWithBool:YES]]){
-        add=210;
+        add=220;
     }else{
-        add=210;
+        
+        add=220;
     }
-    
     return add+size.height;
 }
-
+*/
 
 
 @end

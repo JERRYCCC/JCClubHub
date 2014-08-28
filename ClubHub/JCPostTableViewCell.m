@@ -13,14 +13,13 @@
     UIImage *postImage;
 }
 
-@synthesize postLabel, dateLabel, currentPost, postImageView, likeBtn;
+@synthesize postLabel, dateLabel, currentPost, postImageView, likeBtn, imageBtn;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-    
     }
     return self;
 }
@@ -29,23 +28,22 @@
 {
     postLabel.text = currentPost[@"postString"];
     
-    /*
     CGSize maximumlabelSize = CGSizeMake(304, FLT_MAX);
     CGSize expectedLabelSize = [postLabel.text sizeWithFont:postLabel.font constrainedToSize:maximumlabelSize lineBreakMode:NSLineBreakByWordWrapping];
     
     CGRect newFrame = postLabel.frame;
     newFrame.size.height = expectedLabelSize.height;
     postLabel.frame = newFrame;
-    */
+    
     
     if([currentPost[@"withImage"] isEqualToNumber:[NSNumber numberWithBool:YES]]){
         PFFile *file = [currentPost objectForKey:@"image"];
         [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
-            postImage = [UIImage imageWithData:data];
-            postImageView.image = postImage;
+            postImageView.image = [UIImage imageWithData:data];
         }];
     }else{
-        postImageView.hidden = YES;
+        //set funnny pic
+        
     }
     
    
@@ -100,12 +98,14 @@
 
 -(IBAction)imageBtn:(id)sender
 {
+    /*
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:currentPost[@"postString"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:
+                              CGRectMake(10.0, 10.0, 100.0, 300.0)];
+	imageView.image = imageBtn.currentBackgroundImage;
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:postImage];
-    [alert addSubview:imageView];
-    
-    [alert show];
+    [self addSubview:imageView];
+     */
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
