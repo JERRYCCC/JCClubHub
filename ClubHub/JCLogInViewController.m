@@ -31,6 +31,7 @@
     _passwordField.delegate = self;
 }
 
+/*
 //log in automatically
 -(void)viewDidAppear:(BOOL)animated{
     PFUser *user = [PFUser currentUser];
@@ -38,6 +39,7 @@
         [self performSegueWithIdentifier:@"login" sender:self];
     }
 }
+*/
 
 -(BOOL)textFieldShouldReturn:(UITextField*) textField{
     if(textField){
@@ -134,11 +136,13 @@
                                                       otherButtonTitles:nil];
                 [alert show];
             }
-            
         }];
-    
     }
+}
+
+-(IBAction)registerBtn:(id)sender{
     
+    [self performSegueWithIdentifier:@"toRegister" sender:self];
 }
 
 

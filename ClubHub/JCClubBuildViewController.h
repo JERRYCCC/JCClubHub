@@ -35,7 +35,6 @@
 
 
 -(IBAction)saveBtn:(id)sender;
--(IBAction)cancelBtn:(id)sender;
 -(IBAction)imageBtn:(id)sender;
 
 @end

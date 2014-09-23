@@ -117,6 +117,16 @@
 {
     
     PFUser *user = [PFUser currentUser];
+    if([user[@"accountType"] isEqual:@"demo"]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                        message:@"You need an account to mark events"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles: nil];
+        [alert show];
+        
+    }else{
+    
     PFRelation *relation = [user relationForKey:@"markEvents"];
     
     //mark the event, else unmark the events
@@ -139,6 +149,7 @@
         [_currentEvent setObject:[NSNumber numberWithInt:newNum] forKey:@"markerNum"];
         [_currentEvent saveInBackground];
         [_markerNum setText:[_currentEvent[@"markerNum"] stringValue]];
+    }
     }
 }
 
@@ -172,7 +183,16 @@
 
 -(IBAction)moreBtn:(id)sender
 {
-    //[_currentEvent[@"club"] fetchIfNeeded];
+    if([[PFUser currentUser][@"accountType"] isEqual:@"demo"]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                        message:@"You need an account to manage events"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles: nil];
+        [alert show];
+        
+    }else{
+    
     PFObject *targetClub = _currentEvent[@"club"];
     PFRelation *relation = [targetClub relationForKey:@"admins"];
     PFQuery *adminsQuery = [relation query];
@@ -195,6 +215,8 @@
         }
         
     }];
+        
+    }
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

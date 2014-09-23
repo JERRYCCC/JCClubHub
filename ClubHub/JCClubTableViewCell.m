@@ -48,6 +48,16 @@
 
 -(IBAction)followBtn:(id)sender
 {
+    if([[PFUser currentUser][@"accountType"] isEqual:@"demo"]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                        message:@"You need an account to follow the club"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles: nil];
+        [alert show];
+        
+    }else{
+    
     _followBtn.enabled = NO;
     
     PFUser *user = [PFUser currentUser];
@@ -62,7 +72,9 @@
     
      _numLable.text = [NSString stringWithFormat:@"%@", _currentClub[@"followerNum"]];
 
+    }
 }
+
 
 -(void)markAllClubEvents
 {

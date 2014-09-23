@@ -10,6 +10,7 @@
 		C42D56D119930B7200560266 /* JCCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42D56D019930B7200560266 /* JCCommentViewController.m */; };
 		C4486A9D1969D01C002A0AAF /* JCAllClubsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4486A9C1969D01C002A0AAF /* JCAllClubsTableViewController.m */; };
 		C4486AA01969D493002A0AAF /* JCAllEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4486A9F1969D493002A0AAF /* JCAllEventsTableViewController.m */; };
+		C45BC61F19D1274A00424DC0 /* JCPickSchoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C45BC61E19D1274A00424DC0 /* JCPickSchoolTableViewController.m */; };
 		C4810981198245CD0097E5FD /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = C4810976198245CD0097E5FD /* NSMutableArray+SWUtilityButtons.m */; };
 		C4810982198245CD0097E5FD /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4810978198245CD0097E5FD /* SWCellScrollView.m */; };
 		C4810983198245CD0097E5FD /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = C481097A198245CD0097E5FD /* SWLongPressGestureRecognizer.m */; };
@@ -80,6 +81,8 @@
 		C4486A9C1969D01C002A0AAF /* JCAllClubsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAllClubsTableViewController.m; sourceTree = "<group>"; };
 		C4486A9E1969D493002A0AAF /* JCAllEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAllEventsTableViewController.h; sourceTree = "<group>"; };
 		C4486A9F1969D493002A0AAF /* JCAllEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAllEventsTableViewController.m; sourceTree = "<group>"; };
+		C45BC61D19D1274A00424DC0 /* JCPickSchoolTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCPickSchoolTableViewController.h; sourceTree = "<group>"; };
+		C45BC61E19D1274A00424DC0 /* JCPickSchoolTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCPickSchoolTableViewController.m; sourceTree = "<group>"; };
 		C4810975198245CD0097E5FD /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
 		C4810976198245CD0097E5FD /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
 		C4810977198245CD0097E5FD /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
@@ -335,6 +338,8 @@
 				C4D23B871962796A00F3C7C3 /* JCSchoolForRegister.m */,
 				C4F303ED1960312800EC723F /* JCLogInViewController.h */,
 				C4F303EE1960312800EC723F /* JCLogInViewController.m */,
+				C45BC61D19D1274A00424DC0 /* JCPickSchoolTableViewController.h */,
+				C45BC61E19D1274A00424DC0 /* JCPickSchoolTableViewController.m */,
 			);
 			name = "LogIn&Register";
 			sourceTree = "<group>";
@@ -509,6 +514,7 @@
 				C4F3041F1961354400EC723F /* JCEventDetailViewController.m in Sources */,
 				C4D23B881962796A00F3C7C3 /* JCSchoolForRegister.m in Sources */,
 				C4A39D3819642D1A00F8203F /* JCPickClubTableViewController.m in Sources */,
+				C45BC61F19D1274A00424DC0 /* JCPickSchoolTableViewController.m in Sources */,
 				C4D698E21969BE9C007C5370 /* JCCopyrightViewController.m in Sources */,
 				C4D698DF1969A8B9007C5370 /* JCMenuTableViewController.m in Sources */,
 			);

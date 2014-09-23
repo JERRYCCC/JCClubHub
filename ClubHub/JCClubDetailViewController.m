@@ -144,7 +144,18 @@
 {
     
     PFUser *user = [PFUser currentUser];
-    [user fetchIfNeeded];
+    
+    if([user[@"accountType"] isEqual:@"demo"]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                        message:@"You need an account to follow or unfollow clubs"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+        
+    }else{
+    
+    
     PFRelation *relation=[user relationForKey:@"followClubs"];
     
     //follow the club,  else unfollow the club
@@ -180,6 +191,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Total Delete" message:@"Do you also want to unmark all the events related to this club?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
         [alert show];
         
+    }
     }
 }
 
@@ -279,6 +291,15 @@
 
 -(IBAction)moreBtn:(id)sender
 {
+    if([[PFUser currentUser][@"accountType"] isEqual:@"demo"]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                        message:@"You need an account to manage clubs"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles: nil];
+        [alert show];
+        
+    }else{
  
     if(admin){
         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Administration"
@@ -296,6 +317,7 @@
                                                         otherButtonTitles:@"Enter Club Password", nil];
         
         [actionSheet showInView:self.view];
+    }
     }
     
 }

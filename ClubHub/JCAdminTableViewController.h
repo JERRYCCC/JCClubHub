@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "JCClubBuildViewController.h"
 
-@interface JCAdminTableViewController : PFQueryTableViewController < UITableViewDataSource, UITableViewDelegate, JCClubBuildViewControllerDelegate>
+@interface JCAdminTableViewController : PFQueryTableViewController < UITableViewDataSource, UITableViewDelegate, JCClubBuildViewControllerDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *menuBtn;
 

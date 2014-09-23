@@ -51,6 +51,8 @@
     [query whereKey:@"admins" equalTo:user];
     [query orderByAscending:@"name"];
     
+    
+    /*
     [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
         if(number==0){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!"
@@ -61,17 +63,8 @@
             [alert show];
         }
     }];
-    
-    /*
-    if([query countObjects]==0){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooopss!"
-                                                        message:@"You need to have at least one club to build a event for"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-     */
+    */
+   
 }
 
 -(PFQuery*) queryForTable
@@ -143,7 +136,28 @@
 
 -(IBAction)buildClubBtn:(id)sender
 {
-    [self performSegueWithIdentifier:@"toClubBuild" sender:self];
+    
+    PFUser *user = [PFUser currentUser];
+    if([user[@"accountType"] isEqual:@"demo"]){
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                        message:@"You need an account to create event"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"Register Now", nil];
+        [alert show];
+        
+    }else{
+        [self performSegueWithIdentifier:@"toClubBuild" sender:self];
+    }
+}
+
+-(void) alertView:(UIAlertView*) alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if([[alertView title] isEqualToString:@"Sorry"] && buttonIndex==1){
+        [self performSegueWithIdentifier:@"toLogIn" sender:self];
+        
+    }
 }
 
 @end

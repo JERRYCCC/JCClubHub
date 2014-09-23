@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8Oa-bs-elv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FjO-M4-hBj">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Log In View Controller - ClubHub-->
+        <!--ClubHub-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="JCLogInViewController" sceneMemberID="viewController">
@@ -14,11 +14,11 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue" translatesAutoresizingMaskIntoConstraints="NO" id="JSv-aU-CaK">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="a6G-HM-KJA">
                                 <rect key="frame" x="20" y="138" width="280" height="30"/>
@@ -53,7 +53,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Don't have an account? Register"/>
                                 <connections>
-                                    <segue destination="DZe-tq-M3s" kind="push" identifier="toRegister" id="vYl-gb-0qJ"/>
+                                    <action selector="registerBtn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8K2-uS-90W"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGo-mc-pqC">
@@ -99,11 +99,12 @@
                         <outlet property="passwordField" destination="a6G-HM-KJA" id="Fq0-aB-a8p"/>
                         <outlet property="usernameField" destination="9fA-gY-nqc" id="aW0-VD-eeq"/>
                         <segue destination="tCm-ei-fgU" kind="modal" identifier="login" id="Pfa-uA-yfV"/>
+                        <segue destination="DZe-tq-M3s" kind="push" identifier="toRegister" id="KUR-4g-9ie"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3396" y="-208"/>
+            <point key="canvasLocation" x="-2200" y="-1660"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="Q7r-n2-tLA">
@@ -145,7 +146,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZf-jt-niu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-807" y="-241"/>
+            <point key="canvasLocation" x="-659" y="-249"/>
         </scene>
         <!--Menu Table View Controller-->
         <scene sceneID="xLd-08-OHy">
@@ -307,9 +308,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgE-FP-Vpu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1633" y="-725"/>
+            <point key="canvasLocation" x="-1101" y="-725"/>
         </scene>
-        <!--All Events Table View Controller - All Events-->
+        <!--All Events-->
         <scene sceneID="Xqd-hi-HKz">
             <objects>
                 <tableViewController id="jOh-k3-NfX" customClass="JCAllEventsTableViewController" sceneMemberID="viewController">
@@ -363,7 +364,7 @@
             </objects>
             <point key="canvasLocation" x="605" y="1195"/>
         </scene>
-        <!--Copyright View Controller - CopyRight-->
+        <!--CopyRight-->
         <scene sceneID="RmK-kn-6js">
             <objects>
                 <viewController title="CopyRight" id="eoG-cX-ngC" customClass="JCCopyrightViewController" sceneMemberID="viewController">
@@ -433,7 +434,7 @@
             </objects>
             <point key="canvasLocation" x="2395" y="-4174"/>
         </scene>
-        <!--Club Table View Controller - Clubs-->
+        <!--Clubs-->
         <scene sceneID="pba-DZ-WWT">
             <objects>
                 <tableViewController title="Clubs" id="Gyh-ol-FNu" customClass="JCClubTableViewController" sceneMemberID="viewController">
@@ -500,9 +501,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9d-7k-Snl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="605" y="-623"/>
+            <point key="canvasLocation" x="614" y="-623"/>
         </scene>
-        <!--Club Build View Controller - Building New A Club-->
+        <!--Building New A Club-->
         <scene sceneID="ctm-OT-VuL">
             <objects>
                 <viewController id="JOy-C4-rE3" customClass="JCClubBuildViewController" sceneMemberID="viewController">
@@ -514,12 +515,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue" translatesAutoresizingMaskIntoConstraints="NO" id="n3B-IE-zz1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue" translatesAutoresizingMaskIntoConstraints="NO" id="n3B-IE-zz1">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wkn-G3-NxS">
-                                <rect key="frame" x="20" y="125" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -607,9 +606,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7n-kr-8Hi">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7n-kr-8Hi">
                                 <rect key="frame" x="20" y="151" width="75" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="logo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -820,9 +818,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2SL-mR-kv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1552" y="-1813"/>
+            <point key="canvasLocation" x="1768" y="-1601"/>
         </scene>
-        <!--Club Edit View Controller - Editing Club-->
+        <!--Editing Club-->
         <scene sceneID="hnL-Y9-ZVH">
             <objects>
                 <viewController id="PfJ-gA-Cc7" customClass="JCClubEditViewController" sceneMemberID="viewController">
@@ -834,9 +832,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue" translatesAutoresizingMaskIntoConstraints="NO" id="gn4-h3-Vjx">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue" translatesAutoresizingMaskIntoConstraints="NO" id="gn4-h3-Vjx">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="621"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9x-PG-1bk">
                                 <rect key="frame" x="21" y="78" width="41" height="18"/>
@@ -921,9 +918,8 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zxN-0Q-XvL">
                                 <rect key="frame" x="251" y="325" width="51" height="31"/>
                             </switch>
-                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdD-aD-OEH">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdD-aD-OEH">
                                 <rect key="frame" x="229" y="78" width="71" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="logo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1000,7 +996,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Crf-QT-aSS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2389" y="-1435"/>
+            <point key="canvasLocation" x="2419" y="-1411"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="0Hb-ka-qZF">
@@ -1072,7 +1068,7 @@
             </objects>
             <point key="canvasLocation" x="2419" y="631"/>
         </scene>
-        <!--Event Table View Controller - Events-->
+        <!--Events-->
         <scene sceneID="Hlh-Ni-ppE">
             <objects>
                 <tableViewController title="Events" id="p0g-md-w2X" customClass="JCEventTableViewController" sceneMemberID="viewController">
@@ -1098,9 +1094,8 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="1vj-jI-cfB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="1vj-jI-cfB">
                                             <rect key="frame" x="11" y="4" width="47" height="41"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -1136,7 +1131,7 @@
             </objects>
             <point key="canvasLocation" x="605" y="267"/>
         </scene>
-        <!--Pick Club Table View Controller - Pick a Club for you event?-->
+        <!--Pick a Club for you event?-->
         <scene sceneID="1jm-PP-j4R">
             <objects>
                 <tableViewController id="tsl-gr-dop" customClass="JCPickClubTableViewController" sceneMemberID="viewController">
@@ -1184,13 +1179,14 @@
                     <connections>
                         <outlet property="menuBtn" destination="TpI-aj-bFF" id="DPe-VO-pDz"/>
                         <segue destination="JOy-C4-rE3" kind="push" identifier="toClubBuild" id="s6J-DY-Xdm"/>
+                        <segue destination="vXZ-lx-hvc" kind="push" identifier="toLogIn" id="ma8-6l-crA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moB-J9-P2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="589" y="-3289"/>
         </scene>
-        <!--Event Create View Controller - Creating A New Event-->
+        <!--Creating A New Event-->
         <scene sceneID="2SD-jG-rdM">
             <objects>
                 <viewController id="8FP-PI-kZZ" customClass="JCEventCreateViewController" sceneMemberID="viewController">
@@ -1202,9 +1198,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue" translatesAutoresizingMaskIntoConstraints="NO" id="ltR-5Y-YDB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue" translatesAutoresizingMaskIntoConstraints="NO" id="ltR-5Y-YDB">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R2g-y8-vSu">
                                 <rect key="frame" x="20" y="76" width="280" height="30"/>
@@ -1215,12 +1210,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0uc-W7-wTa">
-                                <rect key="frame" x="-80" y="326" width="480" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="425983034.18830198">
-                                    <!--2014-07-02 08:37:14 +0000-->
-                                </date>
-                            </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmn-TA-b2L">
                                 <rect key="frame" x="20" y="114" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1235,6 +1224,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light" enablesReturnKeyAutomatically="YES"/>
                             </textView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0uc-W7-wTa">
+                                <rect key="frame" x="0.0" y="326" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="425983034.18830198">
+                                    <!--2014-07-02 08:37:14 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1268,7 +1263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiB-Rd-vq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2379" y="-2433"/>
+            <point key="canvasLocation" x="2409" y="-2321"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="zFd-UL-AD5">
@@ -1321,7 +1316,7 @@
                                 <rect key="frame" x="0.0" y="147" width="320" height="424"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <button key="tableFooterView" appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yPF-d3-c5I">
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yPF-d3-c5I">
                                     <rect key="frame" x="0.0" y="259" width="320" height="108"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="14"/>
@@ -1360,9 +1355,8 @@
                                                         <segue destination="wQX-sI-TUb" kind="push" identifier="toComment" id="fLo-UD-5jY"/>
                                                     </connections>
                                                 </button>
-                                                <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dj1-1g-e06">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dj1-1g-e06">
                                                     <rect key="frame" x="8" y="30" width="304" height="176"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGH-gp-iWi">
@@ -1458,7 +1452,7 @@
             </objects>
             <point key="canvasLocation" x="1552" y="687"/>
         </scene>
-        <!--Post Create View Controller - New Post-->
+        <!--New Post-->
         <scene sceneID="jgA-MX-w2N">
             <objects>
                 <viewController storyboardIdentifier="PostCreate" id="qyb-Do-BgV" customClass="JCPostCreateViewController" sceneMemberID="viewController">
@@ -1491,9 +1485,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bh7-fv-1Q3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
                             </imageView>
-                            <activityIndicatorView appearanceType="aqua" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uUb-0B-eO8">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uUb-0B-eO8">
                                 <rect key="frame" x="142" y="209" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.19479345780000001" green="0.64524469149999997" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -1535,7 +1528,7 @@
             </objects>
             <point key="canvasLocation" x="2419" y="-241"/>
         </scene>
-        <!--Event Edit View Controller - Edit Event-->
+        <!--Edit Event-->
         <scene sceneID="Z5d-on-PnI">
             <objects>
                 <viewController title="Edit Event" id="hj1-Kx-4e7" customClass="JCEventEditViewController" sceneMemberID="viewController">
@@ -1547,9 +1540,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue" translatesAutoresizingMaskIntoConstraints="NO" id="aY3-fA-8B8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue" translatesAutoresizingMaskIntoConstraints="NO" id="aY3-fA-8B8">
                                 <rect key="frame" x="0.0" y="-63" width="320" height="631"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y8H-s6-a1U">
                                 <rect key="frame" x="20" y="117" width="280" height="30"/>
@@ -1565,12 +1557,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="wkR-dX-Nsf">
-                                <rect key="frame" x="-80" y="330" width="480" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="426609277.99707299">
-                                    <!--2014-07-09 14:34:37 +0000-->
-                                </date>
-                            </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iIz-f3-oKF">
                                 <rect key="frame" x="20" y="79" width="280" height="30"/>
                                 <constraints>
@@ -1580,6 +1566,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="wkR-dX-Nsf">
+                                <rect key="frame" x="0.0" y="330" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="426609277.99707299">
+                                    <!--2014-07-09 14:34:37 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1616,7 +1608,7 @@
             </objects>
             <point key="canvasLocation" x="2409" y="1569"/>
         </scene>
-        <!--Navigation Controller - MarkedEvents-->
+        <!--MarkedEvents-->
         <scene sceneID="TzA-qr-Dot">
             <objects>
                 <navigationController title="MarkedEvents" definesPresentationContext="YES" id="d83-c5-ynK" sceneMemberID="viewController">
@@ -1636,7 +1628,7 @@
             </objects>
             <point key="canvasLocation" x="-225" y="267"/>
         </scene>
-        <!--Navigation Controller - FollowedClubs-->
+        <!--FollowedClubs-->
         <scene sceneID="msD-QI-oQQ">
             <objects>
                 <navigationController title="FollowedClubs" definesPresentationContext="YES" id="egD-U9-g1o" sceneMemberID="viewController">
@@ -1656,28 +1648,40 @@
             </objects>
             <point key="canvasLocation" x="-197" y="-623"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="NVb-vW-iOg">
+        <!--Find Your School-->
+        <scene sceneID="tRx-Fi-HG4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="partialCurl" id="8Oa-bs-elv" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wR3-HT-tKX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Ofp-A3-z8I">
-                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
+                <tableViewController id="MbA-II-gnK" customClass="JCPickSchoolTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TaF-9k-agT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="XRu-fK-SoL">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="schoolCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="AP2-FV-GC5">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AP2-FV-GC5" id="TKy-9f-qs9">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MbA-II-gnK" id="Mkz-im-Hpg"/>
+                            <outlet property="delegate" destination="MbA-II-gnK" id="B5g-zS-0Rn"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Find Your School" id="2Mi-1C-PZs"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="v9h-Ek-IWa"/>
+                        <segue destination="tCm-ei-fgU" kind="modal" identifier="toMain" id="UJ9-4k-7Sr"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yoh-dd-ika" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e4e-vP-RPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3942" y="-208"/>
+            <point key="canvasLocation" x="-2734" y="-241"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="Lqb-Gt-0QC">
@@ -1688,7 +1692,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wrR-Vi-fHr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pBW-Cz-UrH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue" translatesAutoresizingMaskIntoConstraints="NO" id="XZ0-k0-HM5">
@@ -1741,6 +1745,7 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="emailField" destination="YXb-Jn-W3h" id="TB3-fx-gAu"/>
@@ -1753,9 +1758,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="872-jR-qss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2813" y="357"/>
+            <point key="canvasLocation" x="-1445" y="-1660"/>
         </scene>
-        <!--Admin Table View Controller - Your Admin Club-->
+        <!--Your Admin Club-->
         <scene sceneID="Fmh-5L-pIk">
             <objects>
                 <tableViewController id="oxV-gC-exf" customClass="JCAdminTableViewController" sceneMemberID="viewController">
@@ -1802,8 +1807,9 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="menuBtn" destination="EN7-Rb-Uzw" id="aYC-CG-82s"/>
-                        <segue destination="8Oa-bs-elv" kind="modal" identifier="toLogIn" animates="NO" id="30Y-1l-FKK"/>
                         <segue destination="JOy-C4-rE3" kind="push" identifier="toClubBuild" id="cO3-Op-7Oe"/>
+                        <segue destination="vXZ-lx-hvc" kind="push" identifier="toLogIn" id="drD-nx-Ncz"/>
+                        <segue destination="FjO-M4-hBj" kind="modal" identifier="logOut" id="T5c-vk-AfX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPM-Yd-WAe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1830,7 +1836,7 @@
             </objects>
             <point key="canvasLocation" x="-197" y="-3289"/>
         </scene>
-        <!--All Clubs Table View Controller - All Clubs-->
+        <!--All Clubs-->
         <scene sceneID="hNr-0C-158">
             <objects>
                 <tableViewController id="gdj-if-WOc" customClass="JCAllClubsTableViewController" sceneMemberID="viewController">
@@ -1920,7 +1926,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="582" y="-1478"/>
+            <point key="canvasLocation" x="1146" y="-1590"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TMz-Xz-Cfk">
@@ -1961,7 +1967,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qKr-lx-4E4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-197" y="-1478"/>
+            <point key="canvasLocation" x="335" y="-1478"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8jI-vg-xa0">
@@ -1979,7 +1985,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQi-yb-Do2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-225" y="1195"/>
+            <point key="canvasLocation" x="-225" y="1287"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="A9y-K5-Aco">
@@ -1999,6 +2005,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxH-ly-4Eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-197" y="-2483"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PQu-a0-TTq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FjO-M4-hBj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="78z-TQ-aWi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MbA-II-gnK" kind="relationship" relationship="rootViewController" id="6mn-z1-OJH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Yc-By-YJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3374" y="-241"/>
         </scene>
     </scenes>
     <resources>
@@ -2021,10 +2045,11 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Pfa-uA-yfV"/>
+        <segue reference="ma8-6l-crA"/>
         <segue reference="HBS-eC-vzP"/>
-        <segue reference="3H0-BM-ORa"/>
         <segue reference="cO3-Op-7Oe"/>
-        <segue reference="3UC-lN-ydY"/>
+        <segue reference="M6p-sx-4PW"/>
+        <segue reference="yPU-ud-HrZ"/>
         <segue reference="Ruc-gt-4Rg"/>
         <segue reference="WMk-gy-KSF"/>
     </inferredMetricsTieBreakers>

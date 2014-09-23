@@ -188,8 +188,8 @@
     if([[segue identifier] isEqualToString:@"clubDetails"]){
         
         JCClubDetailViewController *clubDetailViewController = [segue destinationViewController];
-        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         
+        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         PFObject *object = [self.objects objectAtIndex:myIndexPath.row];
         clubDetailViewController.currentClub = object;
     }

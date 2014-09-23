@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface JCClubTableViewCell : UITableViewCell
+@interface JCClubTableViewCell : UITableViewCell <UIAlertViewDelegate>
 
 @property (strong, nonatomic) PFObject *currentClub;
 @property (strong, nonatomic) IBOutlet UIImageView *clubImageView;

@@ -228,32 +228,24 @@
             [self.delegate doneClubBuild];
             
         }else{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!" message:@"Sorry we had a problem building you a club" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ooops!"
+                                                            message:@"Sorry we had a problem building you a club"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
     
             [alert show];
         }
     }];
 }
 
--(void) cancelBtn:(id)sender
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cancel Event" message:@"Are you sure to cancel?" delegate:self cancelButtonTitle:@"Keep Building" otherButtonTitles:@"Give Up", nil];
-    [alert show];
-}
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
-    
     if([[alertView title] isEqualToString:@"Congratulation"] && buttonIndex ==1){
         
         [self registerNewClub];
-    }
-    
-    if([[alertView title] isEqualToString:@"Cancel Event"] && buttonIndex ==1){
-        
-        [self performSegueWithIdentifier:@"toMain" sender:self];
-        
     }
 }
 
