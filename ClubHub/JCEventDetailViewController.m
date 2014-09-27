@@ -183,15 +183,7 @@
 
 -(IBAction)moreBtn:(id)sender
 {
-    if([[PFUser currentUser][@"accountType"] isEqual:@"demo"]){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
-                                                        message:@"You need an account to manage events"
-                                                       delegate:self
-                                              cancelButtonTitle:@"Cancel"
-                                              otherButtonTitles: nil];
-        [alert show];
-        
-    }else{
+    
     
     PFObject *targetClub = _currentEvent[@"club"];
     PFRelation *relation = [targetClub relationForKey:@"admins"];
@@ -216,7 +208,6 @@
         
     }];
         
-    }
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

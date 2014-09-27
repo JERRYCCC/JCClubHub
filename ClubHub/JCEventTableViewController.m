@@ -49,7 +49,6 @@
 
 -(PFQuery*) queryForTable{
     
-    
     PFUser *user = [PFUser currentUser];
     PFRelation *relation = [user relationForKey:@"markEvents"];
     PFQuery *query = [relation query];
@@ -57,7 +56,7 @@
     //getting the events which start one hour ago from now
     [query whereKey:@"date" greaterThanOrEqualTo:[[NSDate date] dateByAddingTimeInterval:-(60*60)]];
     
-    [query orderByAscending:@"date"];
+    [query orderByAscending:@"date"];  
 
     //if Pull to Refresh is enabled, query against the network by default
     if(self.pullToRefreshEnabled){
