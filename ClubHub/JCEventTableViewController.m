@@ -231,7 +231,7 @@
             for(PFObject *club in clubs){
                 PFQuery *newEvents = [PFQuery queryWithClassName:@"Event"];
                 [newEvents whereKey:@"club" equalTo:club];
-                [newEvents whereKey:@"createdAt" greaterThanOrEqualTo:[user objectForKey:@"refreshEventsAt"]];
+                [newEvents whereKey:@"date" greaterThanOrEqualTo:[user objectForKey:@"refreshEventsAt"]];  // "Demo" account evenyone helps refresh. even better
                 
                 //mark all the new events in this club
                 [newEvents findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
@@ -253,6 +253,7 @@
                         [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                             if (succeeded) {
                                 [self loadObjects];
+                                NSLog(@"Refresh");
                             }
                         }];
                     }

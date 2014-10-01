@@ -125,21 +125,19 @@
     
     NSString *schoolId = [sfr getSchoolId:pickRow];
     newUser[@"school"] = [PFObject objectWithoutDataWithClassName:@"School" objectId:schoolId];
+    newUser[@"refreshEventsAt"] = [NSDate date];
     
-    /*
+    
     //follow all the default clubs in school
     PFRelation *relation = [newUser relationForKey:@"followClubs"];
-    PFObject *schoolObject = newUser[@"school"];
-    NSLog(@"%@", schoolObject[@"name"]);
-    NSLog(@"%@", schoolObject[@"defaultClubs"]);
+    PFObject *schoolObject = [PFObject objectWithoutDataWithClassName:@"School" objectId:schoolId];
+    [schoolObject fetch];
+    
     for(NSString *clubId in schoolObject[@"defaultClubs"]){
         PFObject *clubObject = [PFObject objectWithoutDataWithClassName:@"Club" objectId:clubId];
         NSLog(@"%@", clubId);
         [relation addObject:clubObject];
-        
-        //mark all the events in the default club
     }
-    */
     
     
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -149,6 +147,11 @@
             _passwordField.text = nil;
             _reEnterPasswordField.text = nil;
             _emailField.text = nil;
+            
+            
+            
+
+            
             [self performSegueWithIdentifier:@"login" sender:self];
         }else{
             NSString *string = [error description];
