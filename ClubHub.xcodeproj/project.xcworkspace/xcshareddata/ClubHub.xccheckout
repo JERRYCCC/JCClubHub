@@ -14,7 +14,7 @@
 		<string>https://github.com/JERRYCCC/JCClubHub.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ClubHub.xcodeproj/project.xcworkspace</string>
+	<string>ClubHub.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>4F574316536CDE37F697B6818F99C52B40216BDE</key>
