@@ -11,7 +11,7 @@
 #import "SWTableViewCell.h"
 
 
-@interface JCEventTableViewController : PFQueryTableViewController<UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate>
+@interface JCEventTableViewController : PFQueryTableViewController<SWTableViewCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *menuBtn;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *refreshBtn;

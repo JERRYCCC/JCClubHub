@@ -24,7 +24,6 @@
         // This table displays items in the Club class
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
-        self.objectsPerPage = 25;
     }
     return self;
 }
@@ -91,7 +90,6 @@
         
         JCClubDetailViewController *clubDetailVC = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
-     
         clubDetailVC.currentClub = [self.objects objectAtIndex:myIndexPath.row]; //the system saved the objects(array) when we get the query~~
     }
 }

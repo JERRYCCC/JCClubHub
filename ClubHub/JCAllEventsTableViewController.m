@@ -24,9 +24,14 @@
         // Custom initialization
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
-        self.objectsPerPage = 25;
     }
     return self;
+}
+
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self loadObjects];
 }
 
 -(void)viewDidLoad{
@@ -50,7 +55,6 @@
     [query whereKey:@"date" greaterThanOrEqualTo:[[NSDate date] dateByAddingTimeInterval:-60*60]]; //getting the events which start one hour ago from now
     //get the event later than current date
     [query orderByAscending:@"date"];
-    
     
     //if Pull to Refresh is enabled, query against the network by default
     if(self.pullToRefreshEnabled){
@@ -97,6 +101,7 @@
     
     return cell;
 }
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     

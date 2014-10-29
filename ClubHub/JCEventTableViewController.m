@@ -9,8 +9,6 @@
 #import "JCEventTableViewController.h"
 #import "JCEventTableViewCell.h"
 #import "JCEventDetailViewController.h"
-#import "JCEventCreateViewController.h"
-#import "JCPickClubTableViewController.h"
 #import "SWRevealViewController.h"
 
 @interface JCEventTableViewController ()
@@ -24,11 +22,9 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        
         // This table displays items in the Club class
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
-        self.objectsPerPage = 25;
     }
     return self;
 }
@@ -44,7 +40,6 @@
     [self.menuBtn setTarget:self.revealViewController];
     [self.menuBtn setAction:@selector(revealToggle:)];
     [self.navigationController.navigationBar addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
 }
 
 -(PFQuery*) queryForTable{
@@ -55,6 +50,7 @@
     
     //getting the events which start one hour ago from now
     [query whereKey:@"date" greaterThanOrEqualTo:[[NSDate date] dateByAddingTimeInterval:-(60*60)]];
+    
     
     [query orderByAscending:@"date"];  
 
@@ -76,12 +72,12 @@
                         object:(PFObject *)object
 {
     
-    static NSString *CellIdentifier = @"EventCell";
+    static NSString *cellIdentifier = @"EventCell";
     
-    JCEventTableViewCell *cell = (JCEventTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    JCEventTableViewCell *cell = (JCEventTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     if(cell==nil){
-        cell = [[JCEventTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[JCEventTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
     cell.currentEvent = object;
@@ -114,20 +110,18 @@
     
     //add utility buttons
     
-    //NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
 
-    //[leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.2f green:1.0f blue:0.2f alpha:0.7] title:@"Remind"];
+    [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.2f green:1.0f blue:0.2f alpha:1.0] title:@"Remind"];
     
-    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.2f green:0.2f blue:1.0f alpha:0.7] title:@"More"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.2f green:0.2f blue:1.0f alpha:1.0] title:@"More"];
     
-    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0] title:@"Delete"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:1.0f green:0.231f blue:0.2f alpha:1.0] title:@"Delete"];
     
-    //cell.leftUtilityButtons = leftUtilityButtons;
+    cell.leftUtilityButtons = leftUtilityButtons;
     cell.rightUtilityButtons = rightUtilityButtons;
     cell.delegate = self;
-
-    
     return cell;
 }
 
@@ -196,26 +190,29 @@
     }
 }
 
+
+
+/*
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"eventDetail" sender:self];
 }
 
+*/
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     //pass the whole object directly, instead the data of the object
+    NSLog(@"segue is called");
    
-    
-    if([[segue identifier] isEqualToString:@"eventDetail"]){
-        
+    if([[segue identifier] isEqualToString:@"eventSegue"]){
         JCEventDetailViewController *eventDetailViewController = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         eventDetailViewController.currentEvent = [self.objects objectAtIndex:myIndexPath.row];
-    
     }
 }
+
 
 //mark all the followed clubs' new events - which are created after the "refreshEvent" date
 -(IBAction)refreshBtn:(id)sender{
