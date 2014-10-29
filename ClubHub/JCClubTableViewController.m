@@ -70,7 +70,7 @@
     
     static NSString *cellIdentifier = @"ClubCell";
     
-    JCClubTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    JCClubTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     if(cell==nil){
         cell = [[JCClubTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];

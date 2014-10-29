@@ -192,21 +192,24 @@
 
 
 
-/*
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"eventDetail" sender:self];
+    
+    if(indexPath.row < self.objects.count){
+        [self performSegueWithIdentifier:@"eventDetail" sender:self];
+    }else{
+        [self loadNextPage];
+    }
 }
 
-*/
+
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     //pass the whole object directly, instead the data of the object
-    NSLog(@"segue is called");
    
-    if([[segue identifier] isEqualToString:@"eventSegue"]){
+    if([[segue identifier] isEqualToString:@"eventDetail"]){
         JCEventDetailViewController *eventDetailViewController = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         eventDetailViewController.currentEvent = [self.objects objectAtIndex:myIndexPath.row];

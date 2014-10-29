@@ -315,12 +315,12 @@
         <scene sceneID="Xqd-hi-HKz">
             <objects>
                 <tableViewController id="jOh-k3-NfX" customClass="JCAllEventsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="E4f-CM-9mX">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" id="E4f-CM-9mX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" textLabel="ClS-gf-LTf" detailTextLabel="Ni5-kR-45p" rowHeight="50" style="IBUITableViewCellStyleSubtitle" id="YQC-IL-jP2">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" textLabel="ClS-gf-LTf" detailTextLabel="Ni5-kR-45p" rowHeight="45" style="IBUITableViewCellStyleSubtitle" id="YQC-IL-jP2">
                                 <rect key="frame" x="0.0" y="86" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YQC-IL-jP2" id="huQ-4f-yeU">
@@ -645,7 +645,7 @@
                             <constraint firstItem="LEr-1u-NsO" firstAttribute="leading" secondItem="hFX-sl-Ucu" secondAttribute="leading" id="bgr-p7-dlk"/>
                             <constraint firstItem="82Z-Rg-RbZ" firstAttribute="top" secondItem="LJy-1w-oor" secondAttribute="bottom" constant="8" id="bnA-3Q-SpI"/>
                             <constraint firstItem="ZrW-Ga-eTn" firstAttribute="trailing" secondItem="XEb-R2-fIh" secondAttribute="trailing" id="chy-cP-MeD"/>
-                            <constraint firstItem="ZrW-Ga-eTn" firstAttribute="leading" secondItem="Wkn-G3-NxS" secondAttribute="leading" id="erF-lD-kpn"/>
+                            <constraint firstItem="ZrW-Ga-eTn" firstAttribute="leading" secondItem="Wkn-G3-NxS" secondAttribute="leading" constant="20" id="erF-lD-kpn"/>
                             <constraint firstItem="ZrW-Ga-eTn" firstAttribute="trailing" secondItem="7cx-z6-sMn" secondAttribute="trailing" id="fRu-6p-iA3"/>
                             <constraint firstItem="LEr-1u-NsO" firstAttribute="top" secondItem="7LY-PT-TYG" secondAttribute="top" id="fxP-yZ-ifP"/>
                             <constraint firstItem="7LY-PT-TYG" firstAttribute="leading" secondItem="zyH-gd-2cU" secondAttribute="trailing" constant="40" id="gTf-N3-4Y4"/>
@@ -656,7 +656,7 @@
                             <constraint firstItem="n3B-IE-zz1" firstAttribute="top" secondItem="ZrW-Ga-eTn" secondAttribute="bottom" constant="-105" id="owo-WU-O7b"/>
                             <constraint firstItem="b0e-th-oe8" firstAttribute="top" secondItem="82Z-Rg-RbZ" secondAttribute="bottom" constant="19" id="qKd-VA-yE4"/>
                             <constraint firstItem="RXu-HS-VJY" firstAttribute="top" secondItem="7cx-z6-sMn" secondAttribute="bottom" constant="8" symbolic="YES" id="vxy-0K-mao"/>
-                            <constraint firstItem="Wkn-G3-NxS" firstAttribute="top" secondItem="wGN-5v-pOd" secondAttribute="top" constant="125" id="w8B-9i-Ski"/>
+                            <constraint firstItem="Wkn-G3-NxS" firstAttribute="top" secondItem="wGN-5v-pOd" secondAttribute="top" id="w8B-9i-Ski"/>
                             <constraint firstItem="LJy-1w-oor" firstAttribute="top" secondItem="AQ2-oL-LRb" secondAttribute="bottom" constant="8" symbolic="YES" id="wyj-L8-rNm"/>
                             <constraint firstItem="Kn8-6Q-OMP" firstAttribute="top" secondItem="FMB-bq-VOp" secondAttribute="bottom" constant="17" id="zbl-f4-0p9"/>
                             <constraint firstItem="RXu-HS-VJY" firstAttribute="top" secondItem="zyH-gd-2cU" secondAttribute="top" id="zck-UP-uwY"/>
@@ -1062,6 +1062,7 @@
         <!--Events-->
         <scene sceneID="Hlh-Ni-ppE">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DtP-0I-Lt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController title="Events" id="p0g-md-w2X" customClass="JCEventTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" id="XPY-cc-wJj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1095,7 +1096,7 @@
                                     <outlet property="dateLabel" destination="rji-8B-z8L" id="BkO-Wi-GdC"/>
                                     <outlet property="eventImageView" destination="sly-o6-djM" id="0ki-J7-tre"/>
                                     <outlet property="titleLable" destination="7z2-FW-XUh" id="fOM-6k-wgF"/>
-                                    <segue destination="tMf-WG-VlU" kind="push" identifier="eventSegue" id="hpa-NY-h1O"/>
+                                    <segue destination="tMf-WG-VlU" kind="push" identifier="eventDetail" id="J6h-7F-wIe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1118,7 +1119,6 @@
                         <outlet property="refreshBtn" destination="iQm-Yw-vf5" id="kvY-pY-GHT"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DtP-0I-Lt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="845" y="-242"/>
         </scene>
@@ -1597,7 +1597,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jYr-uf-a1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2713" y="197"/>
+            <point key="canvasLocation" x="2295" y="593"/>
         </scene>
         <!--MarkedEvents-->
         <scene sceneID="TzA-qr-Dot">
@@ -1823,7 +1823,7 @@
         <scene sceneID="hNr-0C-158">
             <objects>
                 <tableViewController id="gdj-if-WOc" customClass="JCAllClubsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="Qi1-Us-WBh">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" id="Qi1-Us-WBh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1836,7 +1836,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClubCell" rowHeight="50" id="oY5-W4-bLP" customClass="JCClubTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClubCell" rowHeight="45" id="oY5-W4-bLP" customClass="JCClubTableViewCell">
                                 <rect key="frame" x="0.0" y="130" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oY5-W4-bLP" id="hek-UK-9Fa">
@@ -1844,18 +1844,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmW-LW-hMM">
-                                            <rect key="frame" x="43" y="0.0" width="244" height="21"/>
+                                            <rect key="frame" x="38" y="8" width="244" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQb-aZ-P9T">
-                                            <rect key="frame" x="100" y="25" width="141" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdC-iw-9Uz">
-                                            <rect key="frame" x="8" y="14" width="22" height="22"/>
+                                            <rect key="frame" x="8" y="12" width="22" height="22"/>
                                             <state key="normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -1864,9 +1859,14 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9999999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPS-kd-MS3">
-                                            <rect key="frame" x="43" y="25" width="49" height="21"/>
+                                            <rect key="frame" x="38" y="24" width="49" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQb-aZ-P9T">
+                                            <rect key="frame" x="95" y="24" width="141" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -2028,11 +2028,11 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="WMk-gy-KSF"/>
-        <segue reference="cZe-Xp-cK9"/>
+        <segue reference="Ruc-gt-4Rg"/>
+        <segue reference="KPN-bW-mWx"/>
         <segue reference="K1I-4w-OBM"/>
         <segue reference="Pfa-uA-yfV"/>
         <segue reference="Nrb-5T-6MT"/>
-        <segue reference="hpa-NY-h1O"/>
-        <segue reference="3UC-lN-ydY"/>
+        <segue reference="J6h-7F-wIe"/>
     </inferredMetricsTieBreakers>
 </document>
